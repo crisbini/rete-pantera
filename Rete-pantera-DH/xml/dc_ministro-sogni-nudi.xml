@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Fabio Luppino, "Ministro, guarda i nostri sogni nudi", l'Unità, 4 febbraio 1990, p. 23
+  Il record descrive l'articolo a stampa (principio uno-a-uno); il facsimile PDF
+  e l'edizione codificata in TEI sono collegati con dcterms:hasFormat.
+  Dati ricavati dal teiHeader di tei_unita_1990-02-04_p23.xml.
+-->
+
+<record xmlns:dc="http://purl.org/dc/elements/1.1/"
+        xmlns:dcterms="http://purl.org/dc/terms/"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <dc:title>Ministro, guarda i nostri sogni nudi</dc:title>
+  <!-- testatina della pagina, usata come titolo di rubrica -->
+  <dcterms:alternative>L'università contro Ruberti</dcterms:alternative>
+
+  <dc:creator>Luppino, Fabio</dc:creator>
+  <!-- nessun record di autorità (Wikidata, VIAF, SBN) individuato -->
+
+  <dc:subject>Pantera (movimento studentesco)</dc:subject>
+  <dcterms:subject xsi:type="dcterms:URI">http://www.wikidata.org/entity/Q3893439</dcterms:subject>
+
+  <dc:subject>Movimenti studenteschi</dc:subject>
+  <dcterms:subject xsi:type="dcterms:URI">https://thes.bncf.firenze.sbn.it/termine.php?id=16239</dcterms:subject>
+  <dcterms:subject xsi:type="dcterms:LCSH">Student movements</dcterms:subject>
+  <dcterms:subject xsi:type="dcterms:URI">http://id.loc.gov/authorities/subjects/sh85129276</dcterms:subject>
+
+  <dc:subject>Ruberti, Antonio</dc:subject>
+  <dcterms:subject xsi:type="dcterms:URI">http://www.wikidata.org/entity/Q604765</dcterms:subject>
+
+  <dcterms:subject xsi:type="dcterms:DDC">378.1981</dcterms:subject>
+
+  <dc:description>Cronaca della manifestazione nazionale degli studenti medi e universitari del 3 febbraio 1990 a Roma contro il progetto di riforma Ruberti: il corteo da piazza Esedra a piazza del Popolo, gli slogan, gli striscioni e la performance finale degli studenti dell'Istituto orientale di Napoli.</dc:description>
+
+  <dc:publisher>l'Unità</dc:publisher>
+  <!-- identificativo Wikidata della testata non individuato -->
+  <dcterms:publisher xsi:type="dcterms:URI">https://archivio.unita.news/</dcterms:publisher>
+
+  <dc:date>4 febbraio 1990</dc:date>
+  <dcterms:issued xsi:type="dcterms:W3CDTF">1990-02-04</dcterms:issued>
+
+  <dc:type xsi:type="dcterms:DCMIType">Text</dc:type>
+  <dc:type>articolo di giornale</dc:type>
+
+  <dc:format>quotidiano a stampa</dc:format>
+  <dcterms:extent>1 articolo, p. 23</dcterms:extent>
+
+  <dc:identifier>l'Unità, 4 febbraio 1990, p. 23</dc:identifier>
+  <dcterms:identifier xsi:type="dcterms:URI">https://archivio.unita.news/assets/main/1990/02/04/page_023.pdf</dcterms:identifier>
+  <dcterms:bibliographicCitation>Fabio Luppino, «Ministro, guarda i nostri sogni nudi», l'Unità, 4 febbraio 1990, p. 23.</dcterms:bibliographicCitation>
+
+  <dc:language xsi:type="dcterms:ISO639-2">ita</dc:language>
+
+  <dc:relation>l'Unità, 4 febbraio 1990, pagine di Roma</dc:relation>
+  <dcterms:isPartOf xsi:type="dcterms:URI">https://archivio.unita.news/browse/1990/02/04</dcterms:isPartOf>
+  <!-- facsimile della pagina e edizione digitale codificata in TEI -->
+  <dcterms:hasFormat xsi:type="dcterms:URI">https://archivio.unita.news/assets/main/1990/02/04/page_023.pdf</dcterms:hasFormat>
+  <dcterms:hasFormat xsi:type="dcterms:URI">tei_unita_1990-02-04_p23.xml</dcterms:hasFormat>
+
+  <dc:coverage>Roma</dc:coverage>
+  <dcterms:spatial xsi:type="dcterms:URI">https://www.geonames.org/3169070</dcterms:spatial>
+  <dcterms:spatial xsi:type="dcterms:Point">name=Roma; east=12.48; north=41.89</dcterms:spatial>
+  <dc:coverage>3 febbraio 1990</dc:coverage>
+  <dcterms:temporal xsi:type="dcterms:W3CDTF">1990-02-03</dcterms:temporal>
+
+  <dc:rights>© l'Unità / Fabio Luppino; testo riprodotto a soli fini di studio</dc:rights>
+  <dcterms:rightsHolder>l'Unità</dcterms:rightsHolder>
+
+  <!-- dc:source omesso: il record descrive l'originale a stampa -->
+  <!-- dc:contributor omesso: autore della fotografia nell'articolo non leggibile -->
+</record>

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <!-- ===== METADATI DI BASE =====
+       charset e viewport servono a Bootstrap per il layout responsive.
+       Doc: https://getbootstrap.com/docs/5.3/getting-started/introduction/#quick-start -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rete Pantera · Fonti sul movimento studentesco del 1989-1990</title>
+  <meta name="description" content="Collezione digitale che mette in rete fotografie, volantini, disegni e articoli sul movimento studentesco della Pantera (1989-1990) conservati in archivi diversi.">
+
+  <!-- ===== METADATI DUBLIN CORE (richiesti dalle linee guida nella index) =====
+       Sintassi DCMI "DC-HTML": i <link rel="schema.*"> dichiarano i namespace,
+       i <meta name="DC.*"> riportano i valori (un meta per ogni valore ripetuto).
+       Doc: https://www.dublincore.org/specifications/dublin-core/dc-html/
+       I valori seguono W3CDTF (date), DCMI Type Vocabulary, MIME type e RFC 5646 (lingua);
+       l'attributo scheme della specifica DC-HTML è omesso perché obsoleto in HTML5. -->
+  <link rel="schema.DC" href="http://purl.org/dc/elements/1.1/">
+  <link rel="schema.DCTERMS" href="http://purl.org/dc/terms/">
+  <meta name="DC.title" lang="it" content="Rete Pantera. Fonti e fondi sul movimento studentesco del 1989-1990">
+  <meta name="DC.creator" content="Bini, Cristiano">
+  <meta name="DC.subject" lang="it" content="Pantera (movimento studentesco)">
+  <meta name="DC.subject" lang="it" content="Movimenti studenteschi">
+  <meta name="DC.subject" lang="it" content="Università - Riforma - Italia - 1989-1990">
+  <meta name="DC.description" lang="it" content="Collezione digitale che mette in relazione fotografie, volantini, disegni e articoli di giornale sul movimento della Pantera, conservati in archivi e fondi diversi.">
+  <meta name="DC.date" content="2026-11-03">
+  <meta name="DC.type" content="Collection">
+  <meta name="DC.format" content="text/html">
+  <meta name="DC.language" content="it">
+  <meta name="DC.coverage" lang="it" content="Italia, 1989-1990">
+  <meta name="DCTERMS.temporal" content="1989/1990">
+  <!-- DA COMPLETARE: licenza dei testi del sito -->
+  <meta name="DC.rights" lang="it" content="Immagini e documenti © dei rispettivi autori e archivi di conservazione.">
+
+  <!-- ===== CSS =====
+       Ordine: prima Bootstrap, poi le icone, poi i font, per ultimo style.css
+       (così le nostre regole possono sovrascrivere quelle di Bootstrap).
+       Bootstrap via CDN: https://getbootstrap.com/docs/5.3/getting-started/introduction/#cdn-links
+       Bootstrap Icons: https://icons.getbootstrap.com/#install -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono&family=IBM+Plex+Sans:wght@400;600&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <!-- ===== HEADER / NAVBAR =====
+       .sticky-top sull'header: la barra resta in alto durante lo scorrimento.
+       .navbar-expand-lg: menu orizzontale da 992px in su; sotto diventa un pulsante "hamburger"
+       che apre il menu grazie al componente Collapse (data-bs-toggle / data-bs-target).
+       data-bs-theme="dark": colori del testo pensati per lo sfondo nero.
+       .ms-auto: margine sinistro automatico, spinge le voci a destra.
+       Doc navbar: https://getbootstrap.com/docs/5.3/components/navbar/
+       Doc collapse: https://getbootstrap.com/docs/5.3/components/collapse/ -->
+  <header class="sticky-top">
+    <nav class="navbar navbar-expand-lg bg-black" data-bs-theme="dark" aria-label="Navigazione principale">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">
+          <img src="img/logo.jpg" alt="Rete Pantera, torna alla home" class="logo">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu"
+                aria-controls="menu" aria-expanded="false" aria-label="Apri il menu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="menu">
+          <ul class="navbar-nav ms-auto">
+            <!-- Introduzione: segnaposto non cliccabile, pagina da realizzare.
+                 .disabled + aria-disabled="true" e nessun href: la voce resta visibile ma spenta.
+                 Doc: https://getbootstrap.com/docs/5.3/components/navbar/#nav -->
+            <li class="nav-item"><a class="nav-link disabled" aria-disabled="true">Introduzione</a></li>
+            <li class="nav-item"><a class="nav-link" href="catalogo.html">Catalogo</a></li>
+            <li class="nav-item"><a class="nav-link" href="voci-autorita.html">Entità</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ===== IMMAGINE DI APERTURA (hero) =====
+         <figure> con .figure-img e .figure-caption: immagine con didascalia.
+         .img-fluid: l'immagine si adatta alla larghezza disponibile senza deformarsi.
+         .container: contenitore centrato a larghezza massima, usato in tutte le sezioni.
+         Doc figure: https://getbootstrap.com/docs/5.3/content/figures/
+         Doc immagini: https://getbootstrap.com/docs/5.3/content/images/
+         Doc container: https://getbootstrap.com/docs/5.3/layout/containers/ -->
+    <section class="hero bg-black">
+      <div class="container pt-3 pb-4">
+        <figure class="figure d-block mx-auto mb-0">
+          <img src="img/sfondo-hero.jpg" class="figure-img img-fluid w-100 mb-2"
+               alt="Studenti in corteo dietro uno striscione bianco con la scritta rossa «La pantera siamo noi» e il disegno di una pantera nera">
+          <!-- DA COMPLETARE: autore, luogo e archivio della fotografia -->
+          <figcaption class="figure-caption didascalia">«La pantera siamo noi. Studenti romani in movimento '90». Fonte: [da indicare]</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ===== DESCRIZIONE DEL PROGETTO =====
+         Fascia orizzontale divisa in due colonne della griglia a 12:
+         titolo a sinistra (.col-lg-4), testo e pulsante a destra (.col-lg-8).
+         Da 992px in su le colonne si affiancano, sotto si impilano.
+         .g-4 è lo spazio tra le colonne; .align-items-center le centra in verticale.
+         Doc griglia: https://getbootstrap.com/docs/5.3/layout/grid/
+         Doc allineamento: https://getbootstrap.com/docs/5.3/layout/columns/#alignment
+         Doc pulsanti: https://getbootstrap.com/docs/5.3/components/buttons/ -->
+    <section class="sezione-descrizione py-5">
+      <div class="container">
+        <div class="row g-4 align-items-center">
+
+          <div class="col-lg-4">
+            <h1 class="titolo-sezione mb-0">Le fonti della Pantera, messe in rete</h1>
+          </div>
+
+          <div class="col-lg-8">
+            <p class="lead">Tra il dicembre 1989 e la primavera 1990 il movimento della Pantera occupò le università italiane contro il progetto di riforma Ruberti sull'autonomia degli atenei.</p>
+            <p>Le sue tracce sono oggi disperse in archivi che non dialogano tra loro: fotografie d'agenzia, volantini e disegni degli archivi di movimento, cronache dei quotidiani. Rete Pantera le riunisce in un'unica collezione, descrive ogni documento con standard condivisi (Dublin Core, ICCD, TEI) e lo collega a persone, luoghi ed eventi riconciliati con authority esterne.</p>
+            <!-- Pulsante segnaposto: la pagina di introduzione è da realizzare.
+                 Su un <a> lo stato disattivato si ottiene con .disabled e aria-disabled="true", senza href.
+                 Doc: https://getbootstrap.com/docs/5.3/components/buttons/#disabled-state -->
+            <a class="btn btn-pantera btn-lg mt-2 disabled" role="button" aria-disabled="true">
+              Leggi l'introduzione <i class="bi bi-arrow-right" aria-hidden="true"></i>
+            </a>
+            <span class="didascalia ms-2">pagina in preparazione</span>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== ESPLORA IL CATALOGO =====
+         Pulsante principale verso catalogo.html (vista predefinita) e tre Card,
+         una per ogni modo di esplorare. Ogni card passa la scelta nell'indirizzo:
+         catalogo.html?vista=lista | card | mappa  (il parametro viene letto da js/script.js).
+         .row-cols-1 .row-cols-md-3: una card per riga su mobile, tre affiancate da 768px.
+         .h-100: card della stessa altezza.
+         .stretched-link: rende cliccabile l'intera card, non solo il pulsante.
+         Doc card: https://getbootstrap.com/docs/5.3/components/card/
+         Doc row-cols: https://getbootstrap.com/docs/5.3/layout/grid/#row-columns
+         Doc stretched link: https://getbootstrap.com/docs/5.3/helpers/stretched-link/
+         Icone: https://icons.getbootstrap.com/ -->
+    <section class="sfondo-corteo py-5">
+      <div class="container text-center">
+        <h2 class="titolo-sezione">Esplora il catalogo</h2>
+        <p class="mb-4">Fotografie, volantini, disegni e articoli in un'unica raccolta.</p>
+        <a href="catalogo.html" class="btn btn-pantera btn-lg">
+          <i class="bi bi-archive" aria-hidden="true"></i> Vai al catalogo
+        </a>
+
+        <h3 class="etichetta mt-5 mb-3">oppure esplora per</h3>
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+
+          <div class="col">
+            <div class="card card-vista h-100">
+              <div class="card-body">
+                <i class="bi bi-list-ul icona-vista" aria-hidden="true"></i>
+                <h4 class="card-title">Lista</h4>
+                <p class="card-text">Tutti i documenti in ordine alfabetico, con tipologia, autore, data e fonte.</p>
+                <a href="catalogo.html?vista=lista" class="btn btn-outline-dark stretched-link">Apri la lista</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="card card-vista h-100">
+              <div class="card-body">
+                <i class="bi bi-grid-3x3-gap icona-vista" aria-hidden="true"></i>
+                <h4 class="card-title">Card</h4>
+                <p class="card-text">Una griglia di anteprime per sfogliare i documenti attraverso le immagini.</p>
+                <a href="catalogo.html?vista=card" class="btn btn-outline-dark stretched-link">Apri le card</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="card card-vista h-100">
+              <div class="card-body">
+                <i class="bi bi-geo-alt icona-vista" aria-hidden="true"></i>
+                <h4 class="card-title">Mappa</h4>
+                <p class="card-text">Dove sono conservate le fonti: la distribuzione geografica degli archivi, dei fondi e delle istituzioni che custodiscono i documenti sulla Pantera.</p>
+                <a href="catalogo.html?vista=mappa" class="btn btn-outline-dark stretched-link">Apri la mappa</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Credito della fotografia usata come sfondo semitrasparente di questa sezione.
+             Data e soggetto ricavati dal nome del file; autore (Nadalini?) da verificare
+             sulla pagina dell'Archivio: https://www.iperbole.bologna.it/asnsmp/Foto_Nadalini_Pantera.html -->
+        <p class="didascalia text-end mt-4 mb-0">Sullo sfondo: Bologna, 6 dicembre 1989, corteo «900 idee contro il IX centenario». Archivio Storico della Nuova Sinistra «Marco Pezzi».</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER =====
+       La testa di pantera è impostata come sfondo in css/style.css (.footer-pantera).
+       .col-md-7: i crediti occupano 7 colonne su 12 da 768px in su, lasciando spazio al disegno.
+       Doc griglia: https://getbootstrap.com/docs/5.3/layout/grid/
+       Doc spaziature (py-5, mb-3…): https://getbootstrap.com/docs/5.3/utilities/spacing/ -->
+  <footer class="footer-pantera py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-7">
+          <div class="crediti p-3">
+            <p class="titolo-footer mb-1">Rete Pantera</p>
+            <p class="mb-3">Progetto di Cristiano Bini per la prova finale dell'esame di
+              <!-- DA COMPLETARE: indirizzo della pagina del corso -->
+              <a href="#">Digital Humanities</a><br>
+              Alma Mater Studiorum, Università di Bologna · 2026</p>
+            <ul class="list-unstyled didascalia mb-0">
+              <li>Disegno: Archivio Storico della Nuova Sinistra «Marco Pezzi», fondo Pantera, fasc. 8.1, disegni 6.</li>
+              <li>Fotografie: vedi le didascalie nella pagina.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== JAVASCRIPT =====
+       Il bundle di Bootstrap (include Popper) fa funzionare i componenti interattivi,
+       qui il menu Collapse della navbar. Poi il nostro script comune a tutte le pagine.
+       Doc: https://getbootstrap.com/docs/5.3/getting-started/javascript/ -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <!-- ===== METADATI DI BASE ===== -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Occupazione scuola · Rete Pantera</title>
+  <meta name="description" content="Andrea Garuti, Occupazione scuola, 1989-1990 ca.: fotografia di studenti in un'aula universitaria occupata durante il movimento della Pantera. Scheda e metadati Dublin Core.">
+
+  <!-- ===== METADATI DUBLIN CORE DELL'OGGETTO =====
+       Gli stessi valori della tabella nel corpo della pagina e del file xml/dc_occupazione-scuola.xml.
+       Doc: https://www.dublincore.org/specifications/dublin-core/dc-html/ -->
+  <link rel="schema.DC" href="http://purl.org/dc/elements/1.1/">
+  <meta name="DC.title" lang="it" content="Occupazione scuola">
+  <meta name="DC.creator" content="Garuti, Andrea">
+  <meta name="DC.subject" lang="it" content="Pantera (movimento studentesco)">
+  <meta name="DC.subject" lang="it" content="Movimenti studenteschi">
+  <meta name="DC.date" content="1989 ca.-1990 ca.">
+  <meta name="DC.type" content="StillImage">
+  <meta name="DC.format" lang="it" content="stampa b/n, gelatina bromuro d'argento su carta">
+  <meta name="DC.identifier" content="SUP-10100-0004893">
+  <meta name="DC.coverage" lang="it" content="Italia">
+  <meta name="DC.rights" lang="it" content="© Andrea Garuti, courtesy Museo Nazionale di Fotografia, Milano-Cinisello Balsamo">
+
+  <!-- ===== CSS ===== Stessi file delle altre pagine. -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono&family=IBM+Plex+Sans:wght@400;600&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <!-- ===== HEADER / NAVBAR =====
+       .sticky-top sull'header: la barra resta in alto durante lo scorrimento.
+       .navbar-expand-lg: menu orizzontale da 992px in su; sotto diventa un pulsante "hamburger"
+       che apre il menu grazie al componente Collapse (data-bs-toggle / data-bs-target).
+       data-bs-theme="dark": colori del testo pensati per lo sfondo nero.
+       .ms-auto: margine sinistro automatico, spinge le voci a destra.
+       Doc navbar: https://getbootstrap.com/docs/5.3/components/navbar/
+       Doc collapse: https://getbootstrap.com/docs/5.3/components/collapse/ -->
+  <header class="sticky-top">
+    <nav class="navbar navbar-expand-lg bg-black" data-bs-theme="dark" aria-label="Navigazione principale">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">
+          <img src="img/logo.jpg" alt="Rete Pantera, torna alla home" class="logo">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu"
+                aria-controls="menu" aria-expanded="false" aria-label="Apri il menu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="menu">
+          <ul class="navbar-nav ms-auto">
+            <!-- Introduzione: segnaposto non cliccabile, pagina da realizzare.
+                 .disabled + aria-disabled="true" e nessun href: la voce resta visibile ma spenta.
+                 Doc: https://getbootstrap.com/docs/5.3/components/navbar/#nav -->
+            <li class="nav-item"><a class="nav-link disabled" aria-disabled="true">Introduzione</a></li>
+            <li class="nav-item"><a class="nav-link" href="catalogo.html">Catalogo</a></li>
+            <li class="nav-item"><a class="nav-link" href="voci-autorita.html">Entità</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ===== NOME DELL'OGGETTO =====
+         Stesso stile e stesso sfondo del titolo "Catalogo" (.sfondo-corteo, .titolo-sezione).
+         Sotto, il percorso di navigazione con il componente Breadcrumb.
+         Doc breadcrumb: https://getbootstrap.com/docs/5.3/components/breadcrumb/ -->
+    <section class="sfondo-corteo py-5">
+      <div class="container text-center">
+        <p class="etichetta mb-2">Foto</p>
+        <h1 class="titolo-sezione">Occupazione scuola</h1>
+        <nav aria-label="Percorso di navigazione">
+          <ol class="breadcrumb justify-content-center mb-0">
+            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+            <li class="breadcrumb-item"><a href="catalogo.html">Catalogo</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Occupazione scuola</li>
+          </ol>
+        </nav>
+      </div>
+    </section>
+
+    <!-- ===== CONTENUTO: SCHEDA (9 colonne) + OGGETTI CORRELATI (3 colonne) =====
+         Doc griglia: https://getbootstrap.com/docs/5.3/layout/grid/ -->
+    <section class="py-5">
+      <div class="container">
+        <div class="row g-4 g-lg-5">
+
+          <article class="col-lg-9">
+
+            <!-- IMMAGINE (Card) E DESCRIZIONE
+                 L'immagine sta in una Card con la didascalia dei diritti nel card-body.
+                 Se l'immagine non si carica, onerror la rimuove e resta l'icona della tipologia.
+                 Doc card: https://getbootstrap.com/docs/5.3/components/card/ -->
+            <div class="row g-4 align-items-start">
+              <div class="col-md-5">
+                <div class="card immagine-item">
+                  <div class="cornice-item">
+                    <i class="bi bi-camera" aria-hidden="true"></i>
+                    <img src="https://www.mufocosearch.org/_dati/immagini/piccole/fondi/AGN/sup_10100_0004893.jpg"
+                         alt="Gruppo di studenti attorno a un tavolo con dei giornali, in un'aula universitaria occupata"
+                         onerror="this.remove()">
+                  </div>
+                  <div class="card-body">
+                    <p class="didascalia mb-0">© Andrea Garuti, courtesy Museo Nazionale di Fotografia, Milano-Cinisello Balsamo</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-7">
+                <h2 class="etichetta">Descrizione</h2>
+                <p class="lead">Gruppo di ragazzi, studenti attorno a un tavolo con giornali in un'aula universitaria occupata durante il movimento studentesco della Pantera.</p>
+                <p>Il movimento della Pantera prese avvio con l'occupazione della Facoltà di Lettere e Filosofia dell'Università di Palermo nel dicembre 1989, in opposizione al progetto di riforma dell'autonomia universitaria del ministro Antonio Ruberti, e si estese a molti atenei italiani fino alla primavera del 1990.</p>
+                <p class="mb-0">La stampa proviene dall'archivio dell'Agenzia Grazia Neri ed è in deposito dal 2010 presso il Museo Nazionale di Fotografia (già Museo di Fotografia Contemporanea) di Cinisello Balsamo.</p>
+              </div>
+            </div>
+
+            <!-- TABELLA DEI METADATI DUBLIN CORE
+                 Solo i 15 elementi dc: (quelli compilati nel file XML). Le etichette rosse
+                 rimandano ai record di autorità indicati nel file con gli elementi dcterms:.
+                 Doc tabelle: https://getbootstrap.com/docs/5.3/content/tables/ -->
+            <h2 class="etichetta mt-5">Metadati Dublin Core</h2>
+            <div class="table-responsive">
+              <table class="table tabella-metadati align-middle">
+                <tbody>
+                  <tr>
+                    <th scope="row">Titolo<span class="elemento-dc">dc:title</span></th>
+                    <td>Occupazione scuola</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Autore<span class="elemento-dc">dc:creator</span></th>
+                    <td>Garuti, Andrea <span class="didascalia">(authority file regionale SIRBeC AUF-10100-0000124)</span></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Soggetto<span class="elemento-dc">dc:subject</span></th>
+                    <td>
+                      Pantera (movimento studentesco)
+                      <a class="link-autorita" href="http://www.wikidata.org/entity/Q3893439" target="_blank" rel="noopener">Wikidata <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i></a><br>
+                      Movimenti studenteschi
+                      <a class="link-autorita" href="https://thes.bncf.firenze.sbn.it/termine.php?id=16239" target="_blank" rel="noopener">Nuovo Soggettario <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i></a>
+                      <a class="link-autorita" href="http://id.loc.gov/authorities/subjects/sh85129276" target="_blank" rel="noopener">LCSH <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i></a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Descrizione<span class="elemento-dc">dc:description</span></th>
+                    <td>Occupazione scuole. Scuola occupata, università - Aula - Movimento studentesco Pantera - Gruppo di ragazzi, studenti attorno a un tavolo - Giornali</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Data<span class="elemento-dc">dc:date</span></th>
+                    <td>1989 ca.-1990 ca.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Tipo<span class="elemento-dc">dc:type</span></th>
+                    <td>
+                      StillImage
+                      <a class="link-autorita" href="http://purl.org/dc/dcmitype/StillImage" target="_blank" rel="noopener">DCMI Type <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i></a><br>
+                      reportage
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Formato<span class="elemento-dc">dc:format</span></th>
+                    <td>
+                      stampa b/n, gelatina bromuro d'argento su carta
+                      <a class="link-autorita" href="http://vocab.getty.edu/page/aat/300128695" target="_blank" rel="noopener">Getty AAT <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i></a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Identificativo<span class="elemento-dc">dc:identifier</span></th>
+                    <td>
+                      SUP-10100-0004893
+                      <a class="link-autorita" href="https://www.mufocosearch.org/schedafotografia/SUP-10100-0004893?context=photoBySearch&amp;position=1" target="_blank" rel="noopener">MuFoCo <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i></a><br>
+                      AGN_14_ST_VV
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Relazione<span class="elemento-dc">dc:relation</span></th>
+                    <td>
+                      Fondo Agenzia Grazia Neri, serie Archivio gruppi e manifestazioni/ Manif. Italia, sottoserie Occupazione scuole
+                      <a class="link-autorita" href="https://www.mufocosearch.org/schedafotografiapdf/SUP-10100-0004893" target="_blank" rel="noopener">Scheda PDF <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i></a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Copertura<span class="elemento-dc">dc:coverage</span></th>
+                    <td>
+                      Italia
+                      <a class="link-autorita" href="https://www.geonames.org/3175395/italian-republic.html" target="_blank" rel="noopener">GeoNames <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i></a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Diritti<span class="elemento-dc">dc:rights</span></th>
+                    <td>© Andrea Garuti, courtesy Museo Nazionale di Fotografia, Milano-Cinisello Balsamo</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="didascalia">Non compilati: dc:publisher (la fotografia non è stata pubblicata), dc:language (immagine senza contenuto testuale significativo), dc:source (sostituito da dcterms:isReferencedBy, vedi Relazione).</p>
+
+            <!-- PULSANTE VERSO IL FILE XML/DC: si apre in una nuova scheda del browser -->
+            <a href="xml/dc_occupazione-scuola.xml" class="btn btn-pantera mt-3" target="_blank" rel="noopener">
+              <i class="bi bi-filetype-xml" aria-hidden="true"></i> Metadati XML/DC
+            </a>
+          </article>
+
+          <!-- ===== OGGETTI CORRELATI =====
+               Stesse card del catalogo. La card dell'articolo porta alla sua pagina item;
+               il volantino non ha ancora una pagina, quindi è cliccabile solo il nome dell'istituzione. -->
+          <aside class="col-lg-3">
+            <h2 class="etichetta">Oggetti correlati</h2>
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-1 g-4">
+
+              <div class="col">
+                <article class="card card-oggetto h-100">
+                  <div class="anteprima">
+                    <i class="bi bi-megaphone" aria-hidden="true"></i>
+                    <img src="img/catalogo/riprendiamoci-universita.jpg" alt="Anteprima: Riprendiamoci l'università" loading="lazy">
+                  </div>
+                  <div class="card-body">
+                    <p class="tipo-oggetto mb-1">VOLANTINO</p>
+                    <h3 class="card-title">Riprendiamoci l'università</h3>
+                    <p class="card-text small mb-0">Coordinamento studenti universitari · gennaio 1990</p>
+                  </div>
+                  <div class="card-footer">
+                    <a href="https://www.iperbole.bologna.it/asnsmp/1990_01_24_Archivio_Pezzi_fondo_Pantera_fascicolo_8_1_centro_stampa_volantini.pdf" target="_blank" rel="noopener" class="link-fonte">Archivio Storico della Nuova Sinistra «Marco Pezzi» <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i></a>
+                  </div>
+                </article>
+              </div>
+
+              <div class="col">
+                <article class="card card-oggetto h-100">
+                  <div class="anteprima">
+                    <i class="bi bi-file-earmark-text" aria-hidden="true"></i>
+                    <img src="img/catalogo/ministro-sogni-nudi.jpg" alt="Anteprima: Ministro, guarda i nostri sogni nudi" loading="lazy">
+                  </div>
+                  <div class="card-body">
+                    <p class="tipo-oggetto mb-1">TESTO</p>
+                    <h3 class="card-title"><a href="item-ministro-sogni-nudi.html" class="stretched-link">Ministro, guarda i nostri sogni nudi</a></h3>
+                    <p class="card-text small mb-0">Fabio Luppino · 4 febbraio 1990</p>
+                  </div>
+                  <div class="card-footer">
+                    <a href="https://archivio.unita.news/browse/1990/02/04" target="_blank" rel="noopener" class="link-fonte">Archivio storico de «l'Unità» <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i></a>
+                  </div>
+                </article>
+              </div>
+
+            </div>
+          </aside>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER =====
+       La testa di pantera è impostata come sfondo in css/style.css (.footer-pantera).
+       .col-md-7: i crediti occupano 7 colonne su 12 da 768px in su, lasciando spazio al disegno.
+       Doc griglia: https://getbootstrap.com/docs/5.3/layout/grid/
+       Doc spaziature (py-5, mb-3…): https://getbootstrap.com/docs/5.3/utilities/spacing/ -->
+  <footer class="footer-pantera py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-7">
+          <div class="crediti p-3">
+            <p class="titolo-footer mb-1">Rete Pantera</p>
+            <p class="mb-3">Progetto di Cristiano Bini per la prova finale dell'esame di
+              <!-- DA COMPLETARE: indirizzo della pagina del corso -->
+              <a href="#">Digital Humanities</a><br>
+              Alma Mater Studiorum, Università di Bologna · 2026</p>
+            <ul class="list-unstyled didascalia mb-0">
+              <li>Disegno: Archivio Storico della Nuova Sinistra «Marco Pezzi», fondo Pantera, fasc. 8.1, disegni 6.</li>
+              <li>Fotografie: vedi le didascalie nella pagina.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== JAVASCRIPT =====
+       Bootstrap (menu Collapse) e lo script comune: evidenzia "Catalogo" nel menu. -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <!-- ===== METADATI DI BASE =====
+       Come nelle altre pagine; i metadati Dublin Core completi sono nella index.
+       Doc: https://getbootstrap.com/docs/5.3/getting-started/introduction/#quick-start -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Voci di autorità · Rete Pantera</title>
+  <meta name="description" content="Istituzioni, persone, luoghi ed enti degli oggetti di Rete Pantera, riconciliati con le voci di autorità di Wikidata, VIAF e GeoNames.">
+
+  <!-- ===== CSS =====
+       Stessi file delle altre pagine: Bootstrap, icone, font e il nostro style.css. -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono&family=IBM+Plex+Sans:wght@400;600&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <!-- ===== HEADER / NAVBAR =====
+       .sticky-top sull'header: la barra resta in alto durante lo scorrimento.
+       .navbar-expand-lg: menu orizzontale da 992px in su; sotto diventa un pulsante "hamburger"
+       che apre il menu grazie al componente Collapse (data-bs-toggle / data-bs-target).
+       data-bs-theme="dark": colori del testo pensati per lo sfondo nero.
+       .ms-auto: margine sinistro automatico, spinge le voci a destra.
+       Doc navbar: https://getbootstrap.com/docs/5.3/components/navbar/
+       Doc collapse: https://getbootstrap.com/docs/5.3/components/collapse/ -->
+  <header class="sticky-top">
+    <nav class="navbar navbar-expand-lg bg-black" data-bs-theme="dark" aria-label="Navigazione principale">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">
+          <img src="img/logo.jpg" alt="Rete Pantera, torna alla home" class="logo">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu"
+                aria-controls="menu" aria-expanded="false" aria-label="Apri il menu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="menu">
+          <ul class="navbar-nav ms-auto">
+            <!-- Introduzione: segnaposto non cliccabile, pagina da realizzare.
+                 .disabled + aria-disabled="true" e nessun href: la voce resta visibile ma spenta.
+                 Doc: https://getbootstrap.com/docs/5.3/components/navbar/#nav -->
+            <li class="nav-item"><a class="nav-link disabled" aria-disabled="true">Introduzione</a></li>
+            <li class="nav-item"><a class="nav-link" href="catalogo.html">Catalogo</a></li>
+            <li class="nav-item"><a class="nav-link" href="voci-autorita.html">Entità</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ===== TITOLO E INTRODUZIONE =====
+         Stesso stile e stesso sfondo del titolo "Catalogo" (.sfondo-corteo, .titolo-sezione).
+         .col-lg-8 .mx-auto: il testo occupa 8 colonne su 12, centrato, per righe di lettura comode.
+         Doc griglia: https://getbootstrap.com/docs/5.3/layout/grid/ -->
+    <section class="sfondo-corteo py-5">
+      <div class="container text-center">
+        <p class="etichetta mb-2">Entità</p>
+        <h1 class="titolo-sezione">Voci di autorità</h1>
+        <div class="row">
+          <p class="col-lg-8 mx-auto mb-0">Le istituzioni che conservano gli oggetti del catalogo e le persone, i luoghi e gli enti che vi compaiono, ciascuno collegato al proprio record in un authority file: VIAF per le persone (Wikidata quando manca), GeoNames per i luoghi, Wikidata per istituzioni ed enti.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== LE QUATTRO FASCE (componente Accordion) =====
+         Ogni fascia corrisponde a una colonna del foglio di riconciliazione e si apre
+         con un clic, mostrando la tabella delle voci.
+         - .accordion-item = una fascia; .accordion-button = la barra cliccabile;
+           .accordion-collapse = il contenuto che si apre e si chiude (componente Collapse);
+         - data-bs-target collega la barra al suo contenuto tramite l'id;
+         - la classe .collapsed sulla barra e l'assenza di .show sul contenuto: all'apertura
+           della pagina tutte le fasce sono chiuse;
+         - non c'è data-bs-parent sui contenuti: si possono tenere aperte più fasce insieme
+           (variante "Always open" della documentazione).
+         Le classi .fascia-istituzioni, .fascia-persone ecc. danno a ogni fascia il colore
+         della tabella corrispondente nel file Excel (vedi style.css, sezione 11).
+         Doc accordion: https://getbootstrap.com/docs/5.3/components/accordion/
+         Doc "always open": https://getbootstrap.com/docs/5.3/components/accordion/#always-open -->
+    <section class="py-5">
+      <div class="container">
+
+        <p class="didascalia mb-4">Il segno — indica che non è stato individuato un record di autorità: le istituzioni che conservano un oggetto e l'autore dell'articolo restano comunque in elenco. Gli indirizzi si aprono in una nuova scheda.</p>
+
+        <div class="accordion accordion-autorita" id="voci-autorita">
+
+          <!-- FASCIA "ISTITUZIONI" (9 voci) -->
+          <div class="accordion-item fascia-istituzioni">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                      data-bs-target="#voci-istituzioni" aria-expanded="false" aria-controls="voci-istituzioni">
+                <span class="testo-fascia">
+                  <span class="titolo-fascia">Istituzioni</span>
+                  <span class="descrizione-fascia">Archivi, musei, testate e piattaforme che conservano o pubblicano gli oggetti del catalogo.</span>
+                </span>
+                <span class="badge conteggio-fascia ms-auto">9 voci</span>
+              </button>
+            </h2>
+            <div id="voci-istituzioni" class="accordion-collapse collapse">
+              <div class="accordion-body">
+                <!-- Tabella delle voci (Table di Bootstrap). Sugli smartphone:
+                     - .d-none .d-sm-table-cell nasconde la colonna "Authority file" sotto i 576px
+                       (la fonte si legge comunque nell'URI);
+                     - <wbr> negli indirizzi indica dove possono andare a capo (dopo le barre);
+                     - .table-responsive fa scorrere la tabella dentro la fascia, se serve.
+                     Doc tabelle: https://getbootstrap.com/docs/5.3/content/tables/
+                     Doc display: https://getbootstrap.com/docs/5.3/utilities/display/ -->
+                <div class="table-responsive">
+                  <table class="table table-hover align-middle tabella-autorita mb-0">
+                    <thead>
+                      <tr>
+                        <th scope="col">Nome</th>
+                        <th scope="col" class="d-none d-sm-table-cell">Authority file</th>
+                        <th scope="col">URI</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>l'Unità</td>
+                        <td class="fonte-autorita d-none d-sm-table-cell">Wikidata</td>
+                        <td class="text-break"><a href="http://www.wikidata.org/entity/Q1051163" target="_blank" rel="noopener">http://<wbr>www.wikidata.org/<wbr>entity/<wbr>Q1051163 <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i></a></td>
+                      </tr>
+                      <tr>
+                        <td>MusicBrainz</td>
+                        <td class="fonte-autorita d-none d-sm-table-cell">Wikidata</td>
+                        <td class="text-break"><a href="http://www.wikidata.org/entity/Q14005" target="_blank" rel="noopener">http://<wbr>www.wikidata.org/<wbr>entity/<wbr>Q14005 <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i></a></td>
+                      </tr>
+                      <tr>
+                        <td>Normattiva, Presidenza del Consiglio dei Ministri</td>
+                        <td class="fonte-autorita d-none d-sm-table-cell">Wikidata</td>
+                        <td class="text-break"><a href="http://www.wikidata.org/entity/Q21192632" target="_blank" rel="noopener">http://<wbr>www.wikidata.org/<wbr>entity/<wbr>Q21192632 <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i></a></td>
+                      </tr>
+                      <tr>
+                        <td>Archivio Marco Pezzi, fondo Fabrizio Billi</td>
+                        <td class="fonte-autorita d-none d-sm-table-cell">Wikidata</td>
+                        <td class="text-break"><a href="http://www.wikidata.org/entity/Q124297154" target="_blank" rel="noopener">http://<wbr>www.wikidata.org/<wbr>entity/<wbr>Q124297154 <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i></a></td>
+                      </tr>
+                      <tr>
+                        <td>Archivio Storico UniBo</td>
+                        <td class="fonte-autorita d-none d-sm-table-cell">Wikidata</td>
+                        <td class="text-break"><a href="http://www.wikidata.org/entity/Q47457894" target="_blank" rel="noopener">http://<wbr>www.wikidata.org/<wbr>entity/<wbr>Q47457894 <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i></a></td>
+                      </tr>
+                      <tr>
+                        <td>Associazione Pantera 90 Archivio</td>
+                        <td class="fonte-autorita d-none d-sm-table-cell">—</td>
+                        <td class="text-break"><span class="didascalia">Nessun record di autorità</span></td>
+                      </tr>
+                      <tr>
+                        <td>Archivio Limone Lunare</td>
+                        <td class="fonte-autorita d-none d-sm-table-cell">—</td>
+                        <td class="text-break"><span class="didascalia">Nessun record di autorità</span></td>
+                      </tr>
+                      <tr>
+                        <td>YouTube</td>
+                        <td class="fonte-autorita d-none d-sm-table-cell">Wikidata</td>
+                        <td class="text-break"><a href="http://www.wikidata.org/entity/Q866" target="_blank" rel="noopener">http://<wbr>www.wikidata.org/<wbr>entity/<wbr>Q866 <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i></a></td>
+                      </tr>
+                      <tr>
+                        <td>Museo Nazionale di Fotografia, fondo Agenzia Grazia Neri</td>
+                        <td class="fonte-autorita d-none d-sm-table-cell">Wikidata</td>
+                        <td class="text-break"><a href="http://www.wikidata.org/entity/Q3868213" target="_blank" rel="noopener">http://<wbr>www.wikidata.org/<wbr>entity/<wbr>Q3868213 <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i></a></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- FASCIA "PERSONE" (13 voci) -->
+          <div class="accordion-item fascia-persone">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                      data-bs-target="#voci-persone" aria-expanded="false" aria-controls="voci-persone">
+                <span class="testo-fascia">
+                  <span class="titolo-fascia">Persone</span>
+                  <span class="descrizione-fascia">Autori degli oggetti e persone citate nei documenti, compresi i gruppi musicali registrati come autori.</span>
+                </span>
+                <span class="badge conteggio-fascia ms-auto">13 voci</span>
+              </button>
+            </h2>
+            <div id="voci-persone" class="accordion-collapse collapse">
+              <div class="accordion-body">
+                <!-- Tabella delle voci (Table di Bootstrap). Sugli smartphone:
+                     - .d-none .d-sm-table-cell nasconde la colonna "Authority file" sotto i 576px
+                       (la fonte si legge comunque nell'URI);
+                     - <wbr> negli indirizzi indica dove possono andare a capo (dopo le barre);
+                     - .table-responsive fa scorrere la tabella dentro la fascia, se serve.
+                     Doc tabelle: https://getbootstrap.com/docs/5.3/content/tables/
+                     Doc display: https://getbootstrap.com/docs/5.3/utilities/display/ -->
+                <div class="table-responsive">
+                  <table class="table table-hover align-middle tabella-autorita mb-0">
+                    <thead>
+                      <tr>
+                        <th scope="col">Nome</th>
+                        <th scope="col" class="d-none d-sm-table-cell">Authority file</th>
+                        <th scope="col">URI</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Garuti, Andrea</td>
+                        <td class="fonte-autorita d-none d-sm-table-cell">VIAF</td>
+                        <td class="text-break"><a href="http://viaf.org/viaf/34227932" target="_blank" rel="noopener">http://<wbr>viaf.org/<wbr>viaf/<wbr>34227932 <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i></a></td>
+                      </tr>
+                      <tr>
+                        <td>Billi, Fabrizio</td>
+                        <td class="fonte-autorita d-none d-sm-table-cell">VIAF</td>
+                        <td class="text-break"><a href="http://viaf.org/viaf/234950636" target="_blank" rel="noopener">http://<wbr>viaf.org/<wbr>viaf/<wbr>234950636 <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i></a></td>
+                      </tr>
+                      <tr>
+                        <td>Piccola Orchestra Avion Travel</td>
+                        <td class="fonte-autorita d-none d-sm-table-cell">VIAF</td>
+                        <td class="text-break"><a href="http://viaf.org/viaf/139794354" target="_blank" rel="noopener">http://<wbr>viaf.org/<wbr>viaf/<wbr>139794354 <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i></a></td>
+                      </tr>
+                      <tr>
+                        <td>Ciaramella, Mimì</td>
+                        <td class="fonte-autorita d-none d-sm-table-cell">Wikidata</td>
+                        <td class="text-break"><a href="http://www.wikidata.org/entity/Q3858239" target="_blank" rel="noopener">http://<wbr>www.wikidata.org/<wbr>entity/<wbr>Q3858239 <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i></a></td>
+                      </tr>
+                      <tr>
+                        <td>Manali, Sara</td>
+                        <td class="fonte-autorita d-none d-sm-table-cell">Wikidata</td>
+                        <td class="text-break"><a href="http://www.wikidata.org/entity/Q125503749" target="_blank" rel="noopener">http://<wbr>www.wikidata.org/<wbr>entity/<wbr>Q125503749 <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i></a></td>
+                      </tr>
+                      <tr>
+                        <td>Luppino, Fabio</td>
+                        <td class="fonte-autorita d-none d-sm-table-cell">—</td>
+                        <td class="text-break"><span class="didascalia">Nessun record di autorità</span></td>
+                      </tr>
+                      <tr>
+                        <td>Onda Rossa Posse</td>
+                        <td class="fonte-autorita d-none d-sm-table-cell">Wikidata</td>
+                        <td class="text-break"><a href="http://www.wikidata.org/entity/Q3882421" target="_blank" rel="noopener">http://<wbr>www.wikidata.org/<wbr>entity/<wbr>Q3882421 <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i></a></td>
+                      </tr>
+                      <tr>
+                        <td>Baudelaire, Charles</td>
+                        <td class="fonte-autorita d-none d-sm-table-cell">VIAF</td>
+                        <td class="text-break"><a href="http://viaf.org/viaf/17218730" target="_blank" rel="noopener">http://<wbr>viaf.org/<wbr>viaf/<wbr>17218730 <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i></a></td>
+                      </tr>
+                      <tr>
+                        <td>Warhol, Andy</td>
+                        <td class="fonte-autorita d-none d-sm-table-cell">VIAF</td>
+                        <td class="text-break"><a href="http://viaf.org/viaf/56617645" target="_blank" rel="noopener">http://<wbr>viaf.org/<wbr>viaf/<wbr>56617645 <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i></a></td>
+                      </tr>
+                      <tr>
+                        <td>Ruberti, Antonio</td>
+                        <td class="fonte-autorita d-none d-sm-table-cell">VIAF</td>
+                        <td class="text-break"><a href="http://viaf.org/viaf/76367545" target="_blank" rel="noopener">http://<wbr>viaf.org/<wbr>viaf/<wbr>76367545 <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i></a></td>
+                      </tr>
+                      <tr>
+                        <td>Andreotti, Giulio</td>
+                        <td class="fonte-autorita d-none d-sm-table-cell">VIAF</td>
+                        <td class="text-break"><a href="http://viaf.org/viaf/109833019" target="_blank" rel="noopener">http://<wbr>viaf.org/<wbr>viaf/<wbr>109833019 <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i></a></td>
+                      </tr>
+                      <tr>
+                        <td>Mattarella, Sergio</td>
+                        <td class="fonte-autorita d-none d-sm-table-cell">VIAF</td>
+                        <td class="text-break"><a href="http://viaf.org/viaf/11784089" target="_blank" rel="noopener">http://<wbr>viaf.org/<wbr>viaf/<wbr>11784089 <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i></a></td>
+                      </tr>
+                      <tr>
+                        <td>Ferrara, Giuliano</td>
+                        <td class="fonte-autorita d-none d-sm-table-cell">VIAF</td>
+                        <td class="text-break"><a href="http://viaf.org/viaf/26181847" target="_blank" rel="noopener">http://<wbr>viaf.org/<wbr>viaf/<wbr>26181847 <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i></a></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- FASCIA "LUOGHI" (16 voci) -->
+          <div class="accordion-item fascia-luoghi">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                      data-bs-target="#voci-luoghi" aria-expanded="false" aria-controls="voci-luoghi">
+                <span class="testo-fascia">
+                  <span class="titolo-fascia">Luoghi</span>
+                  <span class="descrizione-fascia">Città, Stati e grandi entità geografiche legati agli oggetti e agli eventi del movimento.</span>
+                </span>
+                <span class="badge conteggio-fascia ms-auto">16 voci</span>
+              </button>
+            </h2>
+            <div id="voci-luoghi" class="accordion-collapse collapse">
+              <div class="accordion-body">
+                <!-- Tabella delle voci (Table di Bootstrap). Sugli smartphone:
+                     - .d-none .d-sm-table-cell nasconde la colonna "Authority file" sotto i 576px
+                       (la fonte si legge comunque nell'URI);
+                     - <wbr> negli indirizzi indica dove possono andare a capo (dopo le barre);
+                     - .table-responsive fa scorrere la tabella dentro la fascia, se serve.
+                     Doc tabelle: https://getbootstrap.com/docs/5.3/content/tables/
+                     Doc display: https://getbootstrap.com/docs/5.3/utilities/display/ -->
+                <div class="table-responsive">
+                  <table class="table table-hover align-middle tabella-autorita mb-0">
+                    <thead>
+                      <tr>
+                        <th scope="col">Nome</th>
+                        <th scope="col" class="d-none d-sm-table-cell">Authority file</th>
+                        <th scope="col">URI</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Bologna</td>
+                        <td class="fonte-autorita d-none d-sm-table-cell">GeoNames</td>
+                        <td class="text-break"><a href="https://www.geonames.org/3181928" target="_blank" rel="noopener">https://<wbr>www.geonames.org/<wbr>3181928 <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i></a></td>
+                      </tr>
+                      <tr>
+                        <td>Italia</td>
+                        <td class="fonte-autorita d-none d-sm-table-cell">GeoNames</td>
+                        <td class="text-break"><a href="https://www.geonames.org/3175395" target="_blank" rel="noopener">https://<wbr>www.geonames.org/<wbr>3175395 <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i></a></td>
+                      </tr>
+                      <tr>
+                        <td>Cinisello Balsamo</td>
+                        <td class="fonte-autorita d-none d-sm-table-cell">GeoNames</td>
+                        <td class="text-break"><a href="https://www.geonames.org/3178671" target="_blank" rel="noopener">https://<wbr>www.geonames.org/<wbr>3178671 <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i></a></td>
+                      </tr>
+                      <tr>
+                        <td>Roma</td>
+                        <td class="fonte-autorita d-none d-sm-table-cell">GeoNames</td>
+                        <td class="text-break"><a href="https://www.geonames.org/3169070" target="_blank" rel="noopener">https://<wbr>www.geonames.org/<wbr>3169070 <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i></a></td>
+                      </tr>
+                      <tr>
+                        <td>Stretto di Messina</td>
+                        <td class="fonte-autorita d-none d-sm-table-cell">GeoNames</td>
+                        <td class="text-break"><a href="https://www.geonames.org/2524168" target="_blank" rel="noopener">https://<wbr>www.geonames.org/<wbr>2524168 <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i></a></td>
+                      </tr>
+                      <tr>
+                        <td>Napoli</td>
+                        <td class="fonte-autorita d-none d-sm-table-cell">GeoNames</td>
+                        <td class="text-break"><a href="https://www.geonames.org/3172394" target="_blank" rel="noopener">https://<wbr>www.geonames.org/<wbr>3172394 <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i></a></td>
+                      </tr>
+                      <tr>
+                        <td>Palermo</td>
+                        <td class="fonte-autorita d-none d-sm-table-cell">GeoNames</td>
+                        <td class="text-break"><a href="https://www.geonames.org/2523920" target="_blank" rel="noopener">https://<wbr>www.geonames.org/<wbr>2523920 <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i></a></td>
+                      </tr>
+                      <tr>
+                        <td>Venezia</td>
+                        <td class="fonte-autorita d-none d-sm-table-cell">GeoNames</td>
+                        <td class="text-break"><a href="https://www.geonames.org/3164603" target="_blank" rel="noopener">https://<wbr>www.geonames.org/<wbr>3164603 <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i></a></td>
+                      </tr>
+                      <tr>
+                        <td>Milano</td>
+                        <td class="fonte-autorita d-none d-sm-table-cell">GeoNames</td>
+                        <td class="text-break"><a href="https://www.geonames.org/3173435" target="_blank" rel="noopener">https://<wbr>www.geonames.org/<wbr>3173435 <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i></a></td>
+                      </tr>
+                      <tr>
+                        <td>Firenze</td>
+                        <td class="fonte-autorita d-none d-sm-table-cell">GeoNames</td>
+                        <td class="text-break"><a href="https://www.geonames.org/3176959" target="_blank" rel="noopener">https://<wbr>www.geonames.org/<wbr>3176959 <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i></a></td>
+                      </tr>
+                      <tr>
+                        <td>Pisa</td>
+                        <td class="fonte-autorita d-none d-sm-table-cell">GeoNames</td>
+                        <td class="text-break"><a href="https://www.geonames.org/3170647" target="_blank" rel="noopener">https://<wbr>www.geonames.org/<wbr>3170647 <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i></a></td>
+                      </tr>
+                      <tr>
+                        <td>Catania</td>
+                        <td class="fonte-autorita d-none d-sm-table-cell">GeoNames</td>
+                        <td class="text-break"><a href="https://www.geonames.org/2525068" target="_blank" rel="noopener">https://<wbr>www.geonames.org/<wbr>2525068 <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i></a></td>
+                      </tr>
+                      <tr>
+                        <td>Agrigento</td>
+                        <td class="fonte-autorita d-none d-sm-table-cell">GeoNames</td>
+                        <td class="text-break"><a href="https://www.geonames.org/2525764" target="_blank" rel="noopener">https://<wbr>www.geonames.org/<wbr>2525764 <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i></a></td>
+                      </tr>
+                      <tr>
+                        <td>Caltanissetta</td>
+                        <td class="fonte-autorita d-none d-sm-table-cell">GeoNames</td>
+                        <td class="text-break"><a href="https://www.geonames.org/2525448" target="_blank" rel="noopener">https://<wbr>www.geonames.org/<wbr>2525448 <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i></a></td>
+                      </tr>
+                      <tr>
+                        <td>Bari</td>
+                        <td class="fonte-autorita d-none d-sm-table-cell">GeoNames</td>
+                        <td class="text-break"><a href="https://www.geonames.org/3182351" target="_blank" rel="noopener">https://<wbr>www.geonames.org/<wbr>3182351 <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i></a></td>
+                      </tr>
+                      <tr>
+                        <td>Ascoli Piceno</td>
+                        <td class="fonte-autorita d-none d-sm-table-cell">GeoNames</td>
+                        <td class="text-break"><a href="https://www.geonames.org/3182749" target="_blank" rel="noopener">https://<wbr>www.geonames.org/<wbr>3182749 <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i></a></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- FASCIA "ENTI" (13 voci) -->
+          <div class="accordion-item fascia-enti">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                      data-bs-target="#voci-enti" aria-expanded="false" aria-controls="voci-enti">
+                <span class="testo-fascia">
+                  <span class="titolo-fascia">Enti</span>
+                  <span class="descrizione-fascia">Atenei, gruppi musicali, movimenti ed enti nominati nei documenti.</span>
+                </span>
+                <span class="badge conteggio-fascia ms-auto">13 voci</span>
+              </button>
+            </h2>
+            <div id="voci-enti" class="accordion-collapse collapse">
+              <div class="accordion-body">
+                <!-- Tabella delle voci (Table di Bootstrap). Sugli smartphone:
+                     - .d-none .d-sm-table-cell nasconde la colonna "Authority file" sotto i 576px
+                       (la fonte si legge comunque nell'URI);
+                     - <wbr> negli indirizzi indica dove possono andare a capo (dopo le barre);
+                     - .table-responsive fa scorrere la tabella dentro la fascia, se serve.
+                     Doc tabelle: https://getbootstrap.com/docs/5.3/content/tables/
+                     Doc display: https://getbootstrap.com/docs/5.3/utilities/display/ -->
+                <div class="table-responsive">
+                  <table class="table table-hover align-middle tabella-autorita mb-0">
+                    <thead>
+                      <tr>
+                        <th scope="col">Nome</th>
+                        <th scope="col" class="d-none d-sm-table-cell">Authority file</th>
+                        <th scope="col">URI</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Università degli Studi di Palermo</td>
+                        <td class="fonte-autorita d-none d-sm-table-cell">Wikidata</td>
+                        <td class="text-break"><a href="http://www.wikidata.org/entity/Q1641504" target="_blank" rel="noopener">http://<wbr>www.wikidata.org/<wbr>entity/<wbr>Q1641504 <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i></a></td>
+                      </tr>
+                      <tr>
+                        <td>Agenzia Grazia Neri</td>
+                        <td class="fonte-autorita d-none d-sm-table-cell">Wikidata</td>
+                        <td class="text-break"><a href="http://www.wikidata.org/entity/Q3775992" target="_blank" rel="noopener">http://<wbr>www.wikidata.org/<wbr>entity/<wbr>Q3775992 <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i></a></td>
+                      </tr>
+                      <tr>
+                        <td>Sapienza Università di Roma</td>
+                        <td class="fonte-autorita d-none d-sm-table-cell">Wikidata</td>
+                        <td class="text-break"><a href="http://www.wikidata.org/entity/Q209344" target="_blank" rel="noopener">http://<wbr>www.wikidata.org/<wbr>entity/<wbr>Q209344 <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i></a></td>
+                      </tr>
+                      <tr>
+                        <td>Università degli Studi di Firenze</td>
+                        <td class="fonte-autorita d-none d-sm-table-cell">Wikidata</td>
+                        <td class="text-break"><a href="http://www.wikidata.org/entity/Q820887" target="_blank" rel="noopener">http://<wbr>www.wikidata.org/<wbr>entity/<wbr>Q820887 <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i></a></td>
+                      </tr>
+                      <tr>
+                        <td>Istituto Universitario di Architettura di Venezia (IUAV)</td>
+                        <td class="fonte-autorita d-none d-sm-table-cell">Wikidata</td>
+                        <td class="text-break"><a href="http://www.wikidata.org/entity/Q727492" target="_blank" rel="noopener">http://<wbr>www.wikidata.org/<wbr>entity/<wbr>Q727492 <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i></a></td>
+                      </tr>
+                      <tr>
+                        <td>Università di Pisa</td>
+                        <td class="fonte-autorita d-none d-sm-table-cell">Wikidata</td>
+                        <td class="text-break"><a href="http://www.wikidata.org/entity/Q645663" target="_blank" rel="noopener">http://<wbr>www.wikidata.org/<wbr>entity/<wbr>Q645663 <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i></a></td>
+                      </tr>
+                      <tr>
+                        <td>TGR, Testata giornalistica regionale Rai (TG3 Toscana)</td>
+                        <td class="fonte-autorita d-none d-sm-table-cell">Wikidata</td>
+                        <td class="text-break"><a href="http://www.wikidata.org/entity/Q15080513" target="_blank" rel="noopener">http://<wbr>www.wikidata.org/<wbr>entity/<wbr>Q15080513 <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i></a></td>
+                      </tr>
+                      <tr>
+                        <td>Agenzia delle Entrate</td>
+                        <td class="fonte-autorita d-none d-sm-table-cell">Wikidata</td>
+                        <td class="text-break"><a href="http://www.wikidata.org/entity/Q392949" target="_blank" rel="noopener">http://<wbr>www.wikidata.org/<wbr>entity/<wbr>Q392949 <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i></a></td>
+                      </tr>
+                      <tr>
+                        <td>99 Posse</td>
+                        <td class="fonte-autorita d-none d-sm-table-cell">Wikidata</td>
+                        <td class="text-break"><a href="http://www.wikidata.org/entity/Q1648202" target="_blank" rel="noopener">http://<wbr>www.wikidata.org/<wbr>entity/<wbr>Q1648202 <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i></a></td>
+                      </tr>
+                      <tr>
+                        <td>Almamegretta</td>
+                        <td class="fonte-autorita d-none d-sm-table-cell">Wikidata</td>
+                        <td class="text-break"><a href="http://www.wikidata.org/entity/Q2645753" target="_blank" rel="noopener">http://<wbr>www.wikidata.org/<wbr>entity/<wbr>Q2645753 <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i></a></td>
+                      </tr>
+                      <tr>
+                        <td>Assalti Frontali</td>
+                        <td class="fonte-autorita d-none d-sm-table-cell">Wikidata</td>
+                        <td class="text-break"><a href="http://www.wikidata.org/entity/Q3625365" target="_blank" rel="noopener">http://<wbr>www.wikidata.org/<wbr>entity/<wbr>Q3625365 <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i></a></td>
+                      </tr>
+                      <tr>
+                        <td>Autonomia Operaia</td>
+                        <td class="fonte-autorita d-none d-sm-table-cell">Wikidata</td>
+                        <td class="text-break"><a href="http://www.wikidata.org/entity/Q6439582" target="_blank" rel="noopener">http://<wbr>www.wikidata.org/<wbr>entity/<wbr>Q6439582 <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i></a></td>
+                      </tr>
+                      <tr>
+                        <td>Istituto Universitario Orientale di Napoli (oggi «L'Orientale»)</td>
+                        <td class="fonte-autorita d-none d-sm-table-cell">Wikidata</td>
+                        <td class="text-break"><a href="http://www.wikidata.org/entity/Q1632525" target="_blank" rel="noopener">http://<wbr>www.wikidata.org/<wbr>entity/<wbr>Q1632525 <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i></a></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER =====
+       La testa di pantera è impostata come sfondo in css/style.css (.footer-pantera).
+       .col-md-7: i crediti occupano 7 colonne su 12 da 768px in su, lasciando spazio al disegno.
+       Doc griglia: https://getbootstrap.com/docs/5.3/layout/grid/
+       Doc spaziature (py-5, mb-3…): https://getbootstrap.com/docs/5.3/utilities/spacing/ -->
+  <footer class="footer-pantera py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-7">
+          <div class="crediti p-3">
+            <p class="titolo-footer mb-1">Rete Pantera</p>
+            <p class="mb-3">Progetto di Cristiano Bini per la prova finale dell'esame di
+              <!-- DA COMPLETARE: indirizzo della pagina del corso -->
+              <a href="#">Digital Humanities</a><br>
+              Alma Mater Studiorum, Università di Bologna · 2026</p>
+            <ul class="list-unstyled didascalia mb-0">
+              <li>Disegno: Archivio Storico della Nuova Sinistra «Marco Pezzi», fondo Pantera, fasc. 8.1, disegni 6.</li>
+              <li>Fotografie: vedi le didascalie nella pagina.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== JAVASCRIPT =====
+       Il bundle di Bootstrap fa funzionare Collapse (menu e fasce dell'accordion);
+       lo script comune evidenzia "Entità" nel menu.
+       Doc: https://getbootstrap.com/docs/5.3/getting-started/javascript/ -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>

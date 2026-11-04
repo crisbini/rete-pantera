@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Andrea Garuti, "Occupazione scuola", 1989 ca.-1990 ca., positivo b/n
+  Fonte: scheda SIRBeC SUP-10100-0004893 (MUFOCO - Museo Nazionale di Fotografia.
+  Cinisello Balsamo, Fondo Agenzia Grazia Neri).
+  Il record descrive la stampa originale, non il file digitale. 
+-->
+
+<record xmlns:dc="http://purl.org/dc/elements/1.1/"
+        xmlns:dcterms="http://purl.org/dc/terms/"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <dc:title>Occupazione scuola</dc:title>
+  <!-- titolazione 	per estensione dal titolo della serie -->
+
+  <dc:creator>Garuti, Andrea</dc:creator>
+  <!-- nessun record VIAF/SBN/Wikidata per l'autore apparte questo di cui sono dubbio (https://www.wikidata.org/wiki/Q94487701 , c'è anche un viaf ma poco chiaro);
+       codice dell'authority file regionale SIRBeC: AUF-10100-0000124 -->
+
+  <dc:subject>Pantera (movimento studentesco)</dc:subject>
+  <dcterms:subject xsi:type="dcterms:URI">http://www.wikidata.org/entity/Q3893439</dcterms:subject>
+
+  <dc:subject>Movimenti studenteschi</dc:subject>
+  <dcterms:subject xsi:type="dcterms:URI">https://thes.bncf.firenze.sbn.it/termine.php?id=16239</dcterms:subject>
+  <dcterms:subject xsi:type="dcterms:LCSH">http://id.loc.gov/authorities/subjects/sh85129276</dcterms:subject>
+ 
+  
+  <dc:description>Occupazione scuole. Scuola occupata, università - Aula - Movimento studentesco Pantera - Gruppo di ragazzi, studenti attorno a un tavolo - Giornali</dc:description>
+  
+  <dc:coverage>Italia</dc:coverage>
+  <dcterms:spatial xsi:type="dcterms:URI">https://www.geonames.org/3175395/italian-republic.html</dcterms:spatial>
+  <dcterms:temporal xsi:type="dcterms:Period">start=1989; end=1990; scheme=W3C-DTF;</dcterms:temporal>
+
+  <dc:date>1989 ca.-1990 ca.</dc:date>
+  <!-- EDTF / ISO 8601-2: "~" = circa -->
+  <dcterms:created>1989~/1990~</dcterms:created>
+
+  <dc:type>StillImage</dc:type>
+  <!-- si potrebbe usare anche "Image" come classe. -->
+  <dc:type>reportage</dc:type>
+
+  <dc:format>stampa b/n, gelatina bromuro d'argento su carta</dc:format>
+  <dcterms:medium xsi:type="dcterms:URI">http://vocab.getty.edu/page/aat/300128695</dcterms:medium>
+  <dcterms:extent>supporto 203 x 252 mm ca.; immagine 163 x 230 mm ca.; formato 20x25</dcterms:extent>
+
+  <dc:identifier>SUP-10100-0004893</dc:identifier>
+  <dc:identifier>AGN_14_ST_VV</dc:identifier>
+
+  <dc:relation>Fondo Agenzia Grazia Neri, serie Archivio gruppi e manifestazioni/ Manif. Italia, sottoserie Occupazione scuole</dc:relation>
+  <dcterms:isReferencedBy xsi:type="dcterms:URI">https://www.mufocosearch.org/schedafotografiapdf/SUP-10100-0004893</dcterms:isReferencedBy>
+  <dcterms:provenance>Agenzia Grazia Neri, Milano; in deposito dal 2010 presso il Museo di Fotografia Contemporanea (dal 2025 Museo Nazionale di Fotografia), Cinisello Balsamo.</dcterms:provenance>
+
+  <dc:rights>© Andrea Garuti, courtesy Museo Nazionale di Fotografia, Milano-Cinisello Balsamo</dc:rights>
+  <dcterms:rightsHolder>Garuti, Andrea</dcterms:rightsHolder>
+
+  <!-- dc:language lo ho omesso perchè è immagine fissa, nessun contenuto testuale significativo -->
+  <!-- dc:publisher ugualmente omesso perchè la fotografia non è pubblicata; l'agenzia figura come provenienza e hanno richiesto a Garuti se potessi utilizzare foto x progetto. -->
+  <!-- dc:source sostituita da dcterms:isreferencedBy -->
+
+</record>

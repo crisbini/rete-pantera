@@ -1,0 +1,656 @@
+/* =====================================================================
+   style.css — stile comune a tutte le pagine di Rete Pantera
+   Caricato dopo bootstrap.min.css: le regole qui sotto possono
+   sovrascrivere quelle di Bootstrap.
+   ===================================================================== */
+
+
+/* ---------- 1. VARIABILI ----------
+   Colori e font definiti una volta sola e richiamati con var(--nome).
+   Per cambiare il rosso in tutto il sito basta modificarlo qui. */
+:root {
+  --rp-nero: #0b0b0b;
+  --rp-rosso: #c8201e;          /* il rosso dello striscione */
+  --rp-rosso-scuro: #9e1715;
+  --rp-carta: #f3f0e8;          /* bianco "carta da volantino" */
+  --font-titoli: "Bebas Neue", Impact, sans-serif;
+  --font-testo: "IBM Plex Sans", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+}
+
+
+/* ---------- 2. BASE ---------- */
+body {
+  font-family: var(--font-testo);
+  color: var(--rp-nero);
+}
+
+/* Titoli grandi nello stesso carattere condensato del logo */
+.titolo-sezione,
+.card-title,
+.titolo-footer {
+  font-family: var(--font-titoli);
+  letter-spacing: 0.03em;
+}
+
+.titolo-sezione {
+  font-size: clamp(2.4rem, 5vw, 3.5rem);   /* si adatta alla larghezza dello schermo */
+  line-height: 1;
+  margin-bottom: 1rem;
+}
+
+/* Etichette piccole in maiuscolo (es. "oppure esplora per", "Visualizzazione", "Filtro") */
+.etichetta {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--rp-rosso);
+}
+
+/* Didascalie e crediti delle immagini */
+.didascalia {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: #6c6c6c;
+}
+
+
+/* ---------- 3. PULSANTE ROSSO ----------
+   Variante personalizzata di .btn: Bootstrap 5.3 legge i colori dei pulsanti
+   da variabili CSS (--bs-btn-*), quindi basta ridefinirle.
+   Doc: https://getbootstrap.com/docs/5.3/components/buttons/#variables */
+.btn-pantera {
+  --bs-btn-color: #fff;
+  --bs-btn-bg: var(--rp-rosso);
+  --bs-btn-border-color: var(--rp-rosso);
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: var(--rp-rosso-scuro);
+  --bs-btn-hover-border-color: var(--rp-rosso-scuro);
+  --bs-btn-active-bg: var(--rp-rosso-scuro);
+  --bs-btn-active-border-color: var(--rp-rosso-scuro);
+  --bs-btn-disabled-color: #fff;              /* pulsante disattivato (.disabled): */
+  --bs-btn-disabled-bg: var(--rp-rosso);      /* stesso rosso, che Bootstrap rende */
+  --bs-btn-disabled-border-color: var(--rp-rosso);   /* semitrasparente (opacità 0.65) */
+  border-radius: 0;
+  font-family: var(--font-titoli);
+  font-size: 1.35rem;
+  letter-spacing: 0.05em;
+}
+
+
+/* ---------- 4. HEADER / NAVBAR ---------- */
+.logo {
+  height: 110px;
+  width: auto;
+}
+
+/* Sugli smartphone (sotto i 576px, breakpoint "sm" di Bootstrap) il logo si riduce,
+   così resta sulla stessa riga del pulsante del menu.
+   Doc breakpoint: https://getbootstrap.com/docs/5.3/layout/breakpoints/ */
+@media (max-width: 575.98px) {
+  .logo {
+    height: 72px;
+  }
+}
+
+.navbar .nav-link {
+  font-family: var(--font-titoli);
+  font-size: 1.75rem;
+  letter-spacing: 0.06em;
+  margin-left: 1rem;
+}
+
+/* Voce sotto il mouse o pagina corrente (classe .active aggiunta da script.js):
+   sottolineatura rossa spessa */
+.navbar .nav-link:hover,
+.navbar .nav-link.active {
+  color: #fff;
+  text-decoration: underline;
+  text-decoration-color: var(--rp-rosso);
+  text-decoration-thickness: 3px;
+  text-underline-offset: 6px;
+}
+
+
+/* ---------- 5. HERO ---------- */
+.hero .figure {
+  max-width: 960px;               /* la foto originale è piccola: non la allarghiamo troppo */
+}
+
+.hero .didascalia {
+  color: #a0a0a0;
+}
+
+
+/* ---------- 6. DESCRIZIONE DEL PROGETTO ---------- */
+.sezione-descrizione {
+  background-color: var(--rp-carta);
+}
+
+
+/* ---------- 7. ESPLORA IL CATALOGO ----------
+   .sfondo-corteo è riutilizzabile: in index.html fa da sfondo a "Esplora il catalogo",
+   in catalogo.html al titolo con la barra di ricerca.
+   Sfondo con due livelli: sopra un velo bianco al 75%, sotto la fotografia
+   del corteo. Il velo rende la foto "trasparente" e il testo leggibile:
+   abbassando il valore (es. 0.65) la foto si vede di più, alzandolo (0.9) di meno. */
+.sfondo-corteo {
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.75)),
+    url("../img/sfondo-esplora.jpg") center / cover no-repeat;
+}
+
+/* Card squadrate con bordo nero; al passaggio del mouse si sollevano
+   e compare un'ombra rossa sfalsata, come un ritaglio incollato.
+   Stesso stile per le card della home (.card-vista) e del catalogo (.card-oggetto). */
+.card-vista,
+.card-oggetto {
+  border: 2px solid var(--rp-nero);
+  border-radius: 0;
+  background-color: #fff;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.card-vista:hover,
+.card-oggetto:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 6px 6px 0 var(--rp-rosso);
+}
+
+.card-vista .card-title {
+  font-size: 2rem;
+}
+
+.card-vista .btn {
+  border-radius: 0;
+}
+
+.icona-vista {
+  display: block;
+  font-size: 2.5rem;
+  color: var(--rp-rosso);
+  margin-bottom: 0.5rem;
+}
+
+
+/* ---------- 8. FOOTER ----------
+   La testa di pantera è un'immagine di sfondo allineata a destra
+   e alta quanto il footer. */
+.footer-pantera {
+  min-height: 340px;
+  background: #fff url("../img/footer-pantera.jpg") right bottom / auto 100% no-repeat;
+  border-top: 6px solid var(--rp-nero);
+}
+
+/* Riquadro dei crediti: fondo bianco semitrasparente, così il testo resta
+   leggibile anche su schermi stretti, dove il disegno finisce sotto il testo */
+.footer-pantera .crediti {
+  background-color: rgba(255, 255, 255, 0.88);
+  max-width: 34rem;
+}
+
+.titolo-footer {
+  font-size: 2.2rem;
+  line-height: 1;
+}
+
+.footer-pantera a {
+  color: var(--rp-rosso);
+}
+
+
+/* ---------- 9. PAGINA CATALOGO ---------- */
+
+/* 9.1 Barra di ricerca "google-like": una pillola bianca con la lente.
+   Gli input-group-lg di Bootstrap leggono il raggio degli angoli da
+   --bs-border-radius-lg: portandolo a 50rem gli estremi diventano tondi.
+   Doc input group: https://getbootstrap.com/docs/5.3/forms/input-group/ */
+.ricerca {
+  max-width: 640px;
+  --bs-border-radius-lg: 50rem;
+}
+
+.ricerca .input-group-text,
+.ricerca .form-control {
+  background-color: #fff;
+  border: 2px solid var(--rp-nero);
+}
+
+.ricerca .input-group-text {
+  border-right: 0;
+  color: var(--rp-rosso);
+}
+
+.ricerca .form-control {
+  border-left: 0;
+}
+
+/* Al clic nella barra: alone rosso attorno all'intera pillola */
+.ricerca .form-control:focus {
+  box-shadow: none;
+  border-color: var(--rp-nero);
+}
+
+.ricerca .input-group:focus-within {
+  border-radius: 50rem;
+  box-shadow: 0 0 0 0.25rem rgba(200, 32, 30, 0.25);
+}
+
+/* 9.2 Fascia laterale: blocchi "Visualizzazione" e "Filtro" */
+.blocco-laterale {
+  border: 2px solid var(--rp-nero);
+  background-color: var(--rp-carta);
+}
+
+/* Tre pulsanti quadrati (Lista, Card, Mappa), icona sopra e nome sotto.
+   Sono i pulsanti di un componente Tab: Bootstrap aggiunge .active a quello scelto. */
+.scelta-vista {
+  gap: 0.5rem;
+}
+
+.scelta-vista .nav-link {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.5rem 0.25rem;
+  color: var(--rp-nero);
+  background-color: #fff;
+  border: 2px solid var(--rp-nero);
+  border-radius: 0;
+  font-family: var(--font-titoli);
+  font-size: 1.15rem;
+  letter-spacing: 0.05em;
+}
+
+.scelta-vista .nav-link .bi {
+  font-size: 1.6rem;
+}
+
+.scelta-vista .nav-link.active {
+  color: #fff;
+  background-color: var(--rp-nero);
+}
+
+.blocco-laterale .form-label {
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+/* I pulsanti dei filtri hanno la classe .form-select per sembrare menu a tendina */
+.blocco-laterale .form-select {
+  border: 2px solid var(--rp-nero);
+  border-radius: 0;
+}
+
+/* Elenco a discesa con le caselle di spunta (componente Dropdown) */
+.menu-filtro {
+  border: 2px solid var(--rp-nero);
+  border-radius: 0;
+}
+
+.menu-filtro .dropdown-item {
+  cursor: pointer;
+}
+
+/* Al clic Bootstrap colorerebbe la voce di blu: la lasciamo neutra */
+.menu-filtro .dropdown-item:active {
+  color: var(--rp-nero);
+  background-color: var(--rp-carta);
+}
+
+.menu-filtro .form-check-input:checked {
+  background-color: var(--rp-rosso);
+  border-color: var(--rp-rosso);
+}
+
+/* 9.3 Banda orizzontale delle tipologie: solo indicatore, non cliccabile.
+   La voce con la classe .acceso (aggiunta da catalogo.js) si colora di rosso. */
+.banda-tipologie {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  list-style: none;
+  margin: 0 0 0.75rem;
+  padding: 0.5rem 0;
+  border-top: 2px solid var(--rp-nero);
+  border-bottom: 2px solid var(--rp-nero);
+}
+
+.banda-tipologie .tipo {
+  padding: 0.1rem 0.6rem;
+  font-family: var(--font-titoli);
+  font-size: 1.3rem;
+  letter-spacing: 0.05em;
+  color: #9a9a9a;
+  cursor: default;
+  user-select: none;
+}
+
+.banda-tipologie .tipo.acceso {
+  color: #fff;
+  background-color: var(--rp-rosso);
+}
+
+/* 9.4 Vista lista: tabella in stile "dettagli" di un esplora risorse */
+.tabella-catalogo thead th {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #6c6c6c;
+  border-bottom: 2px solid var(--rp-nero);
+}
+
+.tabella-catalogo .bi {
+  color: var(--rp-rosso);
+  font-size: 1.2rem;
+}
+
+.tabella-catalogo a {
+  color: var(--rp-nero);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.tabella-catalogo a:hover {
+  color: var(--rp-rosso);
+  text-decoration: underline;
+}
+
+/* 9.5 Vista card: riquadro nero con l'icona della tipologia;
+   se l'oggetto ha un'immagine, questa copre l'icona (position: absolute).
+   Se l'immagine non si carica, catalogo.js la rimuove e torna visibile l'icona.
+   aspect-ratio: il riquadro è sempre 16:10, qualunque sia la larghezza della card. */
+.anteprima {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: var(--rp-nero);
+}
+
+.anteprima .bi {
+  font-size: 3.5rem;
+  color: #fff;
+}
+
+.anteprima img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;              /* riempie il riquadro senza deformare l'immagine */
+}
+
+/* Oggetti con intera: true (copertine, loghi, disegni verticali):
+   immagine intera, senza ritagli, su fondo bianco */
+.anteprima img.intera {
+  object-fit: contain;
+  padding: 0.5rem;
+  background-color: #fff;
+}
+
+.card-oggetto .card-title {
+  font-size: 1.6rem;
+  line-height: 1.05;
+}
+
+.tipo-oggetto {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--rp-rosso);
+}
+
+.card-oggetto .card-footer {
+  background-color: transparent;
+  border-top: 2px solid var(--rp-nero);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+}
+
+.card-oggetto .card-footer a {
+  color: var(--rp-rosso);
+}
+
+/* Titolo della card: link alla pagina item, con l'aspetto del testo normale */
+.card-oggetto .card-title a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Link all'istituzione: position + z-index lo portano sopra lo stretched-link,
+   così si può cliccare separatamente dal resto della card.
+   Doc: https://getbootstrap.com/docs/5.3/helpers/stretched-link/ */
+.link-fonte {
+  position: relative;
+  z-index: 2;
+}
+
+.tabella-catalogo .link-fonte {
+  font-weight: 400;
+  color: var(--rp-rosso);
+}
+
+/* Righe della lista che portano a una pagina item */
+.riga-cliccabile {
+  cursor: pointer;
+}
+
+/* 9.6 Vista mappa: segnaposto in attesa della mappa Leaflet */
+.segnaposto-mappa {
+  min-height: 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  text-align: center;
+  border: 2px dashed var(--rp-nero);
+  background-color: var(--rp-carta);
+}
+
+.segnaposto-mappa .bi {
+  font-size: 3rem;
+  color: var(--rp-rosso);
+}
+
+
+/* ---------- 10. PAGINE ITEM ---------- */
+
+/* Briciole di pane sotto il titolo (componente Breadcrumb).
+   Doc: https://getbootstrap.com/docs/5.3/components/breadcrumb/ */
+.breadcrumb {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+}
+
+.breadcrumb a {
+  color: var(--rp-rosso);
+}
+
+/* Card con l'immagine dell'oggetto: cornice nera con l'icona della tipologia;
+   l'immagine sta sopra l'icona (z-index) e se non si carica viene rimossa. */
+.immagine-item {
+  border: 2px solid var(--rp-nero);
+  border-radius: 0;
+}
+
+.cornice-item {
+  position: relative;
+  min-height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--rp-nero);
+}
+
+.cornice-item .bi {
+  position: absolute;
+  font-size: 3rem;
+  color: #fff;
+}
+
+.cornice-item img {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+}
+
+/* Tabella dei metadati: nome dell'elemento a sinistra, valore a destra */
+.tabella-metadati th {
+  width: 32%;
+  font-weight: 600;
+}
+
+/* Nome tecnico dell'elemento Dublin Core sotto l'etichetta (es. dc:title) */
+.elemento-dc {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: var(--rp-rosso);
+}
+
+/* Link ai record di autorità (Wikidata, GeoNames, Getty AAT...): piccole etichette */
+.link-autorita {
+  display: inline-block;
+  margin-left: 0.35rem;
+  padding: 0 0.4rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--rp-rosso);
+  border: 1px solid var(--rp-rosso);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.link-autorita:hover {
+  color: #fff;
+  background-color: var(--rp-rosso);
+}
+
+
+/* ---------- 11. PAGINA VOCI DI AUTORITÀ ---------- */
+
+/* 11.1 Accordion: Bootstrap 5.3 legge colori e bordi dell'accordion da variabili CSS
+   (--bs-accordion-*): basta ridefinirle per adattarlo allo stile del sito.
+   Doc variabili: https://getbootstrap.com/docs/5.3/components/accordion/#variables */
+.accordion-autorita {
+  --bs-accordion-border-color: var(--rp-nero);
+  --bs-accordion-border-width: 2px;
+  --bs-accordion-border-radius: 0;
+  --bs-accordion-inner-border-radius: 0;
+  --bs-accordion-btn-padding-y: 1.25rem;
+  --bs-accordion-active-color: var(--rp-nero);       /* fascia aperta: testo nero... */
+  --bs-accordion-active-bg: var(--rp-carta);          /* ...su fondo "carta" invece che azzurro */
+  --bs-accordion-btn-active-icon: var(--bs-accordion-btn-icon);   /* freccia nera anche da aperta */
+  --bs-accordion-btn-focus-box-shadow: 0 0 0 0.25rem rgba(200, 32, 30, 0.25);
+}
+
+/* Fasce separate tra loro (Bootstrap di norma le attacca l'una all'altra)
+   e con un bordo sinistro spesso nel colore della tabella corrispondente nell'Excel */
+.accordion-autorita .accordion-item {
+  margin-bottom: 1rem;
+  border-left: 12px solid var(--colore-fascia);
+}
+
+.accordion-autorita .accordion-item:not(:first-of-type) {
+  border-top: var(--bs-accordion-border-width) solid var(--bs-accordion-border-color);
+}
+
+/* I quattro colori delle tabelle del file di riconciliazione */
+.fascia-istituzioni { --colore-fascia: #e97132; }   /* arancio */
+.fascia-persone     { --colore-fascia: #a02b93; }   /* viola */
+.fascia-luoghi      { --colore-fascia: #0f9ed5; }   /* azzurro */
+.fascia-enti        { --colore-fascia: #156082; }   /* blu scuro */
+
+/* 11.2 Barra cliccabile: titolo grande e descrizione a sinistra,
+   numero delle voci e freccia a destra */
+.testo-fascia {
+  display: flex;
+  flex-direction: column;
+  padding-right: 1rem;
+}
+
+.titolo-fascia {
+  font-family: var(--font-titoli);
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
+  letter-spacing: 0.04em;
+  line-height: 1;
+}
+
+.descrizione-fascia {
+  margin-top: 0.3rem;
+  font-size: 0.92rem;
+  color: #555;
+}
+
+.conteggio-fascia {
+  flex-shrink: 0;                 /* il badge non si restringe sugli schermi stretti */
+  border-radius: 0;
+  font-family: var(--font-mono);
+  font-weight: 400;
+  color: #fff;
+  background-color: var(--rp-nero);
+}
+
+.accordion-autorita .accordion-button::after {
+  margin-left: 1rem;              /* la freccia segue il badge invece di spingerlo */
+}
+
+/* 11.3 Tabelle delle voci */
+.tabella-autorita thead th {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #6c6c6c;
+  border-bottom: 2px solid var(--rp-nero);
+}
+
+.tabella-autorita td:first-child {
+  font-weight: 600;
+}
+
+.fonte-autorita {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  white-space: nowrap;
+}
+
+.tabella-autorita a {
+  color: var(--rp-rosso);
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+}
+
+
+/* ---------- 12. ANALISI DEL TESTO (VOYANT TOOLS) ---------- */
+
+/* Fascia in fondo alla pagina dell'articolo, separata dalla scheda da un bordo nero */
+.sezione-voyant {
+  background-color: var(--rp-carta);
+  border-top: 2px solid var(--rp-nero);
+}
+
+/* Riquadro degli strumenti Voyant: largo quanto la colonna, altezza fissa
+   (gli strumenti di Voyant hanno bisogno di spazio in verticale) */
+.voyant-frame {
+  display: block;
+  width: 100%;
+  height: 460px;
+  border: 2px solid var(--rp-nero);
+  background-color: #fff;
+}
+
+.sezione-voyant .didascalia a {
+  color: var(--rp-rosso);
+}

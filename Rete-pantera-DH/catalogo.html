@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <!-- ===== METADATI DI BASE =====
+       Come in index.html; i metadati Dublin Core completi sono nella index.
+       Doc: https://getbootstrap.com/docs/5.3/getting-started/introduction/#quick-start -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Catalogo · Rete Pantera</title>
+  <meta name="description" content="Catalogo degli oggetti di Rete Pantera: testi, volantini, fotografie, disegni, audio, musica e video sul movimento della Pantera (1989-1990), consultabili come lista o come card.">
+
+  <!-- ===== CSS =====
+       Stessi file della home: Bootstrap, icone, font e il nostro style.css. -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono&family=IBM+Plex+Sans:wght@400;600&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <!-- ===== HEADER / NAVBAR =====
+       .sticky-top sull'header: la barra resta in alto durante lo scorrimento.
+       .navbar-expand-lg: menu orizzontale da 992px in su; sotto diventa un pulsante "hamburger"
+       che apre il menu grazie al componente Collapse (data-bs-toggle / data-bs-target).
+       data-bs-theme="dark": colori del testo pensati per lo sfondo nero.
+       .ms-auto: margine sinistro automatico, spinge le voci a destra.
+       Doc navbar: https://getbootstrap.com/docs/5.3/components/navbar/
+       Doc collapse: https://getbootstrap.com/docs/5.3/components/collapse/ -->
+  <header class="sticky-top">
+    <nav class="navbar navbar-expand-lg bg-black" data-bs-theme="dark" aria-label="Navigazione principale">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">
+          <img src="img/logo.jpg" alt="Rete Pantera, torna alla home" class="logo">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu"
+                aria-controls="menu" aria-expanded="false" aria-label="Apri il menu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="menu">
+          <ul class="navbar-nav ms-auto">
+            <!-- Introduzione: segnaposto non cliccabile, pagina da realizzare.
+                 .disabled + aria-disabled="true" e nessun href: la voce resta visibile ma spenta.
+                 Doc: https://getbootstrap.com/docs/5.3/components/navbar/#nav -->
+            <li class="nav-item"><a class="nav-link disabled" aria-disabled="true">Introduzione</a></li>
+            <li class="nav-item"><a class="nav-link" href="catalogo.html">Catalogo</a></li>
+            <li class="nav-item"><a class="nav-link" href="voci-autorita.html">Entità</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ===== TITOLO E RICERCA =====
+         Stesso sfondo semitrasparente di "Esplora il catalogo" nella home (.sfondo-corteo).
+         Barra di ricerca: un Input group (icona + campo di testo) dentro un <form role="search">.
+         La ricerca agisce mentre si scrive (vedi js/catalogo.js, sezione 6).
+         Doc input group: https://getbootstrap.com/docs/5.3/forms/input-group/
+         Doc campi di testo: https://getbootstrap.com/docs/5.3/forms/form-control/ -->
+    <section class="sfondo-corteo py-5">
+      <div class="container text-center">
+        <h1 class="titolo-sezione">Catalogo</h1>
+        <form id="form-ricerca" class="ricerca mx-auto" role="search">
+          <div class="input-group input-group-lg">
+            <span class="input-group-text"><i class="bi bi-search" aria-hidden="true"></i></span>
+            <input type="search" id="cerca" class="form-control" placeholder="Cerca" aria-label="Cerca nel catalogo per titolo, autore o fonte">
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- ===== CONTENUTO: FASCIA LATERALE + BOX CONTENUTI =====
+         Griglia: a sinistra <aside> di 3 colonne su 12, a destra i contenuti su 9.
+         Sotto i 992px la fascia laterale va sopra i contenuti; tra 768 e 992px
+         i due blocchi laterali stanno affiancati (.col-md-6 .col-lg-12).
+         Doc griglia: https://getbootstrap.com/docs/5.3/layout/grid/ -->
+    <section class="py-5">
+      <div class="container">
+        <div class="row g-4">
+
+          <aside class="col-lg-3">
+            <div class="row g-4">
+
+              <!-- BLOCCO "VISUALIZZAZIONE"
+                   Tre pulsanti di un componente Tab (nav-pills): ognuno mostra un pannello
+                   del box contenuti (data-bs-target="#vista-..."). Lo scambio dei pannelli
+                   lo fa Bootstrap, senza codice nostro.
+                   data-vista è letto da js/script.js: se l'indirizzo è catalogo.html?vista=lista
+                   si apre direttamente la lista (scelta fatta nella home).
+                   Doc Tab: https://getbootstrap.com/docs/5.3/components/navs-tabs/#javascript-behavior -->
+              <div class="col-md-6 col-lg-12">
+                <div class="blocco-laterale p-3">
+                  <h2 class="etichetta">Visualizzazione</h2>
+                  <div class="nav nav-pills scelta-vista" role="tablist">
+                    <button class="nav-link" id="tab-lista" data-vista="lista" data-bs-toggle="tab" data-bs-target="#vista-lista"
+                            type="button" role="tab" aria-controls="vista-lista" aria-selected="false">
+                      <i class="bi bi-list-ul" aria-hidden="true"></i>Lista
+                    </button>
+                    <button class="nav-link active" id="tab-card" data-vista="card" data-bs-toggle="tab" data-bs-target="#vista-card"
+                            type="button" role="tab" aria-controls="vista-card" aria-selected="true">
+                      <i class="bi bi-grid-3x3-gap" aria-hidden="true"></i>Card
+                    </button>
+                    <button class="nav-link" id="tab-mappa" data-vista="mappa" data-bs-toggle="tab" data-bs-target="#vista-mappa"
+                            type="button" role="tab" aria-controls="vista-mappa" aria-selected="false">
+                      <i class="bi bi-geo-alt" aria-hidden="true"></i>Mappa
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- BLOCCO "FILTRO"
+                   Tre menu a tendina con caselle di spunta: componente Dropdown di Bootstrap
+                   con dentro dei checkbox (form-check-input).
+                   - il pulsante ha la classe .form-select solo per avere l'aspetto di un menu a tendina
+                     (bordo e freccia); data-bs-toggle="dropdown" apre e chiude l'elenco;
+                   - data-bs-auto-close="outside": l'elenco resta aperto mentre si spuntano le caselle
+                     e si chiude cliccando fuori;
+                   - data-nome è il nome leggibile usato da js/catalogo.js per il testo del pulsante.
+                   Funziona solo Tipologia; Fondo e Luogo sono disattivati (disabled), da implementare.
+                   Il pulsante "Filtra" invia il form; js/catalogo.js applica la scelta.
+                   Doc dropdown: https://getbootstrap.com/docs/5.3/components/dropdowns/
+                   Doc chiusura automatica: https://getbootstrap.com/docs/5.3/components/dropdowns/#auto-close-behavior
+                   Doc caselle di spunta: https://getbootstrap.com/docs/5.3/forms/checks-radios/ -->
+              <div class="col-md-6 col-lg-12">
+                <form id="form-filtro" class="blocco-laterale p-3">
+                  <h2 class="etichetta">Filtro</h2>
+
+                  <p class="form-label" id="etichetta-tipologia">Tipologia</p>
+                  <div class="dropdown mb-3">
+                    <button id="pulsante-tipologia" class="form-select text-start" type="button"
+                            data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false"
+                            aria-describedby="etichetta-tipologia">All (tutte)</button>
+                    <ul id="menu-tipologia" class="dropdown-menu w-100 menu-filtro">
+                      <li><label class="dropdown-item"><input class="form-check-input me-2" type="checkbox" value="ALL" checked>All (tutte)</label></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li><label class="dropdown-item"><input class="form-check-input me-2" type="checkbox" value="TESTO" data-nome="Testo" checked>Testo</label></li>
+                      <li><label class="dropdown-item"><input class="form-check-input me-2" type="checkbox" value="VOLANTINO" data-nome="Volantino" checked>Volantino</label></li>
+                      <li><label class="dropdown-item"><input class="form-check-input me-2" type="checkbox" value="FAX" data-nome="Fax" checked>Fax</label></li>
+                      <li><label class="dropdown-item"><input class="form-check-input me-2" type="checkbox" value="DISEGNO" data-nome="Disegno" checked>Disegno</label></li>
+                      <li><label class="dropdown-item"><input class="form-check-input me-2" type="checkbox" value="FOTO" data-nome="Foto" checked>Foto</label></li>
+                      <li><label class="dropdown-item"><input class="form-check-input me-2" type="checkbox" value="AUDIO" data-nome="Audio" checked>Audio</label></li>
+                      <li><label class="dropdown-item"><input class="form-check-input me-2" type="checkbox" value="MUSICA" data-nome="Musica" checked>Musica</label></li>
+                      <li><label class="dropdown-item"><input class="form-check-input me-2" type="checkbox" value="VIDEO" data-nome="Video" checked>Video</label></li>
+                    </ul>
+                  </div>
+
+                  <!-- Fondo e Luogo: stesso aspetto, ma disattivati (da implementare) -->
+                  <p class="form-label">Fondo</p>
+                  <div class="dropdown mb-3">
+                    <button class="form-select text-start" type="button" disabled>All (tutte)</button>
+                  </div>
+
+                  <p class="form-label">Luogo</p>
+                  <div class="dropdown mb-3">
+                    <button class="form-select text-start" type="button" disabled>All (tutte)</button>
+                  </div>
+
+                  <button type="submit" class="btn btn-pantera w-100">
+                    <i class="bi bi-funnel" aria-hidden="true"></i> Filtra
+                  </button>
+                </form>
+              </div>
+
+            </div>
+          </aside>
+
+          <!-- ===== BOX CONTENUTI ===== -->
+          <div class="col-lg-9">
+            <h2 class="visually-hidden">Oggetti del catalogo</h2>
+
+            <!-- BANDA DELLE TIPOLOGIE
+                 Solo indicatore: non si clicca. js/catalogo.js aggiunge la classe .acceso
+                 alla voce con data-tipo uguale alla tipologia scelta nel filtro. -->
+            <ul class="banda-tipologie" aria-label="Tipologie del catalogo; quella evidenziata è il filtro attivo">
+              <li class="tipo" data-tipo="ALL">All</li>
+              <li class="tipo" data-tipo="TESTO">Testo</li>
+              <li class="tipo" data-tipo="VOLANTINO">Volantino</li>
+              <li class="tipo" data-tipo="FAX">Fax</li>
+              <li class="tipo" data-tipo="DISEGNO">Disegno</li>
+              <li class="tipo" data-tipo="FOTO">Foto</li>
+              <li class="tipo" data-tipo="AUDIO">Audio</li>
+              <li class="tipo" data-tipo="MUSICA">Musica</li>
+              <li class="tipo" data-tipo="VIDEO">Video</li>
+            </ul>
+
+            <p id="contatore" class="didascalia mb-3" aria-live="polite"></p>
+
+            <!-- PANNELLI DEL COMPONENTE TAB
+                 .tab-pane = un pannello; .show .active = quello visibile all'apertura (Card).
+                 Le righe (#righe-lista) e le card (#griglia-card) sono scritte da js/catalogo.js
+                 a partire dai dati di js/dati.js. -->
+            <div class="tab-content">
+
+              <!-- Vista LISTA: Table di Bootstrap.
+                   .table-hover evidenzia la riga sotto il mouse; .table-responsive permette
+                   lo scorrimento orizzontale su schermi stretti.
+                   Doc tabelle: https://getbootstrap.com/docs/5.3/content/tables/ -->
+              <div class="tab-pane fade" id="vista-lista" role="tabpanel" aria-labelledby="tab-lista" tabindex="0">
+                <div class="table-responsive">
+                  <table class="table table-hover align-middle tabella-catalogo">
+                    <thead>
+                      <tr>
+                        <th scope="col">Titolo</th>
+                        <th scope="col">Tipologia</th>
+                        <th scope="col" class="d-none d-md-table-cell">Autore</th>
+                        <th scope="col" class="d-none d-md-table-cell">Data</th>
+                        <th scope="col" class="d-none d-lg-table-cell">Istituzione</th>
+                      </tr>
+                    </thead>
+                    <tbody id="righe-lista"></tbody>
+                  </table>
+                </div>
+              </div>
+
+              <!-- Vista CARD: griglia di Card di Bootstrap.
+                   .row-cols-1 .row-cols-sm-2 .row-cols-xl-3: 1, 2 o 3 card per riga secondo lo schermo.
+                   Doc card: https://getbootstrap.com/docs/5.3/components/card/
+                   Doc row-cols: https://getbootstrap.com/docs/5.3/layout/grid/#row-columns -->
+              <div class="tab-pane fade show active" id="vista-card" role="tabpanel" aria-labelledby="tab-card" tabindex="0">
+                <div id="griglia-card" class="row row-cols-1 row-cols-sm-2 row-cols-xl-3 g-4"></div>
+              </div>
+
+              <!-- Vista MAPPA: non implementata (segnaposto). Mostrerebbe dove sono
+                   conservati gli oggetti: la distribuzione geografica di archivi, fondi e istituzioni. -->
+              <div class="tab-pane fade" id="vista-mappa" role="tabpanel" aria-labelledby="tab-mappa" tabindex="0">
+                <div class="segnaposto-mappa">
+                  <i class="bi bi-geo-alt" aria-hidden="true"></i>
+                  <p class="titolo-sezione fs-2 mt-2 mb-1">Mappa in preparazione</p>
+                  <p class="mb-0">Dove sono conservate le fonti: la distribuzione geografica degli archivi, dei fondi e delle istituzioni che custodiscono i documenti sulla Pantera.</p>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Messaggio mostrato da js/catalogo.js quando nessun oggetto corrisponde.
+                 .d-none lo nasconde finché serve. Doc: https://getbootstrap.com/docs/5.3/utilities/display/ -->
+            <p id="nessun-risultato" class="d-none mt-3">Nessun oggetto corrisponde alla ricerca o al filtro scelto.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER =====
+       La testa di pantera è impostata come sfondo in css/style.css (.footer-pantera).
+       .col-md-7: i crediti occupano 7 colonne su 12 da 768px in su, lasciando spazio al disegno.
+       Doc griglia: https://getbootstrap.com/docs/5.3/layout/grid/
+       Doc spaziature (py-5, mb-3…): https://getbootstrap.com/docs/5.3/utilities/spacing/ -->
+  <footer class="footer-pantera py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-7">
+          <div class="crediti p-3">
+            <p class="titolo-footer mb-1">Rete Pantera</p>
+            <p class="mb-3">Progetto di Cristiano Bini per la prova finale dell'esame di
+              <!-- DA COMPLETARE: indirizzo della pagina del corso -->
+              <a href="#">Digital Humanities</a><br>
+              Alma Mater Studiorum, Università di Bologna · 2026</p>
+            <ul class="list-unstyled didascalia mb-0">
+              <li>Disegno: Archivio Storico della Nuova Sinistra «Marco Pezzi», fondo Pantera, fasc. 8.1, disegni 6.</li>
+              <li>Fotografie: vedi le didascalie nella pagina.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== JAVASCRIPT =====
+       Ordine importante:
+       1. bootstrap.bundle: fa funzionare Collapse (menu) e Tab (viste);
+       2. dati.js: definisce l'elenco degli oggetti;
+       3. catalogo.js: usa quell'elenco per costruire lista e card;
+       4. script.js: comune a tutte le pagine (voce attiva del menu, vista scelta nella home).
+       Doc: https://getbootstrap.com/docs/5.3/getting-started/javascript/ -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/dati.js"></script>
+  <script src="js/catalogo.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>
