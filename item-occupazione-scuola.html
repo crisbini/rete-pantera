@@ -1,15 +1,12 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <!-- ===== METADATI DI BASE ===== -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Occupazione scuola · Rete Pantera</title>
   <meta name="description" content="Andrea Garuti, Occupazione scuola, 1989-1990 ca.: fotografia di studenti in un'aula universitaria occupata durante il movimento della Pantera. Scheda e metadati Dublin Core.">
 
-  <!-- ===== METADATI DUBLIN CORE DELL'OGGETTO =====
-       Gli stessi valori della tabella nel corpo della pagina e del file xml/dc_occupazione-scuola.xml.
-       Doc: https://www.dublincore.org/specifications/dublin-core/dc-html/ -->
+  
   <link rel="schema.DC" href="http://purl.org/dc/elements/1.1/">
   <meta name="DC.title" lang="it" content="Occupazione scuola">
   <meta name="DC.creator" content="Garuti, Andrea">
@@ -22,7 +19,7 @@
   <meta name="DC.coverage" lang="it" content="Italia">
   <meta name="DC.rights" lang="it" content="© Andrea Garuti, courtesy Museo Nazionale di Fotografia, Milano-Cinisello Balsamo">
 
-  <!-- ===== CSS ===== Stessi file delle altre pagine. -->
+ 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -33,14 +30,7 @@
 
 <body>
 
-  <!-- ===== HEADER / NAVBAR =====
-       .sticky-top sull'header: la barra resta in alto durante lo scorrimento.
-       .navbar-expand-lg: menu orizzontale da 992px in su; sotto diventa un pulsante "hamburger"
-       che apre il menu grazie al componente Collapse (data-bs-toggle / data-bs-target).
-       data-bs-theme="dark": colori del testo pensati per lo sfondo nero.
-       .ms-auto: margine sinistro automatico, spinge le voci a destra.
-       Doc navbar: https://getbootstrap.com/docs/5.3/components/navbar/
-       Doc collapse: https://getbootstrap.com/docs/5.3/components/collapse/ -->
+ 
   <header class="sticky-top">
     <nav class="navbar navbar-expand-lg bg-black" data-bs-theme="dark" aria-label="Navigazione principale">
       <div class="container">
@@ -53,9 +43,7 @@
         </button>
         <div class="collapse navbar-collapse" id="menu">
           <ul class="navbar-nav ms-auto">
-            <!-- Introduzione: segnaposto non cliccabile, pagina da realizzare.
-                 .disabled + aria-disabled="true" e nessun href: la voce resta visibile ma spenta.
-                 Doc: https://getbootstrap.com/docs/5.3/components/navbar/#nav -->
+           
             <li class="nav-item"><a class="nav-link disabled" aria-disabled="true">Introduzione</a></li>
             <li class="nav-item"><a class="nav-link" href="catalogo.html">Catalogo</a></li>
             <li class="nav-item"><a class="nav-link" href="voci-autorita.html">Entità</a></li>
@@ -67,10 +55,7 @@
 
   <main>
 
-    <!-- ===== NOME DELL'OGGETTO =====
-         Stesso stile e stesso sfondo del titolo "Catalogo" (.sfondo-corteo, .titolo-sezione).
-         Sotto, il percorso di navigazione con il componente Breadcrumb.
-         Doc breadcrumb: https://getbootstrap.com/docs/5.3/components/breadcrumb/ -->
+  
     <section class="sfondo-corteo py-5">
       <div class="container text-center">
         <p class="etichetta mb-2">Foto</p>
@@ -85,18 +70,14 @@
       </div>
     </section>
 
-    <!-- ===== CONTENUTO: SCHEDA (9 colonne) + OGGETTI CORRELATI (3 colonne) =====
-         Doc griglia: https://getbootstrap.com/docs/5.3/layout/grid/ -->
+  
     <section class="py-5">
       <div class="container">
         <div class="row g-4 g-lg-5">
 
           <article class="col-lg-9">
 
-            <!-- IMMAGINE (Card) E DESCRIZIONE
-                 L'immagine sta in una Card con la didascalia dei diritti nel card-body.
-                 Se l'immagine non si carica, onerror la rimuove e resta l'icona della tipologia.
-                 Doc card: https://getbootstrap.com/docs/5.3/components/card/ -->
+           
             <div class="row g-4 align-items-start">
               <div class="col-md-5">
                 <div class="card immagine-item">
@@ -119,10 +100,7 @@
               </div>
             </div>
 
-            <!-- TABELLA DEI METADATI DUBLIN CORE
-                 Solo i 15 elementi dc: (quelli compilati nel file XML). Le etichette rosse
-                 rimandano ai record di autorità indicati nel file con gli elementi dcterms:.
-                 Doc tabelle: https://getbootstrap.com/docs/5.3/content/tables/ -->
+           
             <h2 class="etichetta mt-5">Metadati Dublin Core</h2>
             <div class="table-responsive">
               <table class="table tabella-metadati align-middle">
@@ -197,17 +175,15 @@
                 </tbody>
               </table>
             </div>
-            <p class="didascalia">Non compilati: dc:publisher (la fotografia non è stata pubblicata), dc:language (immagine senza contenuto testuale significativo), dc:source (sostituito da dcterms:isReferencedBy, vedi Relazione).</p>
+            
 
-            <!-- PULSANTE VERSO IL FILE XML/DC: si apre in una nuova scheda del browser -->
+            
             <a href="xml/dc_occupazione-scuola.xml" class="btn btn-pantera mt-3" target="_blank" rel="noopener">
               <i class="bi bi-filetype-xml" aria-hidden="true"></i> Metadati XML/DC
             </a>
           </article>
 
-          <!-- ===== OGGETTI CORRELATI =====
-               Stesse card del catalogo. La card dell'articolo porta alla sua pagina item;
-               il volantino non ha ancora una pagina, quindi è cliccabile solo il nome dell'istituzione. -->
+         
           <aside class="col-lg-3">
             <h2 class="etichetta">Oggetti correlati</h2>
             <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-1 g-4">
@@ -255,11 +231,7 @@
 
   </main>
 
-  <!-- ===== FOOTER =====
-       La testa di pantera è impostata come sfondo in css/style.css (.footer-pantera).
-       .col-md-7: i crediti occupano 7 colonne su 12 da 768px in su, lasciando spazio al disegno.
-       Doc griglia: https://getbootstrap.com/docs/5.3/layout/grid/
-       Doc spaziature (py-5, mb-3…): https://getbootstrap.com/docs/5.3/utilities/spacing/ -->
+ 
   <footer class="footer-pantera py-5">
     <div class="container">
       <div class="row">
@@ -267,7 +239,7 @@
           <div class="crediti p-3">
             <p class="titolo-footer mb-1">Rete Pantera</p>
             <p class="mb-3">Progetto di Cristiano Bini per la prova finale dell'esame di
-              <!-- DA COMPLETARE: indirizzo della pagina del corso -->
+              
               <a href="#">Digital Humanities</a><br>
               Alma Mater Studiorum, Università di Bologna · 2026</p>
             <ul class="list-unstyled didascalia mb-0">
@@ -280,8 +252,7 @@
     </div>
   </footer>
 
-  <!-- ===== JAVASCRIPT =====
-       Bootstrap (menu Collapse) e lo script comune: evidenzia "Catalogo" nel menu. -->
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
   <script src="js/script.js"></script>
 </body>
