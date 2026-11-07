@@ -1,13 +1,5 @@
-/* =====================================================================
-   style.css — stile comune a tutte le pagine di Rete Pantera
-   Caricato dopo bootstrap.min.css: le regole qui sotto possono
-   sovrascrivere quelle di Bootstrap.
-   ===================================================================== */
 
-
-/* ---------- 1. VARIABILI ----------
-   Colori e font definiti una volta sola e richiamati con var(--nome).
-   Per cambiare il rosso in tutto il sito basta modificarlo qui. */
+ 
 :root {
   --rp-nero: #0b0b0b;
   --rp-rosso: #c8201e;          /* il rosso dello striscione */
@@ -19,13 +11,13 @@
 }
 
 
-/* ---------- 2. BASE ---------- */
+
 body {
   font-family: var(--font-testo);
   color: var(--rp-nero);
 }
 
-/* Titoli grandi nello stesso carattere condensato del logo */
+
 .titolo-sezione,
 .card-title,
 .titolo-footer {
@@ -39,7 +31,7 @@ body {
   margin-bottom: 1rem;
 }
 
-/* Etichette piccole in maiuscolo (es. "oppure esplora per", "Visualizzazione", "Filtro") */
+
 .etichetta {
   font-family: var(--font-mono);
   font-size: 0.85rem;
@@ -48,7 +40,7 @@ body {
   color: var(--rp-rosso);
 }
 
-/* Didascalie e crediti delle immagini */
+
 .didascalia {
   font-family: var(--font-mono);
   font-size: 0.78rem;
@@ -57,8 +49,6 @@ body {
 
 
 /* ---------- 3. PULSANTE ROSSO ----------
-   Variante personalizzata di .btn: Bootstrap 5.3 legge i colori dei pulsanti
-   da variabili CSS (--bs-btn-*), quindi basta ridefinirle.
    Doc: https://getbootstrap.com/docs/5.3/components/buttons/#variables */
 .btn-pantera {
   --bs-btn-color: #fff;
@@ -79,15 +69,12 @@ body {
 }
 
 
-/* ---------- 4. HEADER / NAVBAR ---------- */
 .logo {
   height: 110px;
   width: auto;
 }
 
-/* Sugli smartphone (sotto i 576px, breakpoint "sm" di Bootstrap) il logo si riduce,
-   così resta sulla stessa riga del pulsante del menu.
-   Doc breakpoint: https://getbootstrap.com/docs/5.3/layout/breakpoints/ */
+/*  Doc breakpoint: https://getbootstrap.com/docs/5.3/layout/breakpoints/ */
 @media (max-width: 575.98px) {
   .logo {
     height: 72px;
@@ -101,8 +88,7 @@ body {
   margin-left: 1rem;
 }
 
-/* Voce sotto il mouse o pagina corrente (classe .active aggiunta da script.js):
-   sottolineatura rossa spessa */
+
 .navbar .nav-link:hover,
 .navbar .nav-link.active {
   color: #fff;
@@ -113,9 +99,8 @@ body {
 }
 
 
-/* ---------- 5. HERO ---------- */
 .hero .figure {
-  max-width: 960px;               /* la foto originale è piccola: non la allarghiamo troppo */
+  max-width: 960px;               
 }
 
 .hero .didascalia {
@@ -123,27 +108,19 @@ body {
 }
 
 
-/* ---------- 6. DESCRIZIONE DEL PROGETTO ---------- */
 .sezione-descrizione {
   background-color: var(--rp-carta);
 }
 
 
-/* ---------- 7. ESPLORA IL CATALOGO ----------
-   .sfondo-corteo è riutilizzabile: in index.html fa da sfondo a "Esplora il catalogo",
-   in catalogo.html al titolo con la barra di ricerca.
-   Sfondo con due livelli: sopra un velo bianco al 75%, sotto la fotografia
-   del corteo. Il velo rende la foto "trasparente" e il testo leggibile:
-   abbassando il valore (es. 0.65) la foto si vede di più, alzandolo (0.9) di meno. */
+
 .sfondo-corteo {
   background:
     linear-gradient(rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.75)),
     url("../img/sfondo-esplora.jpg") center / cover no-repeat;
 }
 
-/* Card squadrate con bordo nero; al passaggio del mouse si sollevano
-   e compare un'ombra rossa sfalsata, come un ritaglio incollato.
-   Stesso stile per le card della home (.card-vista) e del catalogo (.card-oggetto). */
+
 .card-vista,
 .card-oggetto {
   border: 2px solid var(--rp-nero);
@@ -174,17 +151,14 @@ body {
 }
 
 
-/* ---------- 8. FOOTER ----------
-   La testa di pantera è un'immagine di sfondo allineata a destra
-   e alta quanto il footer. */
+
 .footer-pantera {
   min-height: 340px;
   background: #fff url("../img/footer-pantera.jpg") right bottom / auto 100% no-repeat;
   border-top: 6px solid var(--rp-nero);
 }
 
-/* Riquadro dei crediti: fondo bianco semitrasparente, così il testo resta
-   leggibile anche su schermi stretti, dove il disegno finisce sotto il testo */
+
 .footer-pantera .crediti {
   background-color: rgba(255, 255, 255, 0.88);
   max-width: 34rem;
@@ -202,10 +176,7 @@ body {
 
 /* ---------- 9. PAGINA CATALOGO ---------- */
 
-/* 9.1 Barra di ricerca "google-like": una pillola bianca con la lente.
-   Gli input-group-lg di Bootstrap leggono il raggio degli angoli da
-   --bs-border-radius-lg: portandolo a 50rem gli estremi diventano tondi.
-   Doc input group: https://getbootstrap.com/docs/5.3/forms/input-group/ */
+/* Doc input group: https://getbootstrap.com/docs/5.3/forms/input-group/ */
 .ricerca {
   max-width: 640px;
   --bs-border-radius-lg: 50rem;
@@ -226,7 +197,7 @@ body {
   border-left: 0;
 }
 
-/* Al clic nella barra: alone rosso attorno all'intera pillola */
+
 .ricerca .form-control:focus {
   box-shadow: none;
   border-color: var(--rp-nero);
@@ -237,14 +208,13 @@ body {
   box-shadow: 0 0 0 0.25rem rgba(200, 32, 30, 0.25);
 }
 
-/* 9.2 Fascia laterale: blocchi "Visualizzazione" e "Filtro" */
+
 .blocco-laterale {
   border: 2px solid var(--rp-nero);
   background-color: var(--rp-carta);
 }
 
-/* Tre pulsanti quadrati (Lista, Card, Mappa), icona sopra e nome sotto.
-   Sono i pulsanti di un componente Tab: Bootstrap aggiunge .active a quello scelto. */
+
 .scelta-vista {
   gap: 0.5rem;
 }
@@ -278,13 +248,13 @@ body {
   margin-bottom: 0.25rem;
 }
 
-/* I pulsanti dei filtri hanno la classe .form-select per sembrare menu a tendina */
+
 .blocco-laterale .form-select {
   border: 2px solid var(--rp-nero);
   border-radius: 0;
 }
 
-/* Elenco a discesa con le caselle di spunta (componente Dropdown) */
+
 .menu-filtro {
   border: 2px solid var(--rp-nero);
   border-radius: 0;
@@ -294,7 +264,7 @@ body {
   cursor: pointer;
 }
 
-/* Al clic Bootstrap colorerebbe la voce di blu: la lasciamo neutra */
+
 .menu-filtro .dropdown-item:active {
   color: var(--rp-nero);
   background-color: var(--rp-carta);
@@ -305,8 +275,7 @@ body {
   border-color: var(--rp-rosso);
 }
 
-/* 9.3 Banda orizzontale delle tipologie: solo indicatore, non cliccabile.
-   La voce con la classe .acceso (aggiunta da catalogo.js) si colora di rosso. */
+
 .banda-tipologie {
   display: flex;
   flex-wrap: wrap;
@@ -333,7 +302,7 @@ body {
   background-color: var(--rp-rosso);
 }
 
-/* 9.4 Vista lista: tabella in stile "dettagli" di un esplora risorse */
+
 .tabella-catalogo thead th {
   font-family: var(--font-mono);
   font-size: 0.75rem;
@@ -360,10 +329,7 @@ body {
   text-decoration: underline;
 }
 
-/* 9.5 Vista card: riquadro nero con l'icona della tipologia;
-   se l'oggetto ha un'immagine, questa copre l'icona (position: absolute).
-   Se l'immagine non si carica, catalogo.js la rimuove e torna visibile l'icona.
-   aspect-ratio: il riquadro è sempre 16:10, qualunque sia la larghezza della card. */
+
 .anteprima {
   position: relative;
   aspect-ratio: 16 / 10;
@@ -384,11 +350,10 @@ body {
   inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;              /* riempie il riquadro senza deformare l'immagine */
+  object-fit: cover;              
 }
 
-/* Oggetti con intera: true (copertine, loghi, disegni verticali):
-   immagine intera, senza ritagli, su fondo bianco */
+
 .anteprima img.intera {
   object-fit: contain;
   padding: 0.5rem;
@@ -419,15 +384,13 @@ body {
   color: var(--rp-rosso);
 }
 
-/* Titolo della card: link alla pagina item, con l'aspetto del testo normale */
+
 .card-oggetto .card-title a {
   color: inherit;
   text-decoration: none;
 }
 
-/* Link all'istituzione: position + z-index lo portano sopra lo stretched-link,
-   così si può cliccare separatamente dal resto della card.
-   Doc: https://getbootstrap.com/docs/5.3/helpers/stretched-link/ */
+/*  Doc: https://getbootstrap.com/docs/5.3/helpers/stretched-link/ */
 .link-fonte {
   position: relative;
   z-index: 2;
@@ -438,12 +401,12 @@ body {
   color: var(--rp-rosso);
 }
 
-/* Righe della lista che portano a una pagina item */
+
 .riga-cliccabile {
   cursor: pointer;
 }
 
-/* 9.6 Vista mappa: segnaposto in attesa della mappa Leaflet */
+
 .segnaposto-mappa {
   min-height: 320px;
   display: flex;
@@ -464,8 +427,7 @@ body {
 
 /* ---------- 10. PAGINE ITEM ---------- */
 
-/* Briciole di pane sotto il titolo (componente Breadcrumb).
-   Doc: https://getbootstrap.com/docs/5.3/components/breadcrumb/ */
+/*  Doc: https://getbootstrap.com/docs/5.3/components/breadcrumb/ */
 .breadcrumb {
   font-family: var(--font-mono);
   font-size: 0.85rem;
@@ -475,8 +437,7 @@ body {
   color: var(--rp-rosso);
 }
 
-/* Card con l'immagine dell'oggetto: cornice nera con l'icona della tipologia;
-   l'immagine sta sopra l'icona (z-index) e se non si carica viene rimossa. */
+
 .immagine-item {
   border: 2px solid var(--rp-nero);
   border-radius: 0;
@@ -503,13 +464,13 @@ body {
   width: 100%;
 }
 
-/* Tabella dei metadati: nome dell'elemento a sinistra, valore a destra */
+
 .tabella-metadati th {
   width: 32%;
   font-weight: 600;
 }
 
-/* Nome tecnico dell'elemento Dublin Core sotto l'etichetta (es. dc:title) */
+
 .elemento-dc {
   display: block;
   font-family: var(--font-mono);
@@ -518,7 +479,7 @@ body {
   color: var(--rp-rosso);
 }
 
-/* Link ai record di autorità (Wikidata, GeoNames, Getty AAT...): piccole etichette */
+
 .link-autorita {
   display: inline-block;
   margin-left: 0.35rem;
@@ -539,9 +500,7 @@ body {
 
 /* ---------- 11. PAGINA VOCI DI AUTORITÀ ---------- */
 
-/* 11.1 Accordion: Bootstrap 5.3 legge colori e bordi dell'accordion da variabili CSS
-   (--bs-accordion-*): basta ridefinirle per adattarlo allo stile del sito.
-   Doc variabili: https://getbootstrap.com/docs/5.3/components/accordion/#variables */
+/*  Doc variabili: https://getbootstrap.com/docs/5.3/components/accordion/#variables */
 .accordion-autorita {
   --bs-accordion-border-color: var(--rp-nero);
   --bs-accordion-border-width: 2px;
@@ -554,8 +513,7 @@ body {
   --bs-accordion-btn-focus-box-shadow: 0 0 0 0.25rem rgba(200, 32, 30, 0.25);
 }
 
-/* Fasce separate tra loro (Bootstrap di norma le attacca l'una all'altra)
-   e con un bordo sinistro spesso nel colore della tabella corrispondente nell'Excel */
+
 .accordion-autorita .accordion-item {
   margin-bottom: 1rem;
   border-left: 12px solid var(--colore-fascia);
@@ -565,14 +523,13 @@ body {
   border-top: var(--bs-accordion-border-width) solid var(--bs-accordion-border-color);
 }
 
-/* I quattro colori delle tabelle del file di riconciliazione */
-.fascia-istituzioni { --colore-fascia: #e97132; }   /* arancio */
-.fascia-persone     { --colore-fascia: #a02b93; }   /* viola */
-.fascia-luoghi      { --colore-fascia: #0f9ed5; }   /* azzurro */
-.fascia-enti        { --colore-fascia: #156082; }   /* blu scuro */
 
-/* 11.2 Barra cliccabile: titolo grande e descrizione a sinistra,
-   numero delle voci e freccia a destra */
+.fascia-istituzioni { --colore-fascia: #e97132; }   /* arancio */
+.fascia-persone     { --colore-fascia: #a02b93; }   
+.fascia-luoghi      { --colore-fascia: #0f9ed5; }   
+.fascia-enti        { --colore-fascia: #156082; }   
+
+
 .testo-fascia {
   display: flex;
   flex-direction: column;
@@ -593,7 +550,7 @@ body {
 }
 
 .conteggio-fascia {
-  flex-shrink: 0;                 /* il badge non si restringe sugli schermi stretti */
+  flex-shrink: 0;                 
   border-radius: 0;
   font-family: var(--font-mono);
   font-weight: 400;
@@ -602,10 +559,10 @@ body {
 }
 
 .accordion-autorita .accordion-button::after {
-  margin-left: 1rem;              /* la freccia segue il badge invece di spingerlo */
+  margin-left: 1rem;              
 }
 
-/* 11.3 Tabelle delle voci */
+
 .tabella-autorita thead th {
   font-family: var(--font-mono);
   font-size: 0.75rem;
@@ -635,14 +592,13 @@ body {
 
 /* ---------- 12. ANALISI DEL TESTO (VOYANT TOOLS) ---------- */
 
-/* Fascia in fondo alla pagina dell'articolo, separata dalla scheda da un bordo nero */
+
 .sezione-voyant {
   background-color: var(--rp-carta);
   border-top: 2px solid var(--rp-nero);
 }
 
-/* Riquadro degli strumenti Voyant: largo quanto la colonna, altezza fissa
-   (gli strumenti di Voyant hanno bisogno di spazio in verticale) */
+
 .voyant-frame {
   display: block;
   width: 100%;
