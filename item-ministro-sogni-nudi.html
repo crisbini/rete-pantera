@@ -1,15 +1,13 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <!-- ===== METADATI DI BASE ===== -->
+ 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Ministro, guarda i nostri sogni nudi · Rete Pantera</title>
   <meta name="description" content="Fabio Luppino, Ministro, guarda i nostri sogni nudi, l'Unità, 4 febbraio 1990: cronaca del corteo nazionale degli studenti a Roma. Scheda, metadati Dublin Core e testo codificato in TEI.">
 
-  <!-- ===== METADATI DUBLIN CORE DELL'OGGETTO =====
-       Gli stessi valori della tabella nel corpo della pagina e del file xml/dc_ministro-sogni-nudi.xml.
-       Doc: https://www.dublincore.org/specifications/dublin-core/dc-html/ -->
+ 
   <link rel="schema.DC" href="http://purl.org/dc/elements/1.1/">
   <meta name="DC.title" lang="it" content="Ministro, guarda i nostri sogni nudi">
   <meta name="DC.creator" content="Luppino, Fabio">
@@ -24,7 +22,7 @@
   <meta name="DC.coverage" lang="it" content="Roma, 3 febbraio 1990">
   <meta name="DC.rights" lang="it" content="© l'Unità / Fabio Luppino; testo riprodotto a soli fini di studio">
 
-  <!-- ===== CSS ===== Stessi file delle altre pagine. -->
+
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -35,14 +33,7 @@
 
 <body>
 
-  <!-- ===== HEADER / NAVBAR =====
-       .sticky-top sull'header: la barra resta in alto durante lo scorrimento.
-       .navbar-expand-lg: menu orizzontale da 992px in su; sotto diventa un pulsante "hamburger"
-       che apre il menu grazie al componente Collapse (data-bs-toggle / data-bs-target).
-       data-bs-theme="dark": colori del testo pensati per lo sfondo nero.
-       .ms-auto: margine sinistro automatico, spinge le voci a destra.
-       Doc navbar: https://getbootstrap.com/docs/5.3/components/navbar/
-       Doc collapse: https://getbootstrap.com/docs/5.3/components/collapse/ -->
+  
   <header class="sticky-top">
     <nav class="navbar navbar-expand-lg bg-black" data-bs-theme="dark" aria-label="Navigazione principale">
       <div class="container">
@@ -55,9 +46,7 @@
         </button>
         <div class="collapse navbar-collapse" id="menu">
           <ul class="navbar-nav ms-auto">
-            <!-- Introduzione: segnaposto non cliccabile, pagina da realizzare.
-                 .disabled + aria-disabled="true" e nessun href: la voce resta visibile ma spenta.
-                 Doc: https://getbootstrap.com/docs/5.3/components/navbar/#nav -->
+            
             <li class="nav-item"><a class="nav-link disabled" aria-disabled="true">Introduzione</a></li>
             <li class="nav-item"><a class="nav-link" href="catalogo.html">Catalogo</a></li>
             <li class="nav-item"><a class="nav-link" href="voci-autorita.html">Entità</a></li>
@@ -69,10 +58,6 @@
 
   <main>
 
-    <!-- ===== NOME DELL'OGGETTO =====
-         Stesso stile e stesso sfondo del titolo "Catalogo" (.sfondo-corteo, .titolo-sezione).
-         Sotto, il percorso di navigazione con il componente Breadcrumb.
-         Doc breadcrumb: https://getbootstrap.com/docs/5.3/components/breadcrumb/ -->
     <section class="sfondo-corteo py-5">
       <div class="container text-center">
         <p class="etichetta mb-2">Testo</p>
@@ -87,17 +72,12 @@
       </div>
     </section>
 
-    <!-- ===== CONTENUTO: SCHEDA (9 colonne) + OGGETTI CORRELATI (3 colonne) =====
-         Doc griglia: https://getbootstrap.com/docs/5.3/layout/grid/ -->
     <section class="py-5">
       <div class="container">
         <div class="row g-4 g-lg-5">
 
           <article class="col-lg-9">
 
-            <!-- IMMAGINE (Card) E DESCRIZIONE
-                 Il ritaglio dell'articolo dalla p. 23; se non si carica resta l'icona della tipologia.
-                 Doc card: https://getbootstrap.com/docs/5.3/components/card/ -->
             <div class="row g-4 align-items-start">
               <div class="col-md-5">
                 <div class="card immagine-item">
@@ -120,10 +100,7 @@
               </div>
             </div>
 
-            <!-- TABELLA DEI METADATI DUBLIN CORE
-                 Solo i 15 elementi dc: (quelli compilati nel file XML). Le etichette rosse
-                 rimandano ai record di autorità indicati nel file con gli elementi dcterms:.
-                 Doc tabelle: https://getbootstrap.com/docs/5.3/content/tables/ -->
+            
             <h2 class="etichetta mt-5">Metadati Dublin Core</h2>
             <div class="table-responsive">
               <table class="table tabella-metadati align-middle">
@@ -213,9 +190,7 @@
             </div>
             <p class="didascalia">Non compilati: dc:source (il record descrive l'originale a stampa), dc:contributor (autore della fotografia non leggibile).</p>
 
-            <!-- PULSANTI VERSO I FILE XML: metadati Dublin Core e testo codificato in TEI.
-                 .d-flex .gap-2: pulsanti affiancati con uno spazio tra loro.
-                 Doc flex: https://getbootstrap.com/docs/5.3/utilities/flex/ -->
+            
             <div class="d-flex flex-wrap gap-2 mt-3">
               <a href="xml/dc_ministro-sogni-nudi.xml" class="btn btn-pantera" target="_blank" rel="noopener">
                 <i class="bi bi-filetype-xml" aria-hidden="true"></i> Metadati XML/DC
@@ -226,9 +201,7 @@
             </div>
           </article>
 
-          <!-- ===== OGGETTI CORRELATI =====
-               Stessa card del catalogo: un clic sulla card apre la pagina item della fotografia,
-               un clic sul nome dell'istituzione apre la scheda sul sito del museo. -->
+          
           <aside class="col-lg-3">
             <h2 class="etichetta">Oggetti correlati</h2>
             <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-1 g-4">
@@ -257,23 +230,7 @@
       </div>
     </section>
 
-    <!-- ===== ANALISI DEL TESTO CON VOYANT TOOLS (tool per developer) =====
-         Voyant Tools è un ambiente web per l'analisi testuale. Ogni suo strumento
-         si incorpora in un'altra pagina con un <iframe>, il cui indirizzo ha la forma
-           https://voyant-tools.org/tool/NOME-STRUMENTO/?corpus=ID-DEL-CORPUS
-         (in Voyant: icona "Esporta" di uno strumento > snippet HTML per l'incorporamento).
-         Il corpus d0f1fab3f1085e77a7e2c1b3dd748bda contiene il testo dell'articolo.
-         Per mostrare un altro strumento basta cambiarne il nome nell'indirizzo
-         (es. Contexts, TermsBerry, Summary).
-         - Cirrus: nuvola delle parole più frequenti; le parole vuote (articoli, preposizioni...)
-           sono escluse in automatico secondo la lingua riconosciuta;
-         - Trends: andamento dei termini più frequenti lungo il testo, diviso in segmenti.
-         loading="lazy": il browser rimanda il caricamento degli strumenti finché la sezione
-         non si avvicina alla parte visibile della pagina, così la scheda si apre più in fretta.
-         title: descrive il contenuto dell'iframe ai lettori di schermo.
-         Ogni strumento è in una <figure> con didascalia (come l'immagine in home).
-         Doc Voyant, incorporare gli strumenti: https://voyant.lincsproject.ca/docs/tutorial-embedding.html
-         Doc figure: https://getbootstrap.com/docs/5.3/content/figures/ -->
+
     <section class="sezione-voyant py-5">
       <div class="container">
         <p class="etichetta mb-2">Voyant Tools</p>
@@ -299,7 +256,7 @@
           </div>
         </div>
 
-        <!-- Collegamento all'ambiente completo di Voyant: utile anche se gli iframe non si caricano -->
+        
         <div class="d-flex flex-wrap align-items-center gap-3 mt-4">
           <a href="https://voyant-tools.org/?corpus=d0f1fab3f1085e77a7e2c1b3dd748bda" class="btn btn-outline-dark" target="_blank" rel="noopener">
             <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i> Apri il corpus in Voyant Tools
@@ -311,11 +268,7 @@
 
   </main>
 
-  <!-- ===== FOOTER =====
-       La testa di pantera è impostata come sfondo in css/style.css (.footer-pantera).
-       .col-md-7: i crediti occupano 7 colonne su 12 da 768px in su, lasciando spazio al disegno.
-       Doc griglia: https://getbootstrap.com/docs/5.3/layout/grid/
-       Doc spaziature (py-5, mb-3…): https://getbootstrap.com/docs/5.3/utilities/spacing/ -->
+  
   <footer class="footer-pantera py-5">
     <div class="container">
       <div class="row">
@@ -323,7 +276,7 @@
           <div class="crediti p-3">
             <p class="titolo-footer mb-1">Rete Pantera</p>
             <p class="mb-3">Progetto di Cristiano Bini per la prova finale dell'esame di
-              <!-- DA COMPLETARE: indirizzo della pagina del corso -->
+              
               <a href="#">Digital Humanities</a><br>
               Alma Mater Studiorum, Università di Bologna · 2026</p>
             <ul class="list-unstyled didascalia mb-0">
