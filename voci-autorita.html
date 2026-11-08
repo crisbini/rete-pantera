@@ -1,16 +1,13 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <!-- ===== METADATI DI BASE =====
-       Come nelle altre pagine; i metadati Dublin Core completi sono nella index.
-       Doc: https://getbootstrap.com/docs/5.3/getting-started/introduction/#quick-start -->
+  
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Voci di autorità · Rete Pantera</title>
   <meta name="description" content="Istituzioni, persone, luoghi ed enti degli oggetti di Rete Pantera, riconciliati con le voci di autorità di Wikidata, VIAF e GeoNames.">
 
-  <!-- ===== CSS =====
-       Stessi file delle altre pagine: Bootstrap, icone, font e il nostro style.css. -->
+  
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,14 +18,7 @@
 
 <body>
 
-  <!-- ===== HEADER / NAVBAR =====
-       .sticky-top sull'header: la barra resta in alto durante lo scorrimento.
-       .navbar-expand-lg: menu orizzontale da 992px in su; sotto diventa un pulsante "hamburger"
-       che apre il menu grazie al componente Collapse (data-bs-toggle / data-bs-target).
-       data-bs-theme="dark": colori del testo pensati per lo sfondo nero.
-       .ms-auto: margine sinistro automatico, spinge le voci a destra.
-       Doc navbar: https://getbootstrap.com/docs/5.3/components/navbar/
-       Doc collapse: https://getbootstrap.com/docs/5.3/components/collapse/ -->
+  
   <header class="sticky-top">
     <nav class="navbar navbar-expand-lg bg-black" data-bs-theme="dark" aria-label="Navigazione principale">
       <div class="container">
@@ -41,9 +31,7 @@
         </button>
         <div class="collapse navbar-collapse" id="menu">
           <ul class="navbar-nav ms-auto">
-            <!-- Introduzione: segnaposto non cliccabile, pagina da realizzare.
-                 .disabled + aria-disabled="true" e nessun href: la voce resta visibile ma spenta.
-                 Doc: https://getbootstrap.com/docs/5.3/components/navbar/#nav -->
+           
             <li class="nav-item"><a class="nav-link disabled" aria-disabled="true">Introduzione</a></li>
             <li class="nav-item"><a class="nav-link" href="catalogo.html">Catalogo</a></li>
             <li class="nav-item"><a class="nav-link" href="voci-autorita.html">Entità</a></li>
@@ -55,10 +43,7 @@
 
   <main>
 
-    <!-- ===== TITOLO E INTRODUZIONE =====
-         Stesso stile e stesso sfondo del titolo "Catalogo" (.sfondo-corteo, .titolo-sezione).
-         .col-lg-8 .mx-auto: il testo occupa 8 colonne su 12, centrato, per righe di lettura comode.
-         Doc griglia: https://getbootstrap.com/docs/5.3/layout/grid/ -->
+    
     <section class="sfondo-corteo py-5">
       <div class="container text-center">
         <p class="etichetta mb-2">Entità</p>
@@ -69,20 +54,7 @@
       </div>
     </section>
 
-    <!-- ===== LE QUATTRO FASCE (componente Accordion) =====
-         Ogni fascia corrisponde a una colonna del foglio di riconciliazione e si apre
-         con un clic, mostrando la tabella delle voci.
-         - .accordion-item = una fascia; .accordion-button = la barra cliccabile;
-           .accordion-collapse = il contenuto che si apre e si chiude (componente Collapse);
-         - data-bs-target collega la barra al suo contenuto tramite l'id;
-         - la classe .collapsed sulla barra e l'assenza di .show sul contenuto: all'apertura
-           della pagina tutte le fasce sono chiuse;
-         - non c'è data-bs-parent sui contenuti: si possono tenere aperte più fasce insieme
-           (variante "Always open" della documentazione).
-         Le classi .fascia-istituzioni, .fascia-persone ecc. danno a ogni fascia il colore
-         della tabella corrispondente nel file Excel (vedi style.css, sezione 11).
-         Doc accordion: https://getbootstrap.com/docs/5.3/components/accordion/
-         Doc "always open": https://getbootstrap.com/docs/5.3/components/accordion/#always-open -->
+    
     <section class="py-5">
       <div class="container">
 
@@ -90,7 +62,7 @@
 
         <div class="accordion accordion-autorita" id="voci-autorita">
 
-          <!-- FASCIA "ISTITUZIONI" (9 voci) -->
+         
           <div class="accordion-item fascia-istituzioni">
             <h2 class="accordion-header">
               <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
@@ -104,13 +76,7 @@
             </h2>
             <div id="voci-istituzioni" class="accordion-collapse collapse">
               <div class="accordion-body">
-                <!-- Tabella delle voci (Table di Bootstrap). Sugli smartphone:
-                     - .d-none .d-sm-table-cell nasconde la colonna "Authority file" sotto i 576px
-                       (la fonte si legge comunque nell'URI);
-                     - <wbr> negli indirizzi indica dove possono andare a capo (dopo le barre);
-                     - .table-responsive fa scorrere la tabella dentro la fascia, se serve.
-                     Doc tabelle: https://getbootstrap.com/docs/5.3/content/tables/
-                     Doc display: https://getbootstrap.com/docs/5.3/utilities/display/ -->
+                
                 <div class="table-responsive">
                   <table class="table table-hover align-middle tabella-autorita mb-0">
                     <thead>
@@ -173,7 +139,7 @@
             </div>
           </div>
 
-          <!-- FASCIA "PERSONE" (13 voci) -->
+          
           <div class="accordion-item fascia-persone">
             <h2 class="accordion-header">
               <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
@@ -187,13 +153,7 @@
             </h2>
             <div id="voci-persone" class="accordion-collapse collapse">
               <div class="accordion-body">
-                <!-- Tabella delle voci (Table di Bootstrap). Sugli smartphone:
-                     - .d-none .d-sm-table-cell nasconde la colonna "Authority file" sotto i 576px
-                       (la fonte si legge comunque nell'URI);
-                     - <wbr> negli indirizzi indica dove possono andare a capo (dopo le barre);
-                     - .table-responsive fa scorrere la tabella dentro la fascia, se serve.
-                     Doc tabelle: https://getbootstrap.com/docs/5.3/content/tables/
-                     Doc display: https://getbootstrap.com/docs/5.3/utilities/display/ -->
+                
                 <div class="table-responsive">
                   <table class="table table-hover align-middle tabella-autorita mb-0">
                     <thead>
@@ -276,7 +236,7 @@
             </div>
           </div>
 
-          <!-- FASCIA "LUOGHI" (16 voci) -->
+         
           <div class="accordion-item fascia-luoghi">
             <h2 class="accordion-header">
               <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
@@ -290,13 +250,7 @@
             </h2>
             <div id="voci-luoghi" class="accordion-collapse collapse">
               <div class="accordion-body">
-                <!-- Tabella delle voci (Table di Bootstrap). Sugli smartphone:
-                     - .d-none .d-sm-table-cell nasconde la colonna "Authority file" sotto i 576px
-                       (la fonte si legge comunque nell'URI);
-                     - <wbr> negli indirizzi indica dove possono andare a capo (dopo le barre);
-                     - .table-responsive fa scorrere la tabella dentro la fascia, se serve.
-                     Doc tabelle: https://getbootstrap.com/docs/5.3/content/tables/
-                     Doc display: https://getbootstrap.com/docs/5.3/utilities/display/ -->
+               
                 <div class="table-responsive">
                   <table class="table table-hover align-middle tabella-autorita mb-0">
                     <thead>
@@ -394,7 +348,7 @@
             </div>
           </div>
 
-          <!-- FASCIA "ENTI" (13 voci) -->
+          
           <div class="accordion-item fascia-enti">
             <h2 class="accordion-header">
               <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
@@ -408,13 +362,7 @@
             </h2>
             <div id="voci-enti" class="accordion-collapse collapse">
               <div class="accordion-body">
-                <!-- Tabella delle voci (Table di Bootstrap). Sugli smartphone:
-                     - .d-none .d-sm-table-cell nasconde la colonna "Authority file" sotto i 576px
-                       (la fonte si legge comunque nell'URI);
-                     - <wbr> negli indirizzi indica dove possono andare a capo (dopo le barre);
-                     - .table-responsive fa scorrere la tabella dentro la fascia, se serve.
-                     Doc tabelle: https://getbootstrap.com/docs/5.3/content/tables/
-                     Doc display: https://getbootstrap.com/docs/5.3/utilities/display/ -->
+                
                 <div class="table-responsive">
                   <table class="table table-hover align-middle tabella-autorita mb-0">
                     <thead>
@@ -502,11 +450,7 @@
 
   </main>
 
-  <!-- ===== FOOTER =====
-       La testa di pantera è impostata come sfondo in css/style.css (.footer-pantera).
-       .col-md-7: i crediti occupano 7 colonne su 12 da 768px in su, lasciando spazio al disegno.
-       Doc griglia: https://getbootstrap.com/docs/5.3/layout/grid/
-       Doc spaziature (py-5, mb-3…): https://getbootstrap.com/docs/5.3/utilities/spacing/ -->
+  
   <footer class="footer-pantera py-5">
     <div class="container">
       <div class="row">
@@ -514,7 +458,7 @@
           <div class="crediti p-3">
             <p class="titolo-footer mb-1">Rete Pantera</p>
             <p class="mb-3">Progetto di Cristiano Bini per la prova finale dell'esame di
-              <!-- DA COMPLETARE: indirizzo della pagina del corso -->
+             
               <a href="#">Digital Humanities</a><br>
               Alma Mater Studiorum, Università di Bologna · 2026</p>
             <ul class="list-unstyled didascalia mb-0">
@@ -527,10 +471,7 @@
     </div>
   </footer>
 
-  <!-- ===== JAVASCRIPT =====
-       Il bundle di Bootstrap fa funzionare Collapse (menu e fasce dell'accordion);
-       lo script comune evidenzia "Entità" nel menu.
-       Doc: https://getbootstrap.com/docs/5.3/getting-started/javascript/ -->
+  
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
   <script src="js/script.js"></script>
 </body>
