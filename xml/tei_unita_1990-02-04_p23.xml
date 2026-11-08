@@ -40,10 +40,9 @@
       </titleStmt>
       <publicationStmt>
         <publisher>Collezione digitale sul movimento della Pantera (1989-1990), progetto per la prova finale</publisher>
-        <date when="2026-11-03">3 novembre 2026</date>
         <idno type="filename">tei_unita_1990-02-04_p23.xml</idno>
         <availability status="restricted">
-          <p>Testo dell'articolo: © l'Unità / Fabio Luppino, riprodotto a soli fini di studio nell'ambito di un progetto didattico. La codifica (markup, note, schede di autorità) è distribuita con licenza <ref target="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</ref> [DA CONFERMARE].</p>
+          <p>Testo dell'articolo: © l'Unità / Fabio Luppino, riprodotto a soli fini di studio nell'ambito di un progetto didattico.
         </availability>
       </publicationStmt>
       <sourceDesc>
@@ -170,7 +169,6 @@
   <facsimile>
     <surface xml:id="p23">
       <graphic url="https://archivio.unita.news/assets/main/1990/02/04/page_023.pdf" mimeType="application/pdf"/>
-      <!-- ritaglio dell'articolo: percorso relativo alla cartella xml/ del sito -->
       <graphic url="../img/catalogo/ministro-sogni-nudi-intero.jpg" mimeType="image/jpeg"/>
     </surface>
   </facsimile>
@@ -209,7 +207,7 @@
   </text>
 
   <standOff>
-    <!-- ================= PERSONE ================= -->
+    
     <listPerson>
       <person xml:id="luppino">
         <persName><forename>Fabio</forename> <surname>Luppino</surname></persName>
@@ -252,15 +250,8 @@
         <occupation>artista</occupation>
       </person>
     </listPerson>
-    <listPerson type="personaggi">
-      <person xml:id="paperino">
-        <persName>Paperino</persName>
-        <idno type="wikidata">http://www.wikidata.org/entity/Q6550</idno>
-        <note>Personaggio dei fumetti e dei cartoni animati Disney.</note>
-      </person>
-    </listPerson>
+    
 
-    <!-- ================= ENTI, GRUPPI, MOVIMENTI ================= -->
     <listOrg>
       <org xml:id="pantera" type="movimento">
         <orgName>Pantera (movimento studentesco)</orgName>
@@ -328,13 +319,12 @@
       </org>
       <org xml:id="unita" type="testata">
         <orgName>l'Unità</orgName>
-        <!-- identificativo Wikidata non individuato con la ricerca: da integrare -->
         <desc>Quotidiano, nel 1990 organo del Partito comunista italiano.</desc>
         <ptr type="archivio" target="https://archivio.unita.news/"/>
       </org>
     </listOrg>
 
-    <!-- ================= LUOGHI ================= -->
+    
     <listPlace>
       <place xml:id="roma" type="città">
         <placeName>Roma</placeName>
@@ -344,13 +334,11 @@
           <placeName type="ufficiale">Piazza della Repubblica</placeName>
           <placeName type="popolare">Piazza Esedra</placeName>
           <location><geo>41.9027 12.4963</geo></location>
-          <!-- identificativo Wikidata non verificato: esistono piu' "Piazza della Repubblica" -->
           <note>Luogo di concentramento del corteo.</note>
         </place>
         <place xml:id="piazza_popolo" type="piazza">
           <placeName>Piazza del Popolo</placeName>
           <location><geo>41.9107 12.4764</geo></location>
-          <!-- Q824997 restituito dalla ricerca come "piazza del Popolo": controllare che sia quella di Roma -->
           <idno type="wikidata" cert="low">http://www.wikidata.org/entity/Q824997</idno>
           <note>Punto d'arrivo del corteo, comizi e concerto.</note>
         </place>
@@ -422,7 +410,7 @@
       </place>
     </listPlace>
 
-    <!-- ================= EVENTI ================= -->
+    
     <listEvent>
       <event xml:id="corteo_1990" type="manifestazione" when="1990-02-03">
         <p>Manifestazione nazionale degli studenti medi e universitari a <placeName ref="#roma">Roma</placeName> contro il progetto di riforma Ruberti: concentramento in <placeName ref="#piazza_repubblica">piazza della Repubblica</placeName>, corteo di circa sette chilometri nel centro storico, comizi e concerto in <placeName ref="#piazza_popolo">piazza del Popolo</placeName>. L'articolo parla di oltre centomila partecipanti.</p>
@@ -433,7 +421,7 @@
       </event>
     </listEvent>
 
-    <!-- ================= OPERE E DOCUMENTI CITATI ================= -->
+  
     <listBibl>
       <bibl xml:id="batti_tempo" type="brano-musicale">
         <title>Batti il tuo tempo</title>
@@ -449,7 +437,7 @@
       </bibl>
     </listBibl>
 
-    <!-- ================= RELAZIONI TIPIZZATE ================= -->
+   
     <listRelation>
       <relation name="isPartOf" ref="http://purl.org/dc/terms/isPartOf" active="#lettere_sapienza" passive="#sapienza"/>
       <relation name="isPartOf" ref="http://purl.org/dc/terms/isPartOf" active="#arch_palermo" passive="#unipa"/>
