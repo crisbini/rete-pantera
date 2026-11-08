@@ -1,21 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-  Andrea Garuti, "Occupazione scuola", 1989 ca.-1990 ca., positivo b/n
-  Fonte: scheda SIRBeC SUP-10100-0004893 (MUFOCO - Museo Nazionale di Fotografia.
-  Cinisello Balsamo, Fondo Agenzia Grazia Neri).
-  Il record descrive la stampa originale, non il file digitale. 
--->
+
 
 <record xmlns:dc="http://purl.org/dc/elements/1.1/"
         xmlns:dcterms="http://purl.org/dc/terms/"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
   <dc:title>Occupazione scuola</dc:title>
-  <!-- titolazione 	per estensione dal titolo della serie -->
+ 
 
   <dc:creator>Garuti, Andrea</dc:creator>
-  <!-- nessun record VIAF/SBN/Wikidata per l'autore apparte questo di cui sono dubbio (https://www.wikidata.org/wiki/Q94487701 , c'è anche un viaf ma poco chiaro);
-       codice dell'authority file regionale SIRBeC: AUF-10100-0000124 -->
+  <dcterms:creator xsi:type="dcterms:URI">
+          http://viaf.org/viaf/34227932
+        </dcterms:creator>
+  <!--  codice dell'authority file regionale SIRBeC: AUF-10100-0000124 -->
 
   <dc:subject>Pantera (movimento studentesco)</dc:subject>
   <dcterms:subject xsi:type="dcterms:URI">http://www.wikidata.org/entity/Q3893439</dcterms:subject>
@@ -32,7 +29,6 @@
   <dcterms:temporal xsi:type="dcterms:Period">start=1989; end=1990; scheme=W3C-DTF;</dcterms:temporal>
 
   <dc:date>1989 ca.-1990 ca.</dc:date>
-  <!-- EDTF / ISO 8601-2: "~" = circa -->
   <dcterms:created>1989~/1990~</dcterms:created>
 
   <dc:type>StillImage</dc:type>
