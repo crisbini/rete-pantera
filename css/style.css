@@ -48,8 +48,6 @@ body {
 }
 
 
-/* ---------- 3. PULSANTE ROSSO ----------
-   Doc: https://getbootstrap.com/docs/5.3/components/buttons/#variables */
 .btn-pantera {
   --bs-btn-color: #fff;
   --bs-btn-bg: var(--rp-rosso);
@@ -74,7 +72,7 @@ body {
   width: auto;
 }
 
-/*  Doc breakpoint: https://getbootstrap.com/docs/5.3/layout/breakpoints/ */
+
 @media (max-width: 575.98px) {
   .logo {
     height: 72px;
@@ -176,7 +174,7 @@ body {
 
 /* ---------- 9. PAGINA CATALOGO ---------- */
 
-/* Doc input group: https://getbootstrap.com/docs/5.3/forms/input-group/ */
+
 .ricerca {
   max-width: 640px;
   --bs-border-radius-lg: 50rem;
@@ -500,7 +498,6 @@ body {
 
 /* ---------- 11. PAGINA VOCI DI AUTORITÀ ---------- */
 
-/*  Doc variabili: https://getbootstrap.com/docs/5.3/components/accordion/#variables */
 .accordion-autorita {
   --bs-accordion-border-color: var(--rp-nero);
   --bs-accordion-border-width: 2px;
