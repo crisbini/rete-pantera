@@ -1,147 +1,199 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
-<!--
-  TEI P5 - edizione digitale di un articolo di giornale
-  Oggetto: Fabio Luppino, "Ministro, guarda i nostri sogni nudi",
-           l'Unita', domenica 4 febbraio 1990, p. 23 (pagine di Roma)
-  Fonte: https://archivio.unita.news/assets/main/1990/02/04/page_023.pdf
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
 
-  Struttura del file
-    teiHeader   metadati, fonte, scelte editoriali, tassonomie, parole chiave
-    facsimile   collegamento al PDF della pagina e allo screenshot
-    text        trascrizione codificata (testatina, occhiello, titolo, sommario, firma, corpo)
-    standOff    authority locali: persone, enti, luoghi, eventi, opere, relazioni tipizzate
+  <teiHeader xml:lang="it">
 
-  Scelte di modellazione
-    - Nel testo i nomi puntano con @ref="#id" alla scheda in standOff; la scheda porta
-      l'URI Wikidata in <idno type="wikidata">. Cosi' la riconciliazione sta in un solo
-      punto e la stessa tabella alimenta la pagina dei dati del sito.
-    - I concetti (futurismo, surrealismo) puntano direttamente all'URI Wikidata con term/@ref.
-    - Fenomeni del testo: q (slogan, striscioni, citazioni), said (parlato), soCalled
-      (virgolette di distanza), rs (riferimenti indiretti: "la capitale", "il ministro"),
-      date/time/measure/num (valori normalizzati), seg (la performance finale), note
-      (commento del codificatore).
-    - @ana collega slogan, simboli e azioni a due tassonomie (forme / immaginario)
-      dichiarate in classDecl: base per una navigazione tematica sul sito.
-  Identificativi Wikidata verificati con ricerca il 3 novembre 2026; i casi incerti
-  sono segnalati con @cert o in commento.
--->
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="it">
-  <teiHeader>
     <fileDesc>
       <titleStmt>
-        <title type="main">Ministro, guarda i nostri sogni nudi</title>
-        <title type="sub">Edizione digitale codificata in TEI dell'articolo di Fabio Luppino («l'Unità», 4 febbraio 1990, p. 23)</title>
-        <author><persName ref="#luppino">Fabio Luppino</persName></author>
+        <title>Ministro, guarda i nostri sogni nudi: edizione digitale</title>
+        <author ref="#FL">Fabio Luppino</author>
         <respStmt>
-          <resp>Trascrizione, collazione con il facsimile e codifica TEI</resp>
-          <name xml:id="enc">Cristiano Bini</name>
+          <resp>trascrizione e codifica di</resp>
+          <persName><forename>Cristiano</forename> <surname>Bini</surname></persName>
         </respStmt>
       </titleStmt>
+      <editionStmt>
+        <edition>Edizione del progetto Rete-pantera-DH, <date when="2026-11">novembre 2026</date></edition>
+      </editionStmt>
       <publicationStmt>
-        <publisher>Collezione digitale sul movimento della Pantera (1989-1990), progetto per la prova finale</publisher>
-        <idno type="filename">tei_unita_1990-02-04_p23.xml</idno>
+        <authority>Rete-pantera-DH</authority>
+        <idno type="URI">https://github.com/crisbini/rete-pantera/blob/main/xml/tei_unita_1990-02-04_p23.xml</idno>
+        <date when="2026">2026</date>
         <availability status="restricted">
-          <p>Testo dell'articolo: © l'Unità / Fabio Luppino, riprodotto a soli fini di studio nell'ambito di un progetto didattico.
+          <p>Il testo originale è del giornale l'Unità e Fabio Luppino come scrittore (credo). È riprodotto a soli fini di studio e senza scopo di lucro, per progetto universitario.</p>
         </availability>
       </publicationStmt>
       <sourceDesc>
-        <biblStruct>
-          <analytic>
-            <title level="a" type="main">Ministro, guarda i nostri sogni nudi</title>
-            <title level="a" type="occhiello">Futuristi, surrealisti, ecologici gli studenti medi e gli universitari hanno dato fondo alla loro fantasia per colorare la grande manifestazione di protesta. Accanto alla pantera anche tigri, cammelli e tartarughe</title>
-            <author><persName ref="#luppino">Fabio Luppino</persName></author>
-          </analytic>
-          <monogr>
-            <title level="j" ref="#unita">l'Unità</title>
-            <imprint>
-              <pubPlace><placeName ref="#roma">Roma</placeName></pubPlace>
-              <date when="1990-02-04">domenica 4 febbraio 1990</date>
-            </imprint>
-            <biblScope unit="page">23</biblScope>
-            <biblScope unit="section">Roma - L'università contro Ruberti</biblScope>
-          </monogr>
-          <relatedItem type="articolo-stessa-pagina">
-            <bibl><author>Giampaolo Tucci</author>, <title level="a">«Battete il tempo, siamo tornati»</title>, <title level="j">l'Unità</title>, <date when="1990-02-04">4 febbraio 1990</date>, <biblScope unit="page">23</biblScope>. Cronaca dei comizi e del concerto rap in piazza del Popolo.</bibl>
-          </relatedItem>
-          <ptr type="facsimile" target="https://archivio.unita.news/assets/main/1990/02/04/page_023.pdf"/>
-        </biblStruct>
+        <bibl>
+          <title level="a">Ministro, guarda i nostri sogni nudi</title>
+          <author ref="#FL">Fabio Luppino</author>
+          <title level="j" ref="#UN">l'Unità</title>
+          <pubPlace>Roma</pubPlace>
+          <date when="1990-02-04">4 febbraio 1990</date>
+          <biblScope unit="page">23</biblScope>
+          <ref type="facsimile" target="https://archivio.unita.news/assets/main/1990/02/04/page_023.pdf">Archivio storico de l'Unità</ref>
+        </bibl>
+        <listBibl type="riferimenti-impliciti">
+          <bibl xml:id="DDL" type="progetto-di-legge">
+            <title>Progetto di riforma sull'autonomia delle università</title>
+            <author ref="#AR">Antonio Ruberti</author>
+            <relatedItem type="relation" target="https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1989-05-09;168@originale"/>
+            <note>Contestato dal movimento e non approvato in questa forma. Doveva attuare l'autonomia prevista dalla L. 9 maggio 1989, n. 168.</note>
+          </bibl>
+          <bibl xml:id="BTT" type="album" sameAs="http://www.wikidata.org/entity/Q3636754">
+            <title>Batti il tuo tempo</title>
+            <author ref="#ORP">Onda Rossa Posse</author>
+            <date when="1990-06-15">15 giugno 1990</date>
+            <idno type="URL">https://musicbrainz.org/release-group/5f0a9b7e-95e1-46c8-9f5c-ad853906ba47</idno>
+            <note>Richiamato nel testo da «battere il tempo». Il disco esce a giugno; a febbraio il brano era già eseguito dal vivo.</note>
+          </bibl>
+        </listBibl>
       </sourceDesc>
     </fileDesc>
 
     <encodingDesc>
       <projectDesc>
-        <p>Il testo fa parte di una collezione eterogenea (fotografie, volantini, disegni, articoli) sul movimento studentesco della Pantera. La codifica mette in evidenza i protagonisti, i luoghi del corteo e il repertorio simbolico del movimento (animali, avanguardie, cultura pop, bersagli polemici), per consentire sul sito una navigazione per persona, luogo, data e tema.</p>
+        <p>Testo codificato per il progetto Rete-pantera-DH, collezione digitale sul movimento studentesco della Pantera (1989-1990), realizzata come prova finale d'esame.</p>
       </projectDesc>
+      <samplingDecl>
+        <p>Della pagina 23 è codificato solo l'articolo di Fabio Luppino. Gli altri testi della pagina non sono trascritti.</p>
+      </samplingDecl>
       <editorialDecl>
-        <correction status="high" method="silent">
-          <p>Testo di base: OCR dell'Archivio storico de «l'Unità», collazionato con il facsimile della pagina. Gli errori di riconoscimento sono corretti senza segnalazione nel testo, perché la stampa riporta la lezione corretta. Correzioni principali: Filano → Pifano; Filosofo → Filosofia; portalo → portato; nolr → noir; etemo ritomo → eterno ritorno; lare → fare; (a vedere → fa vedere; II a poco → lì a poco; te tracce → le tracce; ti graffito → il graffito; Caltanisetta → Caltanissetta; segni spuri (•, -, *) → virgolette basse; maiuscole e accenti alterati ripristinati.</p>
-        </correction>
-        <normalization method="silent">
-          <p>Ortografia, maiuscole e punteggiatura della stampa sono conservate. I valori normalizzati (date, orari, misure, numeri) sono registrati negli attributi @when, @quantity, @value.</p>
-        </normalization>
-        <quotation marks="all">
-          <p>Le virgolette basse del testo a stampa sono conservate; gli elementi q, said e soCalled ne esplicitano la funzione.</p>
-        </quotation>
-        <hyphenation eol="none">
-          <p>Le divisioni di parola a fine riga non sono conservate.</p>
-        </hyphenation>
-        <segmentation>
-          <p>I paragrafi seguono i rientri visibili nel facsimile. A capo e colonne non sono codificati; è segnato solo l'inizio di pagina.</p>
-        </segmentation>
         <interpretation>
-          <p>Le note di commento (note type="commento") e le attribuzioni incerte sono del codificatore e portano @resp e, dove serve, @cert. L'attributo @ana assegna slogan, simboli e azioni alle categorie delle tassonomie «forme» e «immaginario».</p>
+          <p>Sono annotati: le persone, anche quando sono indicate per ruolo («il ministro»); gli autori e i personaggi citati; i gruppi, le facoltà e gli atenei presenti in piazza; i luoghi del corteo e Valle Giulia; la data e gli orari della giornata; tre concetti chiave (privatizzazione, futurismo, surrealismo).</p>
+          <p>Le facoltà rimandano al loro ateneo. Gli identificativi esterni stanno nelle liste del profileDesc e del sourceDesc: VIAF per le persone, GeoNames per i luoghi, Wikidata per enti, opere e concetti. Il secondo identificativo, quando c'è, è in idno.</p>
         </interpretation>
+        <quotation>
+          <p>Per le frasi riportate si usa solo q, distinto con @type: slogan (scandito o scritto), striscione (striscioni e cartelli), discorso (parole di partecipanti), citazione (rimando a un testo).</p>
+        </quotation>
       </editorialDecl>
       <tagsDecl>
         <namespace name="http://www.tei-c.org/ns/1.0">
-          <tagUsage gi="persName">Persone reali nominate; @ref rimanda alla scheda in listPerson.</tagUsage>
-          <tagUsage gi="placeName">Luoghi nominati; @ref rimanda alla scheda in listPlace.</tagUsage>
-          <tagUsage gi="orgName">Enti, facoltà, gruppi e collettivi; @ref rimanda alla scheda in listOrg.</tagUsage>
-          <tagUsage gi="rs">Riferimenti non nominali a entità (la capitale, il ministro, il presidente del Consiglio), animali-simbolo, oggetti del corteo, eventi.</tagUsage>
-          <tagUsage gi="term">Concetti e correnti artistiche, con @ref a Wikidata.</tagUsage>
-          <tagUsage gi="q">Slogan, striscioni, cartelli e citazioni; @type ne indica la forma.</tagUsage>
-          <tagUsage gi="said">Parole pronunciate da partecipanti riportate in discorso diretto.</tagUsage>
-          <tagUsage gi="soCalled">Parole tra virgolette di distanza del giornalista.</tagUsage>
-          <tagUsage gi="date">Date, anche relative («ieri»), normalizzate in @when.</tagUsage>
-          <tagUsage gi="time">Orari normalizzati in @when.</tagUsage>
-          <tagUsage gi="measure">Durate e distanze con @quantity e @unit.</tagUsage>
-          <tagUsage gi="num">Quantità numeriche con @value.</tagUsage>
-          <tagUsage gi="seg">Unità di senso più ampie della frase (la performance finale).</tagUsage>
-          <tagUsage gi="note">Commento del codificatore.</tagUsage>
+          <tagUsage gi="orgName">Movimento, gruppi, facoltà e atenei presenti in piazza; @type indica il livello, @ref rimanda all'ateneo o al gruppo.</tagUsage>
+          <tagUsage gi="rs">Persone indicate per ruolo e riferimenti al movimento.</tagUsage>
+          <tagUsage gi="term">Concetti chiave, con @ref all'URI Wikidata.</tagUsage>
+          <tagUsage gi="q">Frasi riportate; @who indica l'autore quando è una persona citata, @corresp il testo richiamato.</tagUsage>
         </namespace>
       </tagsDecl>
-      <classDecl>
-        <taxonomy xml:id="forme">
-          <desc>Forme della comunicazione del movimento registrate nel testo</desc>
-          <category xml:id="slogan"><catDesc>Slogan scandito o scritto</catDesc></category>
-          <category xml:id="striscione"><catDesc>Striscione, cartello o disegno portato in corteo</catDesc></category>
-          <category xml:id="stampa"><catDesc>Volantino o rivista</catDesc></category>
-          <category xml:id="performance"><catDesc>Azione teatrale o performance</catDesc></category>
-          <category xml:id="graffito"><catDesc>Graffito o pittura</catDesc></category>
-          <category xml:id="musica"><catDesc>Musica</catDesc></category>
-        </taxonomy>
-        <taxonomy xml:id="immaginario">
-          <desc>Campi dell'immaginario evocati</desc>
-          <category xml:id="animale"><catDesc>Animale-simbolo</catDesc></category>
-          <category xml:id="avanguardia"><catDesc>Avanguardie artistiche e letterarie</catDesc></category>
-          <category xml:id="pop"><catDesc>Cultura di massa: fumetto, pubblicità, pop art</catDesc></category>
-          <category xml:id="bersaglio"><catDesc>Bersaglio polemico: governo, ministri, riforma</catDesc></category>
-          <category xml:id="privatizzazione"><catDesc>Sapere e cultura come merce</catDesc></category>
-          <category xml:id="memoria"><catDesc>Memoria dei movimenti precedenti</catDesc></category>
-        </taxonomy>
-        <taxonomy xml:id="aess">
-          <bibl>Thesaurus AESS, Archivi dell'Immagine - Regione Lombardia (descrittori usati anche per le fotografie della collezione)</bibl>
-        </taxonomy>
-      </classDecl>
-      <geoDecl xml:id="wgs84" datum="WGS84">Latitudine e longitudine in gradi decimali; valori arrotondati, da allineare alla proprietà Wikidata P625.</geoDecl>
     </encodingDesc>
 
     <profileDesc>
-      <creation><date when="1990-02-04">4 febbraio 1990</date></creation>
-      <langUsage>
-        <language ident="it">italiano</language>
-      </langUsage>
+      <particDesc>
+      
+        <listOrg type="responsabili-fonte">
+          <org xml:id="UN" sameAs="http://www.wikidata.org/entity/Q1051163">
+            <orgName role="testata">l'Unità</orgName>
+            <idno type="ISSN">0391-7002</idno>
+          </org>
+        </listOrg>
+        <listPerson type="persone-citate">
+          <person xml:id="AR" sameAs="http://viaf.org/viaf/76367545">
+            <persName role="ministro"><forename>Antonio</forename> <surname>Ruberti</surname></persName>
+            <affiliation ref="#MURST">ministro dell'Università e della ricerca scientifica e tecnologica</affiliation>
+            <idno type="Wikidata">http://www.wikidata.org/entity/Q604765</idno>
+          </person>
+          <person xml:id="GA" sameAs="http://viaf.org/viaf/109833019">
+            <persName role="presidente del Consiglio"><forename>Giulio</forename> <surname>Andreotti</surname></persName>
+            <idno type="Wikidata">http://www.wikidata.org/entity/Q50005</idno>
+          </person>
+          <person xml:id="SM" sameAs="http://viaf.org/viaf/11784089">
+            <persName role="ministro della Pubblica istruzione"><forename>Sergio</forename> <surname>Mattarella</surname></persName>
+            <idno type="Wikidata">http://www.wikidata.org/entity/Q3956186</idno>
+          </person>
+          <person xml:id="GF" sameAs="http://viaf.org/viaf/26181847">
+            <persName role="giornalista"><forename>Giuliano</forename> <surname>Ferrara</surname></persName>
+            <idno type="Wikidata">http://www.wikidata.org/entity/Q597551</idno>
+          </person>
+          <person xml:id="DP">
+            <persName role="militante"><forename>Daniele</forename> <surname>Pifano</surname></persName>
+            <affiliation ref="#AUT">area dell'Autonomia</affiliation>
+          </person>
+        </listPerson>
+        <listPerson type="autori-citati">
+          <person xml:id="CB" sameAs="http://viaf.org/viaf/17218730">
+            <persName role="poeta"><forename>Charles</forename> <surname>Baudelaire</surname></persName>
+            <idno type="Wikidata">http://www.wikidata.org/entity/Q501</idno>
+          </person>
+          <person xml:id="AW" sameAs="http://viaf.org/viaf/56617645">
+            <persName role="artista"><forename>Andy</forename> <surname>Warhol</surname></persName>
+            <idno type="Wikidata">http://www.wikidata.org/entity/Q5603</idno>
+          </person>
+        </listPerson>
+        <listPerson type="personaggi-citati">
+          <person xml:id="PAP" sameAs="http://viaf.org/viaf/74651110">
+            <name type="personaggio">Paperino</name>
+            <idno type="Wikidata">http://www.wikidata.org/entity/Q6550</idno>
+          </person>
+        </listPerson>
+        <listOrg type="enti-citati">
+          <org xml:id="PAN" type="movimento" sameAs="http://www.wikidata.org/entity/Q3893439">
+            <orgName>Pantera</orgName>
+            <desc>Movimento degli studenti medi e universitari nato a Palermo nel dicembre 1989 contro il progetto di riforma Ruberti.</desc>
+          </org>
+          <org xml:id="SAP" type="ateneo" sameAs="http://www.wikidata.org/entity/Q209344">
+            <orgName>Sapienza Università di Roma</orgName>
+          </org>
+          <org xml:id="UNIPA" type="ateneo" sameAs="http://www.wikidata.org/entity/Q1641504">
+            <orgName>Università degli Studi di Palermo</orgName>
+          </org>
+          <org xml:id="IUAV" type="ateneo" sameAs="http://www.wikidata.org/entity/Q727492">
+            <orgName>Istituto Universitario di Architettura di Venezia</orgName>
+          </org>
+          <org xml:id="UNIPI" type="ateneo" sameAs="http://www.wikidata.org/entity/Q645663">
+            <orgName>Università di Pisa</orgName>
+          </org>
+          <org xml:id="UNIFI" type="ateneo" sameAs="http://www.wikidata.org/entity/Q820887">
+            <orgName>Università degli Studi di Firenze</orgName>
+          </org>
+          <org xml:id="UNIOR" type="ateneo" sameAs="http://www.wikidata.org/entity/Q1632525">
+            <orgName>Istituto Universitario Orientale di Napoli</orgName>
+          </org>
+          <org xml:id="ORP" type="gruppo-musicale" sameAs="http://www.wikidata.org/entity/Q3882421">
+            <orgName>Onda Rossa Posse</orgName>
+            <desc>Gruppo rap romano nato intorno a Radio Onda Rossa.</desc>
+          </org>
+          <org xml:id="MURST" type="ministero" sameAs="http://www.wikidata.org/entity/Q3858483">
+            <orgName>Ministero dell'università e della ricerca scientifica e tecnologica</orgName>
+          </org>
+          <org xml:id="AUT" type="movimento" sameAs="http://www.wikidata.org/entity/Q6439582">
+            <orgName>Autonomia Operaia</orgName>
+          </org>
+          <listRelation>
+            <relation name="isReplacedBy" ref="http://purl.org/dc/terms/isReplacedBy" active="#ORP" passive="http://www.wikidata.org/entity/Q3625365"/>
+          </listRelation>
+        </listOrg>
+      </particDesc>
+      <settingDesc>
+        <setting>
+          <p>Manifestazione nazionale degli studenti contro il progetto di riforma Ruberti: <placeName ref="#ROMA">Roma</placeName>, <date when="1990-02-03">3 febbraio 1990</date>.</p>
+        </setting>
+        <listPlace type="luoghi-citati">
+          <place xml:id="ROMA" sameAs="https://www.geonames.org/3169070">
+            <placeName>Roma</placeName>
+            <idno type="Wikidata">http://www.wikidata.org/entity/Q220</idno>
+            <place xml:id="ESE" sameAs="https://www.geonames.org/11856691">
+              <placeName type="ufficiale">piazza della Repubblica</placeName>
+              <placeName type="popolare">piazza Esedra</placeName>
+              <idno type="Wikidata">http://www.wikidata.org/entity/Q1202365</idno>
+            </place>
+            <place xml:id="POP" sameAs="https://www.geonames.org/6954102">
+              <placeName>piazza del Popolo</placeName>
+              <idno type="Wikidata">http://www.wikidata.org/entity/Q824997</idno>
+            </place>
+            <place xml:id="PIN" sameAs="https://www.geonames.org/8015111">
+              <placeName>Pincio</placeName>
+              <idno type="Wikidata">http://www.wikidata.org/entity/Q550215</idno>
+            </place>
+            <place xml:id="VG" sameAs="http://www.wikidata.org/entity/Q4008032">
+              <placeName>Valle Giulia</placeName>
+              <event when="1968-03-01" sameAs="http://www.wikidata.org/entity/Q3388248">
+                <label>Battaglia di Valle Giulia</label>
+              </event>
+            </place>
+          </place>
+        </listPlace>
+      </settingDesc>
       <textClass>
         <keywords scheme="https://thes.bncf.firenze.sbn.it/">
           <term ref="https://thes.bncf.firenze.sbn.it/termine.php?id=16239">Movimenti studenteschi</term>
@@ -149,304 +201,53 @@
         <keywords scheme="http://id.loc.gov/authorities/subjects">
           <term ref="http://id.loc.gov/authorities/subjects/sh85129276">Student movements</term>
         </keywords>
-        <keywords scheme="https://www.wikidata.org/">
-          <term ref="http://www.wikidata.org/entity/Q3893439">Pantera (movimento studentesco)</term>
-        </keywords>
-        <keywords scheme="#aess">
-          <term>istruzione</term>
-          <term>giovani</term>
-          <term>politica</term>
-        </keywords>
         <classCode scheme="https://www.oclc.org/en/dewey.html">378.1981</classCode>
       </textClass>
     </profileDesc>
-
-    <revisionDesc>
-      <change when="2026-11-03" who="#enc">Prima codifica: trascrizione dall'OCR corretta sul facsimile, marcatura delle entità, schede di autorità con riconciliazione Wikidata.</change>
-    </revisionDesc>
+    
   </teiHeader>
 
-  <facsimile>
-    <surface xml:id="p23">
-      <graphic url="https://archivio.unita.news/assets/main/1990/02/04/page_023.pdf" mimeType="application/pdf"/>
-      <graphic url="../img/catalogo/ministro-sogni-nudi-intero.jpg" mimeType="image/jpeg"/>
-    </surface>
-  </facsimile>
-
-  <text>
+  <text xml:lang="it">
     <body>
-      <pb n="23" facs="#p23"/>
+      <pb n="23"/>
       <div type="articolo">
-        <head type="testatina">L'università contro <persName ref="#ruberti">Ruberti</persName></head>
-        <head type="occhiello"><term ref="http://www.wikidata.org/entity/Q131221" ana="#avanguardia">Futuristi</term>, <term ref="http://www.wikidata.org/entity/Q39427" ana="#avanguardia">surrealisti</term>, ecologici gli studenti medi e gli universitari hanno dato fondo alla loro fantasia per colorare la grande <rs type="evento" ref="#corteo_1990">manifestazione di protesta</rs><lb/>Accanto alla <rs type="simbolo" ana="#animale">pantera</rs> anche <rs type="simbolo" ana="#animale">tigri</rs>, <rs type="simbolo" ana="#animale">cammelli</rs> e <rs type="simbolo" ana="#animale">tartarughe</rs></head>
-        <head type="titolo"><rs type="persona" ref="#ruberti" ana="#bersaglio">Ministro</rs>,<lb/>guarda i nostri sogni nudi</head>
-        <argument type="sommario">
-          <p><q type="slogan" ana="#slogan #privatizzazione">«Liberi di pensare, senza svenderci al mercato delle idee»</q>. <term ref="http://www.wikidata.org/entity/Q131221" ana="#avanguardia">Futuristi</term>, poetici, ecologici, tirando fuori tutto il loro universo immaginario, gli studenti del <rs type="movimento" ref="#pantera">movimento del <date when="1990">'90</date></rs> hanno risposto così, <date when="1990-02-03">ieri</date>, ai tentativi di <soCalled ana="#privatizzazione">«privatizzare»</soCalled> la cultura. Accanto alla <rs type="simbolo" ana="#animale">«pantera»</rs> sono comparsi <rs type="simbolo" ana="#animale">tigri</rs>, <rs type="simbolo" ana="#animale">cammelli</rs> e <rs type="simbolo" ana="#animale">tartarughe</rs>. Il racconto di <measure type="durata" quantity="4" unit="h">quattro ore</measure> di festa per il centro storico della <rs type="luogo" ref="#roma">capitale</rs>.</p>
+        <head type="testatina">L'università contro <persName ref="#AR">Ruberti</persName></head>
+        <head type="occhiello"><term ref="http://www.wikidata.org/entity/Q131221">Futuristi</term>, <term ref="http://www.wikidata.org/entity/Q39427">surrealisti</term>, ecologici gli studenti medi e gli universitari hanno dato fondo alla loro fantasia per colorare la grande manifestazione di protesta<lb/>Accanto alla <rs type="simbolo" ref="#PAN">pantera</rs> anche tigri, cammelli e tartarughe</head>
+        <head type="titolo"><rs type="persona" ref="#AR">Ministro</rs>,<lb/>guarda i nostri sogni nudi</head>
+        <argument>
+          <p><q type="slogan">«Liberi di pensare, senza svenderci al mercato delle idee»</q>. <term ref="http://www.wikidata.org/entity/Q131221">Futuristi</term>, poetici, ecologici, tirando fuori tutto il loro universo immaginario, gli studenti del <orgName ref="#PAN">movimento del '90</orgName> hanno risposto così, <date when="1990-02-03">ieri</date>, ai tentativi di «<term ref="http://www.wikidata.org/entity/Q161500">privatizzare</term>» la cultura. Accanto alla «<rs type="simbolo" ref="#PAN">pantera</rs>» sono comparsi tigri, cammelli e tartarughe. Il racconto di quattro ore di festa per il centro storico della capitale.</p>
         </argument>
-        <byline><docAuthor><persName ref="#luppino">FABIO LUPPINO</persName></docAuthor></byline>
-        <figure type="fotografia">
-          <figDesc>Fotografia in bianco e nero accanto al titolo: una giovane manifestante, con le bacchette in mano, suona un tamburo durante il corteo; sullo sfondo altri partecipanti.</figDesc>
-          <note type="commento" resp="#enc">Autore della fotografia non leggibile nello screenshot; la pagina contiene una didascalia sul corteo («Frammenti del lungo corteo…») la cui pertinenza a questa immagine va verificata sul PDF.</note>
+        <byline><persName ref="#FL">FABIO LUPPINO</persName></byline>
+        <figure>
+          <figDesc>Fotografia accanto al titolo: una giovane manifestante suona il tamburo durante il corteo.</figDesc>
         </figure>
 
-        <p>L'arte di fare <soCalled>«movimento»</soCalled>. Gli oltre <num type="cardinal" value="100000">centomila</num> giovani che <date when="1990-02-03">ieri mattina</date> hanno sfilato per il centro storico della <rs type="luogo" ref="#roma">capitale</rs> hanno sfoderato un immaginario politico e fantastico. <term ref="http://www.wikidata.org/entity/Q131221" ana="#avanguardia">Futuristi</term>, <term ref="http://www.wikidata.org/entity/Q39427" ana="#avanguardia">surrealisti</term>, ecologici, hanno tentato rime, provato colori, suonato il motivo del nuovo che vanno cercando, o che forse già rappresentano. E accanto alla <rs type="simbolo" ana="#animale">pantera</rs> sono apparse la <rs type="simbolo" ana="#animale">tigre</rs>, un <rs type="simbolo" ana="#animale">cammello</rs>, la <rs type="simbolo" ana="#animale">tartaruga</rs> e le <rs type="simbolo" ana="#animale #striscione">cavie</rs> disegnate dagli <orgName type="gruppo">studenti di Medicina</orgName>. Il sibilo del <q type="slogan" ana="#striscione">«vento del Sud»</q>, impresso dalla <orgName ref="#arch_palermo">facoltà di Architettura di <placeName ref="#palermo">Palermo</placeName></orgName>, ha portato con sé il ruggito della <rs type="simbolo" ana="#animale">pantera</rs>. Ma c'è anche <rs type="personaggio" ref="#paperino" ana="#pop">Paperino</rs> <q type="striscione" ana="#striscione #pop">«Non violento ma incazzato»</q> di <orgName ref="#lettere_sapienza">Lettere della «Sapienza»</orgName>, le parole di <persName ref="#baudelaire" ana="#avanguardia">Baudelaire</persName> di <orgName type="gruppo">Lingue e Pedagogia</orgName>: <q type="striscione" ana="#striscione #avanguardia">«Abbiamo tante parole che neppure potete immaginare, voi avete solo scarti di pensiero e coscienze raggiungibili. Venite a vedere i nostri sogni nudi»</q>.<note type="commento" resp="#enc" cert="medium">L'attribuzione della frase a Baudelaire è dell'articolo e non è stata verificata sulle opere. L'invito finale («Venite a vedere i nostri sogni nudi») è ripreso nel titolo del pezzo.</note></p>
+        <p>L'arte di fare «movimento». Gli oltre centomila giovani che <date when="1990-02-03">ieri mattina</date> hanno sfilato per il centro storico della capitale hanno sfoderato un immaginario politico e fantastico. <term ref="http://www.wikidata.org/entity/Q131221">Futuristi</term>, <term ref="http://www.wikidata.org/entity/Q39427">surrealisti</term>, ecologici, hanno tentato rime, provato colori, suonato il motivo del nuovo che vanno cercando, o che forse già rappresentano. E accanto alla <rs type="simbolo" ref="#PAN">pantera</rs> sono apparse la tigre, un cammello, la tartaruga e le cavie disegnate dagli studenti di <orgName type="facoltà">Medicina</orgName>. Il sibilo del <q type="striscione">«vento del Sud»</q>, impresso dalla <orgName type="facoltà" ref="#UNIPA">facoltà di Architettura di Palermo</orgName>, ha portato con sé il ruggito della <rs type="simbolo" ref="#PAN">pantera</rs>. Ma c'è anche <name type="personaggio" ref="#PAP">Paperino</name> <q type="striscione">«Non violento ma incazzato»</q> di <orgName type="facoltà" ref="#SAP">Lettere della «Sapienza»</orgName>, le parole di <persName ref="#CB">Baudelaire</persName> di <orgName type="facoltà">Lingue e Pedagogia</orgName>: <q type="striscione" who="#CB">«Abbiamo tante parole che neppure potete immaginare, voi avete solo scarti di pensiero e coscienze raggiungibili. Venite a vedere i nostri sogni nudi»</q>.</p>
 
-        <p>Il <soCalled>«movimento»</soCalled> ha fatto molto presto la conoscenza con la <rs type="luogo" ref="#roma">capitale</rs>. Alle <time when="08:45:00">8,45</time> in <placeName ref="#piazza_repubblica">piazza Esedra</placeName> c'erano già molti studenti meridionali, di <placeName ref="#agrigento">Agrigento</placeName>, <placeName ref="#catania">Catania</placeName>, <placeName ref="#caltanissetta">Caltanissetta</placeName>. Più tardi quelli di <placeName ref="#napoli">Napoli</placeName> che si sono messi alla testa del corteo. La <rs type="simbolo" ana="#animale">tigre</rs> l'hanno portata loro, <said>«ma è solo per distinguerci da quelli di <placeName ref="#roma">Roma</placeName>, senza alcun significato specifico»</said>, dicono. Soltanto a <time when="12:00:00">mezzogiorno</time> medi e universitari si sono messi tutti in <soCalled>«movimento»</soCalled>.</p>
+        <p>Il <rs type="movimento" ref="#PAN">«movimento»</rs> ha fatto molto presto la conoscenza con la capitale. Alle <time when="08:45:00">8,45</time> in <placeName ref="#ESE">piazza Esedra</placeName> c'erano già molti studenti meridionali, di Agrigento, Catania, Caltanissetta. Più tardi quelli di Napoli che si sono messi alla testa del corteo. La tigre l'hanno portata loro, <q type="discorso">«ma è solo per distinguerci da quelli di Roma, senza alcun significato specifico»</q>, dicono. Soltanto a <time when="12:00:00">mezzogiorno</time> medi e universitari si sono messi tutti in «movimento».</p>
 
-        <p>Si è trattato della <q type="striscione" ana="#striscione">«fucina di pensieri»</q> annunciata dallo striscione di <orgName ref="#iuav">Architettura di <placeName ref="#venezia">Venezia</placeName></orgName> che non vuole partecipare al <q type="slogan" ana="#privatizzazione">«mercato delle idee»</q>. E <persName ref="#ruberti" ana="#bersaglio">Ruberti</persName> che vuole <q type="slogan" ana="#slogan #privatizzazione">«privatizzare anche l'insalata»</q> viene messo in gabbia, insieme ad <persName ref="#andreotti" ana="#bersaglio">Andreotti</persName> e <persName ref="#mattarella" ana="#bersaglio">Mattarella</persName> o trasformato in <q type="cartello" ana="#striscione #pop #bersaglio">«<persName ref="#ruberti">Ruberti</persName> noir, per lo studente che non deve chiedere mai»</q>.<note type="commento" resp="#enc">Parodia dello slogan pubblicitario del dopobarba Denim («per l'uomo che non deve chiedere mai»).</note> <num type="cardinal" value="100000">Centomila</num> idee in libertà,<note type="commento" resp="#enc" cert="medium">Possibile eco delle futuriste «parole in libertà».</note> <q type="slogan" ana="#slogan">«meno di quanto vorremmo più di quanto vorreste»</q>, dicono gli <orgName type="gruppo">studenti di Medicina di <placeName ref="#milano">Milano</placeName></orgName>. E l'immaginazione diventa <q type="striscione" ana="#striscione">«Eruzione»</q> per <orgName ref="#geoccupata">Geoccupata di <placeName ref="#napoli">Napoli</placeName></orgName>, che riproduce il <rs type="persona" ref="#ruberti" ana="#bersaglio">ministro dell'università</rs> con lo stile di <persName ref="#warhol" ana="#pop">Andy Warhol</persName>.<note type="commento" resp="#enc" cert="medium">«Geoccupata»: con ogni probabilità la facoltà (o il dipartimento) di Geologia occupata; «Eruzione» gioca sul lessico vulcanologico. Lo stile di Warhol rimanda alla <ref target="http://www.wikidata.org/entity/Q134147">pop art</ref>.</note> <q type="striscione" ana="#striscione #animale">«Il tempo che il miele rimane nella testa le api torneranno»</q>, in stile criptico ma efficace, dei ragazzi del <orgName ref="#filosofia_pisa">dipartimento di Filosofia di <placeName ref="#pisa">Pisa</placeName></orgName>. Per un libero pensiero è anche il messaggio degli studenti della <orgName ref="#agraria_firenze">facoltà di Agraria di <placeName ref="#firenze">Firenze</placeName></orgName>: <q type="slogan" ana="#slogan #animale">«Il <rs type="simbolo" ana="#animale">cammello</rs> ha sete e vuole bere, l'università sia fonte di sapere»</q>, oppure, <q type="slogan" ana="#slogan #privatizzazione">«l'insalata non va privatizzata»</q>. E ce n'è uno anche per il <rs type="persona" ref="#andreotti">presidente del Consiglio</rs>, <q type="slogan" ana="#slogan #bersaglio #animale">«<persName ref="#andreotti">Andreotti</persName> non è bello, il gobbo buono è il <rs type="simbolo" ana="#animale">cammello</rs>»</q>.<note type="commento" resp="#enc">Allusione alla curvatura delle spalle di Andreotti, da cui il soprannome di «gobbo».</note></p>
+        <p>Si è trattato della <q type="striscione">«fucina di pensieri»</q> annunciata dallo striscione di <orgName type="facoltà" ref="#IUAV">Architettura di Venezia</orgName> che non vuole partecipare al <q type="striscione">«mercato delle idee»</q>. E <persName ref="#AR">Ruberti</persName> che vuole <q type="slogan">«<term ref="http://www.wikidata.org/entity/Q161500">privatizzare</term> anche l'insalata»</q> viene messo in gabbia, insieme ad <persName ref="#GA">Andreotti</persName> e <persName ref="#SM">Mattarella</persName> o trasformato in <q type="striscione">«<persName ref="#AR">Ruberti</persName> noir, per lo studente che non deve chiedere mai»</q>. Centomila idee in libertà, <q type="slogan">«meno di quanto vorremmo più di quanto vorreste»</q>, dicono gli studenti di <orgName type="facoltà">Medicina di Milano</orgName>. E l'immaginazione diventa <q type="striscione">«Eruzione»</q> per <orgName type="collettivo">Geoccupata di Napoli</orgName>, che riproduce il <rs type="persona" ref="#AR">ministro dell'università</rs> con lo stile di <persName ref="#AW">Andy Warhol</persName>. <q type="striscione">«Il tempo che il miele rimane nella testa le api torneranno»</q>, in stile criptico ma efficace, dei ragazzi del <orgName type="dipartimento" ref="#UNIPI">dipartimento di Filosofia di Pisa</orgName>. Per un libero pensiero è anche il messaggio degli studenti della <orgName type="facoltà" ref="#UNIFI">facoltà di Agraria di Firenze</orgName>: <q type="slogan">«Il cammello ha sete e vuole bere, l'università sia fonte di sapere»</q>, oppure, <q type="slogan">«l'insalata non va <term ref="http://www.wikidata.org/entity/Q161500">privatizzata</term>»</q>. E ce n'è uno anche per il <rs type="persona" ref="#GA">presidente del Consiglio</rs>, <q type="slogan">«<persName ref="#GA">Andreotti</persName> non è bello, il gobbo buono è il cammello»</q>.</p>
 
-        <p>Ma c'è posto per tutti. Tra le file del corteo appaiono i nomi di decine di <rs type="oggetto" ana="#stampa">riviste stampate per l'occasione</rs>. C'è anche il <rs type="oggetto" ana="#stampa">volantino</rs> che annuncia la comparsa di un curioso <orgName ref="#uomini_casalinghi">«Movimento di uomini casalinghi»</orgName>. E in <placeName ref="#piazza_popolo">piazza del Popolo</placeName>, puntuali, a <time when="12:00:00">mezzogiorno</time>, dopo aver rigorosamente seguito tutte le <soCalled>«gesta chilometriche»</soCalled> del corteo (più o meno <measure type="distanza" quantity="7" unit="km">sette km</measure>), fanno capolino loro, i sempreverdi di tutti i movimenti, i <rs type="gruppo" ana="#memoria">sessantottini</rs>, addirittura qualche <rs type="gruppo" ana="#memoria">«sessantino con la maglietta a strisce»</rs>.<note type="commento" resp="#enc">I «ragazzi con le magliette a strisce» sono i giovani delle proteste del luglio 1960 contro il governo Tambroni.</note> Con l'occhio <soCalled>«critico»</soCalled> scartabellano il frasario del <rs type="movimento" ref="#pantera">movimento del <date when="1990">'90</date></rs> e senza abiure accettano la novità. <said ana="#memoria">«Ma stai attento, sei stato proprio tu a fare di <persName ref="#ferrara">Giuliano Ferrara</persName> un eroe, quando l'hai fotografato sulla discesa di <rs type="evento" ref="#valle_giulia_1968"><placeName ref="#valle_giulia">Valle Giulia</placeName></rs>»</said>, ricorda ad un suo amico un romantico amante di Arte, quella vera. Colpito dall'<soCalled>«eterno ritorno»</soCalled> si fa vedere sulla piazza anche l'<rs type="movimento" ref="#autonomia" ana="#memoria">autonomo</rs> <persName ref="#pifano">Daniele Pifano</persName>, in versione familiare con la mano del figlio stretta nella sua.</p>
+        <p>Ma c'è posto per tutti. Tra le file del corteo appaiono i nomi di decine di riviste stampate per l'occasione. C'è anche il volantino che annuncia la comparsa di un curioso <orgName type="gruppo">«Movimento di uomini casalinghi»</orgName>. E in <placeName ref="#POP">piazza del Popolo</placeName>, puntuali, a <time when="12:00:00">mezzogiorno</time>, dopo aver rigorosamente seguito tutte le «gesta chilometriche» del corteo (più o meno sette km), fanno capolino loro, i sempreverdi di tutti i movimenti, i sessantottini, addirittura qualche «sessantino con la maglietta a strisce». Con l'occhio «critico» scartabellano il frasario del <orgName ref="#PAN">movimento del '90</orgName> e senza abiure accettano la novità. <q type="discorso">«Ma stai attento, sei stato proprio tu a fare di <persName ref="#GF">Giuliano Ferrara</persName> un eroe, quando l'hai fotografato sulla discesa di <placeName ref="#VG">Valle Giulia</placeName>»</q>, ricorda ad un suo amico un romantico amante di Arte, quella vera. Colpito dall'«eterno ritorno» si fa vedere sulla piazza anche l'autonomo <persName ref="#DP">Daniele Pifano</persName>, in versione familiare con la mano del figlio stretta nella sua.</p>
 
-        <p><time when="14:00:00">Alle 2</time> la piazza è piena. Pian piano sono riusciti ad entrare anche gli studenti della <orgName ref="#sapienza">«Sapienza»</orgName>, gli ultimi a partire, in coda al corteo. <said>«Siamo oltre <num type="cardinal" value="100000">centomila</num>»</said>, grida un ragazzo di un <orgName type="scuola">istituto superiore di <placeName ref="#napoli">Napoli</placeName></orgName>. Gli studenti di <placeName ref="#venezia">Venezia</placeName>, e più tardi anche quelli di <placeName ref="#napoli">Napoli</placeName>, <placeName ref="#catania">Catania</placeName>, <placeName ref="#bari">Bari</placeName>, <placeName ref="#caltanissetta">Caltanissetta</placeName>, <placeName ref="#ascoli_piceno">Ascoli Piceno</placeName>, cominciano a guardare l'orologio. Dovranno ripartire di lì a poco. In orario per <q type="citazione" ana="#musica" corresp="#batti_tempo">«battere il tempo»</q> a cui l'invita il rap italiano del gruppo di <orgName ref="#onda_rossa_posse">«Onda rossa»</orgName>.<note type="commento" resp="#enc">Si tratta della Onda Rossa Posse, nata intorno a Radio Onda Rossa: «battere il tempo» richiama il loro brano «Batti il tuo tempo», cantato nelle facoltà occupate prima dell'uscita su disco e diventato l'inno della Pantera.</note> La piazza abbagliata dal sole ritrova le sue energie. L'ultimo ruggito della <rs type="simbolo" ana="#animale">pantera</rs> prima di salutare la <rs type="luogo" ref="#roma">capitale</rs>.</p>
+        <p><time when="14:00:00">Alle 2</time> la piazza è piena. Pian piano sono riusciti ad entrare anche gli studenti della <orgName type="ateneo" ref="#SAP">«Sapienza»</orgName>, gli ultimi a partire, in coda al corteo. <q type="discorso">«Siamo oltre centomila»</q>, grida un ragazzo di un istituto superiore di Napoli. Gli studenti di Venezia, e più tardi anche quelli di Napoli, Catania, Bari, Caltanissetta, Ascoli Piceno, cominciano a guardare l'orologio. Dovranno ripartire di lì a poco. In orario per <q type="citazione" corresp="#BTT">«battere il tempo»</q> a cui l'invita il rap italiano del gruppo di <orgName type="gruppo-musicale" ref="#ORP">«Onda rossa»</orgName>. La piazza abbagliata dal sole ritrova le sue energie. L'ultimo ruggito della <rs type="simbolo" ref="#PAN">pantera</rs> prima di salutare la capitale.</p>
 
-        <p>E poi un dolce, ma intenso crepuscolo. <seg type="performance" ana="#performance #bersaglio">Otto ragazzi dell'<orgName ref="#orientale">Istituto orientale di <placeName ref="#napoli">Napoli</placeName></orgName> leggono, in una piazza quasi deserta, ad uno ad uno, tutti gli articoli del <rs type="opera" ref="#ddl_ruberti">disegno di legge <persName ref="#ruberti">Ruberti</persName></rs>. E poi ne ingoiano i fogli, uccisi da un <soCalled>«progetto velenoso»</soCalled>. Due studenti si rialzano lentamente, prendono il testo contestato e lo bruciano. Ma i corpi degli altri restano immobili, senz'anima. Un triste monologo saluta la fine delle intelligenze, sopraffatte da una cultura ceduta ai privati, espropriata agli studenti.</seg> Uno spettacolo metafora per esorcizzare un futuro prossimo temuto.</p>
+        <p>E poi un dolce, ma intenso crepuscolo. Otto ragazzi dell'<orgName type="ateneo" ref="#UNIOR">Istituto orientale di Napoli</orgName> leggono, in una piazza quasi deserta, ad uno ad uno, tutti gli articoli del <rs type="progetto-di-legge" ref="#DDL">disegno di legge <persName ref="#AR">Ruberti</persName></rs>. E poi ne ingoiano i fogli, uccisi da un «progetto velenoso». Due studenti si rialzano lentamente, prendono il testo contestato e lo bruciano. Ma i corpi degli altri restano immobili, senz'anima. Un triste monologo saluta la fine delle intelligenze, sopraffatte da una cultura ceduta ai privati, espropriata agli studenti. Uno spettacolo metafora per esorcizzare un futuro prossimo temuto.</p>
 
-        <p>Ma le tracce della <rs type="simbolo" ana="#animale">pantera</rs> restano. I <q type="citazione">«sogni nudi»</q> di <num type="cardinal" value="100000">centomila</num> studenti si stagliano sui muri di una piazza ormai vuota. Sul <placeName ref="#pincio">Pincio</placeName> resta il <rs type="oggetto" ana="#graffito">graffito su tela</rs> del <soCalled>«movimento»</soCalled>.</p>
+        <p>Ma le tracce della <rs type="movimento" ref="#PAN">pantera</rs> restano. I «sogni nudi» di centomila studenti si stagliano sui muri di una piazza ormai vuota. Sul <placeName ref="#PIN">Pincio</placeName> resta il graffito su tela del <rs type="movimento" ref="#PAN">«movimento»</rs>.</p>
       </div>
     </body>
   </text>
 
   <standOff>
-    
-    <listPerson>
-      <person xml:id="luppino">
-        <persName><forename>Fabio</forename> <surname>Luppino</surname></persName>
-        <occupation>giornalista de «l'Unità»</occupation>
-        <note>Nessun record di autorità (Wikidata, VIAF, SBN) individuato.</note>
-      </person>
-      <person xml:id="ruberti">
-        <persName><forename>Antonio</forename> <surname>Ruberti</surname></persName>
-        <idno type="wikidata">http://www.wikidata.org/entity/Q604765</idno>
-        <occupation>ministro dell'Università e della Ricerca scientifica e tecnologica (in carica nel 1990)</occupation>
-      </person>
-      <person xml:id="andreotti">
-        <persName><forename>Giulio</forename> <surname>Andreotti</surname></persName>
-        <idno type="wikidata">http://www.wikidata.org/entity/Q50005</idno>
-        <occupation>presidente del Consiglio dei ministri (in carica nel 1990)</occupation>
-      </person>
-      <person xml:id="mattarella">
-        <persName><forename>Sergio</forename> <surname>Mattarella</surname></persName>
-        <idno type="wikidata">http://www.wikidata.org/entity/Q3956186</idno>
-        <occupation>ministro della Pubblica istruzione (in carica nel 1990)</occupation>
-      </person>
-      <person xml:id="ferrara">
-        <persName><forename>Giuliano</forename> <surname>Ferrara</surname></persName>
-        <idno type="wikidata">http://www.wikidata.org/entity/Q597551</idno>
-        <occupation>giornalista</occupation>
-      </person>
-      <person xml:id="pifano">
-        <persName><forename>Daniele</forename> <surname>Pifano</surname></persName>
-        <occupation>militante dell'Autonomia romana</occupation>
-        <note>Nessun record di autorità (Wikidata) individuato.</note>
-      </person>
-      <person xml:id="baudelaire">
-        <persName><forename>Charles</forename> <surname>Baudelaire</surname></persName>
-        <idno type="wikidata">http://www.wikidata.org/entity/Q501</idno>
-        <occupation>poeta</occupation>
-      </person>
-      <person xml:id="warhol">
-        <persName><forename>Andy</forename> <surname>Warhol</surname></persName>
-        <idno type="wikidata">http://www.wikidata.org/entity/Q5603</idno>
-        <occupation>artista</occupation>
-      </person>
-    </listPerson>
-    
-
-    <listOrg>
-      <org xml:id="pantera" type="movimento">
-        <orgName>Pantera (movimento studentesco)</orgName>
-        <orgName type="variante">movimento del '90</orgName>
-        <idno type="wikidata">http://www.wikidata.org/entity/Q3893439</idno>
-        <desc>Movimento degli studenti universitari e medi nato a Palermo nel dicembre 1989 contro il progetto di riforma Ruberti sull'autonomia universitaria.</desc>
-      </org>
-      <org xml:id="sapienza" type="università">
-        <orgName>Sapienza Università di Roma</orgName>
-        <idno type="wikidata">http://www.wikidata.org/entity/Q209344</idno>
-      </org>
-      <org xml:id="lettere_sapienza" type="facoltà">
-        <orgName>Facoltà di Lettere e Filosofia, Sapienza Università di Roma</orgName>
-        <idno type="wikidata">http://www.wikidata.org/entity/Q60619713</idno>
-      </org>
-      <org xml:id="unipa" type="università">
-        <orgName>Università degli Studi di Palermo</orgName>
-        <idno type="wikidata">http://www.wikidata.org/entity/Q1641504</idno>
-      </org>
-      <org xml:id="arch_palermo" type="facoltà">
-        <orgName>Facoltà di Architettura, Università degli Studi di Palermo</orgName>
-      </org>
-      <org xml:id="iuav" type="università">
-        <orgName>Istituto Universitario di Architettura di Venezia (IUAV)</orgName>
-        <idno type="wikidata">http://www.wikidata.org/entity/Q727492</idno>
-      </org>
-      <org xml:id="unipi" type="università">
-        <orgName>Università di Pisa</orgName>
-        <idno type="wikidata">http://www.wikidata.org/entity/Q645663</idno>
-      </org>
-      <org xml:id="filosofia_pisa" type="dipartimento">
-        <orgName>Dipartimento di Filosofia, Università di Pisa</orgName>
-      </org>
-      <org xml:id="unifi" type="università">
-        <orgName>Università degli Studi di Firenze</orgName>
-        <idno type="wikidata">http://www.wikidata.org/entity/Q820887</idno>
-      </org>
-      <org xml:id="agraria_firenze" type="facoltà">
-        <orgName>Facoltà di Agraria, Università degli Studi di Firenze</orgName>
-      </org>
-      <org xml:id="orientale" type="università">
-        <orgName>Istituto Universitario Orientale di Napoli (oggi Università di Napoli «L'Orientale»)</orgName>
-        <idno type="wikidata">http://www.wikidata.org/entity/Q1632525</idno>
-      </org>
-      <org xml:id="geoccupata" type="collettivo">
-        <orgName>Geoccupata di Napoli</orgName>
-        <desc>Gruppo di studenti in occupazione, probabilmente di Geologia; ateneo non indicato nel testo.</desc>
-      </org>
-      <org xml:id="uomini_casalinghi" type="gruppo">
-        <orgName>Movimento di uomini casalinghi</orgName>
-        <desc>Gruppo annunciato da un volantino distribuito nel corteo.</desc>
-      </org>
-      <org xml:id="onda_rossa_posse" type="gruppo-musicale">
-        <orgName>Onda Rossa Posse</orgName>
-        <desc>Gruppo rap romano nato intorno a Radio Onda Rossa (via dei Volsci); dal suo scioglimento nel 1990-1991 nascono gli Assalti Frontali.</desc>
-        <ptr type="fonte" target="https://www.rollingstone.it/musica/storia-delle-posse-quando-lhip-hop-era-militanza-politica/508083/"/>
-      </org>
-      <org xml:id="assalti_frontali" type="gruppo-musicale">
-        <orgName>Assalti Frontali</orgName>
-        <idno type="wikidata">http://www.wikidata.org/entity/Q3625365</idno>
-      </org>
-      <org xml:id="autonomia" type="movimento">
-        <orgName>Autonomia Operaia</orgName>
-        <idno type="wikidata">http://www.wikidata.org/entity/Q6439582</idno>
-      </org>
-      <org xml:id="unita" type="testata">
-        <orgName>l'Unità</orgName>
-        <desc>Quotidiano, nel 1990 organo del Partito comunista italiano.</desc>
-        <ptr type="archivio" target="https://archivio.unita.news/"/>
-      </org>
-    </listOrg>
-
-    
-    <listPlace>
-      <place xml:id="roma" type="città">
-        <placeName>Roma</placeName>
-        <location><geo>41.89 12.48</geo></location>
-        <idno type="wikidata">http://www.wikidata.org/entity/Q220</idno>
-        <place xml:id="piazza_repubblica" type="piazza">
-          <placeName type="ufficiale">Piazza della Repubblica</placeName>
-          <placeName type="popolare">Piazza Esedra</placeName>
-          <location><geo>41.9027 12.4963</geo></location>
-          <note>Luogo di concentramento del corteo.</note>
-        </place>
-        <place xml:id="piazza_popolo" type="piazza">
-          <placeName>Piazza del Popolo</placeName>
-          <location><geo>41.9107 12.4764</geo></location>
-          <idno type="wikidata" cert="low">http://www.wikidata.org/entity/Q824997</idno>
-          <note>Punto d'arrivo del corteo, comizi e concerto.</note>
-        </place>
-        <place xml:id="pincio" type="altura">
-          <placeName>Pincio</placeName>
-          <location><geo>41.9113 12.4794</geo></location>
-          <idno type="wikidata">http://www.wikidata.org/entity/Q550215</idno>
-        </place>
-        <place xml:id="valle_giulia" type="zona">
-          <placeName>Valle Giulia</placeName>
-          <location><geo cert="medium">41.917 12.482</geo></location>
-          <note>Sede della facoltà di Architettura della Sapienza.</note>
-        </place>
-      </place>
-      <place xml:id="napoli" type="città">
-        <placeName>Napoli</placeName>
-        <location><geo>40.85 14.27</geo></location>
-        <idno type="wikidata">http://www.wikidata.org/entity/Q2634</idno>
-      </place>
-      <place xml:id="palermo" type="città">
-        <placeName>Palermo</placeName>
-        <location><geo>38.12 13.36</geo></location>
-        <idno type="wikidata">http://www.wikidata.org/entity/Q2656</idno>
-      </place>
-      <place xml:id="venezia" type="città">
-        <placeName>Venezia</placeName>
-        <location><geo>45.44 12.32</geo></location>
-        <idno type="wikidata">http://www.wikidata.org/entity/Q641</idno>
-      </place>
-      <place xml:id="milano" type="città">
-        <placeName>Milano</placeName>
-        <location><geo>45.46 9.19</geo></location>
-        <idno type="wikidata">http://www.wikidata.org/entity/Q490</idno>
-      </place>
-      <place xml:id="firenze" type="città">
-        <placeName>Firenze</placeName>
-        <location><geo>43.77 11.25</geo></location>
-        <idno type="wikidata">http://www.wikidata.org/entity/Q2044</idno>
-      </place>
-      <place xml:id="pisa" type="città">
-        <placeName>Pisa</placeName>
-        <location><geo>43.72 10.40</geo></location>
-        <idno type="wikidata">http://www.wikidata.org/entity/Q13375</idno>
-      </place>
-      <place xml:id="catania" type="città">
-        <placeName>Catania</placeName>
-        <location><geo>37.50 15.09</geo></location>
-        <idno type="wikidata">http://www.wikidata.org/entity/Q1903</idno>
-      </place>
-      <place xml:id="agrigento" type="città">
-        <placeName>Agrigento</placeName>
-        <location><geo>37.31 13.58</geo></location>
-        <idno type="wikidata">http://www.wikidata.org/entity/Q13678</idno>
-      </place>
-      <place xml:id="caltanissetta" type="città">
-        <placeName>Caltanissetta</placeName>
-        <location><geo>37.49 14.06</geo></location>
-        <idno type="wikidata">http://www.wikidata.org/entity/Q13680</idno>
-      </place>
-      <place xml:id="bari" type="città">
-        <placeName>Bari</placeName>
-        <location><geo>41.12 16.87</geo></location>
-        <idno type="wikidata">http://www.wikidata.org/entity/Q3519</idno>
-      </place>
-      <place xml:id="ascoli_piceno" type="città">
-        <placeName>Ascoli Piceno</placeName>
-        <location><geo>42.85 13.58</geo></location>
-        <idno type="wikidata">http://www.wikidata.org/entity/Q6624</idno>
-      </place>
-    </listPlace>
-
-    
-    <listEvent>
-      <event xml:id="corteo_1990" type="manifestazione" when="1990-02-03">
-        <p>Manifestazione nazionale degli studenti medi e universitari a <placeName ref="#roma">Roma</placeName> contro il progetto di riforma Ruberti: concentramento in <placeName ref="#piazza_repubblica">piazza della Repubblica</placeName>, corteo di circa sette chilometri nel centro storico, comizi e concerto in <placeName ref="#piazza_popolo">piazza del Popolo</placeName>. L'articolo parla di oltre centomila partecipanti.</p>
-      </event>
-      <event xml:id="valle_giulia_1968" type="scontro" when="1968-03-01">
-        <idno type="wikidata">http://www.wikidata.org/entity/Q3388248</idno>
-        <p>Scontri tra studenti e polizia davanti alla facoltà di Architettura di <placeName ref="#valle_giulia">Valle Giulia</placeName>, a Roma.</p>
-      </event>
-    </listEvent>
-
-  
-    <listBibl>
-      <bibl xml:id="batti_tempo" type="brano-musicale">
-        <title>Batti il tuo tempo</title>
-        <author><orgName ref="#onda_rossa_posse">Onda Rossa Posse</orgName></author>
-        <date when="1990">1990</date>
-        <note>Uscito su disco nel giugno 1990, considerato il primo disco rap in italiano.</note>
-        <ptr type="fonte" target="https://www.rockol.it/artista/assalti-frontali/biografia"/>
-      </bibl>
-      <bibl xml:id="ddl_ruberti" type="progetto-di-legge">
-        <title type="attribuito">[Progetto di riforma Ruberti sull'autonomia delle università]</title>
-        <author><persName ref="#ruberti">Antonio Ruberti</persName></author>
-        <note>Estremi del disegno di legge da completare.</note>
-      </bibl>
-    </listBibl>
-
-   
-    <listRelation>
-      <relation name="isPartOf" ref="http://purl.org/dc/terms/isPartOf" active="#lettere_sapienza" passive="#sapienza"/>
-      <relation name="isPartOf" ref="http://purl.org/dc/terms/isPartOf" active="#arch_palermo" passive="#unipa"/>
-      <relation name="isPartOf" ref="http://purl.org/dc/terms/isPartOf" active="#filosofia_pisa" passive="#unipi"/>
-      <relation name="isPartOf" ref="http://purl.org/dc/terms/isPartOf" active="#agraria_firenze" passive="#unifi"/>
-      <relation name="isReplacedBy" ref="http://purl.org/dc/terms/isReplacedBy" active="#onda_rossa_posse" passive="#assalti_frontali"/>
-      <relation name="memberOf" ref="https://schema.org/memberOf" active="#pifano" passive="#autonomia"/>
-      <relation name="creator" ref="http://purl.org/dc/terms/creator" active="#ruberti" passive="#ddl_ruberti"/>
-      <relation name="organizer" ref="https://schema.org/organizer" active="#pantera" passive="#corteo_1990"/>
+    <listRelation type="relazioni-dal-testo">
+      <relation name="worksFor" ref="https://schema.org/worksFor" active="#FL" passive="#UN"/>
+      <relation name="worksFor" ref="https://schema.org/worksFor" active="#AR" passive="#MURST"/>
+      <relation name="memberOf" ref="https://schema.org/memberOf" active="#DP" passive="#AUT"/>
+      <relation name="creator" ref="http://purl.org/dc/terms/creator" active="#DDL" passive="#AR"/>
+      <relation name="creator" ref="http://purl.org/dc/terms/creator" active="#BTT" passive="#ORP"/>
+      <relation name="contesta" active="#PAN" passive="#DDL"/>
     </listRelation>
   </standOff>
+
 </TEI>
